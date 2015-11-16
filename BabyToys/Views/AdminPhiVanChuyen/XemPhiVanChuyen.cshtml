@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Danh sách phí vận chuyển";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+
+@model IEnumerable<BabyToys.Models.TinhThanh>
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleDanhMuc", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleThuongHieu", "Home");}
+
+        <br />
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+    <div class="content-right">
+        <div class="list1"></div>
+        <h4>Danh sách phí vận chuyển theo tỉnh thành</h4>
+        <div class="endtitle"></div>
+        <table style="font-size:14px; color:#450851;margin-left:50px">
+                 <tr style="height:20px"></tr>
+            <tr style="color:#c471e5">
+                
+                <td> STT</td>
+                <td style="width:40px"></td>
+                <td>Tỉnh/ thành</td>
+                 <td style="width:20px"></td>
+                <td>Phí vận chuyển (VNĐ)</td>
+             
+            </tr>
+           
+             <tr  style="height:20px;"> </tr>
+
+            @foreach (var tinhthanh in @Model)
+            {<tr>
+                    <td>@tinhthanh.IdTinhThanh</td>
+                 <td style="width:40px;"></td>
+                    <td>@tinhthanh.TenTinh</td>
+                 <td style="width:40px;"></td>
+                    <td>@tinhthanh.PhiVanChuyen</td>
+               </tr>
+                <tr style="height:20px"></tr>
+            }
+        </table>
+        <div class="clear"></div>
+    </div>
+</div>

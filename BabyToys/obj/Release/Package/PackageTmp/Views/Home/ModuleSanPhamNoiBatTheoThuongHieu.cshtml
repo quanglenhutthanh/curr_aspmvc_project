@@ -1,0 +1,24 @@
+﻿@model IEnumerable<BabyToys.Models.SanPham>
+<div class="content-left-heading">Nổi bật</div>
+<div class="content-left-content">
+    <ul>
+        @foreach (var sanpham in @Model)
+        {
+            <li>
+                <table>
+                    <tr>
+                        <td>
+                            <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:60px;height:60px;"/>
+                        </td>
+                        <td>
+                            @{string title=BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+                            <span>@Html.ActionLink(sanpham.TenSP,"ChiTiet","SanPham",new{id=sanpham.IdSanPham,slug=title},null)</span>
+                            <br />
+                            <span class="price-new">@sanpham.GiaHienTai</span>
+                        </td>
+                    </tr>
+                </table>
+            </li>    
+        }
+    </ul>
+</div>

@@ -1,0 +1,47 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+
+    </div>
+    <div class="content-right">
+        <div class="list">
+            <h1>Đăng nhập tài khoản</h1>
+            <div class="endtitle"></div>
+
+            <div class="login-left">
+                <div style="border-bottom: 1px solid rgb(221, 221, 221);height:25px">
+                   <h4>Bạn chưa có tài khoản?</h4>
+                </div>
+            <div style="height:200px;">
+                
+							<p>
+                                Hãy tạo cho mình một tài khoản, bạn sẽ nhận được các ưu đãi bất ngờ mà chỉ thành viên mới có như:<br />
+                                    - Quy trình thanh toán nhanh và tiện lợi hơn.<br />
+                                    - Tích điểm thưởng khi mua hàng. <br />
+                                    - Comments đánh giá về sản phẩm <br />
+                                    - Được giảm giá chỉ dành riêng cho Khách hàng thân thiết.<br />
+                                    - Nhận quà từ BaByToys trong những dịp đặc biệt.<br />
+                            </p>
+            </div>
+                
+                 <div style="height:40px;margin: 0;
+                padding: 8px 13px;">
+                     <input type="submit" value="Đăng kí" class="large purple button dlLight" style="width:120px;"/>
+                 </div>
+            </div>
+            <div class="login-right">
+                @Html.Action("pDangNhap", "TaiKhoan", new { returnUrl="/TaiKhoan"})
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

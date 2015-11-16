@@ -1,0 +1,76 @@
+﻿@model BabyToys.Models.HoaDon
+@{
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+<div class="cart-info">
+    <p>Cảm ơn bạn quan tâm và mua hàng tại website của chúng tôi. Đơn bạn của bạn đã đặt thành công chúng tôi sẽ xác nhận và giao hàng trong
+        thời gian sớm nhất.
+    </p>
+    <br />
+    <p>
+        Chi tiết đơn hàng của bạn:
+    </p>
+    <br />
+    <table border="1" style="width: 100%; margin-bottom: 20px; border-collapse: collapse; border-top: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; border-right: 1px solid #DDDDDD;">
+        <thead>
+            <tr>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">Chi tiết đơn hàng</td>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">Thông tin giao hàng</td>
+            </tr>
+             <tr>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">
+                    <b>Mã đơn hàng:</b> @Model.IdHoaDon<br />
+                    <b>Ngày đặt: @{String.Format("{0:d/M/yyyy HH:mm:ss}", Model.NgayLapHD);}</b><br />
+                    <b>Phương thức thanh toán: </b>Thu tiền khi giao hàng
+                </td>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">
+                    <b>Địa chỉ: </b>@Model.DiaChiGiaoHang<br />
+                    <b>Email: </b>@Model.Email<br />
+                    <b>Số điện thoại: </b>@Model.SoDienThoai<br />
+                </td>
+            </tr>
+        </thead>
+    </table>
+    <table border="1" style="width: 100%; margin-bottom: 20px; border-collapse: collapse; border-top: 1px solid #DDDDDD; border-left: 1px solid #DDDDDD; border-right: 1px solid #DDDDDD;">
+        <thead>
+            <tr>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">Tên sản phẩm</td>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">Số lượng</td>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">Giá</td>
+                <td style="color: #b200ff; font-weight: bold; background-color: #F7F7F7; border-bottom: 1px solid #DDDDDD;">Tổng cộng</td>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var item in Model.ChiTietHoaDons)
+            {
+                            
+                <tr>
+                    <td class="name" style="vertical-align: top; border-bottom: 1px solid #DDDDDD;">
+                        <a href="#">@item.SanPham.TenSP</a></td>
+                    <td class="quantity" style="vertical-align: top; border-bottom: 1px solid #DDDDDD;">
+                        @item.SoLuong
+                    </td>
+                    <td class="price" style="vertical-align: top; border-bottom: 1px solid #DDDDDD;">@item.SanPham.GiaHienTai</td>
+                    <td class="total" style="vertical-align: top; border-bottom: 1px solid #DDDDDD;">@item.ThanhTien</td>
+                </tr>
+            }
+            <tr>
+                <td colspan="2" style="text-align:right;">Tiền hàng:</td>
+                <td colspan="2" style="text-align:right;">@Model.TienHang</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">Phí vận chuyển:</td>
+                <td colspan="2" style="text-align:right;">@Model.PhiVanChuyen</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">Khuyến mãi:</td>
+                <td colspan="2" style="text-align:right;">@Model.TienKhuyenMai</td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:right;">Tổng giá trị:</td>
+                <td colspan="2" style="text-align:right;">@Model.TongGiaTri</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

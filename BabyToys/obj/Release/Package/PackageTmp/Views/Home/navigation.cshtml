@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BabyToys.Models.Menu>
+<div class="navigation-left">
+    @*<div class="menu_ngang">*@
+    <div id="nav" >
+        <ul class="nav">
+            @foreach (var menu in @Model.Where(d => d.Id != 16 && d.ParentMenu.Id == 16).OrderBy(m => m.MenuOrder))
+            {
+                <li>
+                    <a href="@menu.link">@menu.TieuDe</a>
+                    @if(Model.Count(m=>m.ParentMenu == menu) > 0)
+                    {
+                        <ul>
+                            @RenderMenuItem(Model, menu)
+                        </ul>
+                    }
+                </li>
+            }
+        </ul>
+    </div>
+    @*</div>*@
+</div>
+@helper RenderMenuItem(IEnumerable<BabyToys.Models.Menu>
+    MenuList, BabyToys.Models.Menu menu)
+    {
+        foreach (var me in MenuList.Where(m => m.ParentMenu == menu).OrderBy(m => m.MenuOrder))
+        {
+            <li><a href="@me.link">@me.TieuDe</a>
+            @if(MenuList.Count(m => m.ParentMenu == me) > 0)
+            {
+                <ul>
+                    @RenderMenuItem(MenuList, me)
+                </ul>
+            }
+            </li>
+        }
+    }
+    <div class="navigation-right">
+       @* @using (Html.BeginForm("Index", "TimKiem"))
+        {
+            <input type="text" class="" style="width:100px;" name="searchString" placeholder=" tìm kiếm..." />
+            <input type="submit" class="search-button" />
+        }*@
+
+    </div>

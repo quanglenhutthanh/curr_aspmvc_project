@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.Title = "Đăng nhập";
+    Layout = "";
+}
+@model BabyToys.Models.LoginModel
+<script src="~/Scripts/jquery-2.0.3.min.js"></script>
+<script src="~/Scripts/jquery-1.4.1.min.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<style type="text/css">
+.uc_dangnhap
+        {
+            
+            width: 400px;
+            font-family: Tahoma;
+            font-size: 12px;
+        }
+        .uc_dangnhap_item
+        {
+            height: 40px;
+        }
+        .nhap
+        {
+            height: 24px;
+            border: 1px solid #ccc;
+            width: 240px;
+            text-align: center;
+            padding: 4px 4px 4px 20px;
+            background: url('../../Content/Images/khongxoa/user.gif');
+            background-repeat: no-repeat;
+            background-position: left;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2) inset;
+        }
+        .pass
+        {
+            height: 24px;
+            border: 1px solid #ccc;
+            width: 240px;
+            text-align: center;
+            padding: 4px 4px 4px 20px;
+            background: url('../../Content/Images/khongxoa/pass.gif');
+            background-repeat: no-repeat;
+            background-position: left;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2) inset;
+        }
+        .input
+        {
+            border: none;
+            height: 22px;
+            width: 220px;
+        }
+</style>
+@using (Html.BeginForm())
+{
+    Html.EnableClientValidation();
+    Html.EnableUnobtrusiveJavaScript();
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+<div style="padding-top:200px;">
+           
+        <div style="background:#fff;  box-shadow: 0px 0px 3px #ccc; -moz-box-shadow: 0px 0px 3px #ccc;
+                    -webkit-box-shadow: 0px 0px 3px #ccc; width:450px; height:150px; border:1px solid #ccc; padding:10px;margin:0 auto;">  <b>ĐĂNG NHẬP ĐỂ QUẢN TRỊ WEB</b><br />
+            <table class="uc_dangnhap">
+                <tr>
+                    <td class="uc_dangnhap_item">
+                        Tên đăng nhập:
+                    </td>
+                    <td class="uc_dangnhap_item">
+                        <div class="nhap">
+                            @Html.TextBoxFor(m => m.LoginName, new { @class = "input" })
+                            @Html.ValidationMessageFor(m => m.LoginName)
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="uc_dangnhap_item">
+                        Mật khẩu:
+                    </td>
+                    <td class="uc_dangnhap_item">
+                        <div class="pass">
+                             @Html.PasswordFor(m => m.PassWord, new { @class = "input" })
+                             @Html.ValidationMessageFor(m => m.PassWord) 
+                         </div>
+                    </td>
+                </tr>
+                
+                <tr>
+                    <td class="uc_dangnhap_item">
+                    </td>
+                    <td class="uc_dangnhap_item">
+                        <input type="submit" value="Đăng nhập" />
+                        
+                    </td>
+                </tr>
+            </table>
+            </div>
+        </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

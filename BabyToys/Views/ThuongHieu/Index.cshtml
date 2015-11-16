@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Thương hiệu";
+}
+@{
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@model BabyToys.Models.ThuongHieu
+<div class="content">
+    <div class="content-left">
+       @{Html.RenderAction("ModuleSanPhamNoiBatTheoThuongHieu", "Home", new { id=@Model.IdThuongHieu});}
+    <br />
+       @{Html.RenderAction("ModuleThuongHieu", "Home");} 
+    </div>
+    <div class="content-right">
+        <div class="list"></div>
+        <div style="height:40px;">
+            <div style="height:50px;">
+                 <img src="~/Content/Images/ThuongHieu/@Model.Logo" style="width:50px;height:50px;float:left"/>
+                <div style="float:left;width:50%;height:40px;"><h1>@Model.TenThuongHieu</h1></div> 
+            </div>
+            <div class="endtitle"></div>
+            
+                 @Html.Raw(Model.ThongTin)
+          
+            <div class="clear"></div>
+        </div>
+   </div>
+</div>
+
+

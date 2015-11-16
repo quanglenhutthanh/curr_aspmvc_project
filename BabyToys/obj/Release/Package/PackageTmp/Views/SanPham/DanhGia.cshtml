@@ -1,0 +1,50 @@
+﻿<link href="~/Content/rating/css/application.css" rel="stylesheet" />
+<script src="~/Content/rating/jquery.raty.min.js"></script>
+@model BabyToys.Models.DanhGia
+@using (Html.BeginForm())
+{
+    <label>Họ tên</label><br />
+    @Html.HiddenFor(model=>model.IdSanPham)
+    @Html.TextBoxFor(model=>model.HoTen)
+    <span class="error">@Html.ValidationMessageFor(model=>model.HoTen)</span>
+    <br />
+    <label>Email</label><br />
+    @Html.TextBoxFor(model=>model.Email)
+    <span class="error">@Html.ValidationMessageFor(model=>model.Email)</span>
+    <br />
+    <br />
+    <label>Đánh giá</label> 
+    <span id="star"></span>
+    @Html.ValidationMessageFor(model=>model.DiemDanhGia)
+    @Html.HiddenFor(model => model.DiemDanhGia, new { id="diem",value="3"})
+    <br />
+    <br />
+    <label>Bình luận</label>
+    @Html.TextAreaFor(model => model.BinhLuan, new { id="binhluan"})
+    <label>Mã xác nhận</label>    
+    <span>@CaptchaMvc.HtmlHelpers.CaptchaHelper.Captcha(Html, "", "Nhập mã xác nhận", 5)</span>
+    <span class="error">@ViewBag.CaptchaError</span>
+    <br />
+        <input type="submit" value="Gửi" class="large button input orange" />
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+<script type="text/javascript">
+    var ckeditor1 = CKEDITOR.replace("binhluan")
+    ckeditor1.config.toolbar = [
+                   ['Bold', 'Italic', 'Underline', 'StrikeThrough', '-', 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'Find', 'Replace', '-'],
+                   '/'
+    ];
+    ckeditor1.config.width = 500;
+    ckeditor1.config.height = 150;
+</script>
+<script>
+    $('#star').raty({
+        score: 3,
+        click: function (score, evt) {
+            //alert(score);
+            $("#diem").val(score);
+        }
+    });
+</script>

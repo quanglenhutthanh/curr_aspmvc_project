@@ -1,0 +1,64 @@
+﻿@model IEnumerable<BabyToys.Models.Mail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+<div id="content" class="span10">
+    <!-- content starts -->
+    <div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">Home</a> <span class="divider">/</span>
+            </li>
+            <li>
+                <a href="#">Danh sách nick yahoo hỗ trợ trực tuyến</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row-fluid sortable">
+        <div class="box span12">
+            <div class="box-content">
+                <div class="row-fluid">
+                    <div>
+                        <a href="~/adminmail/Create" class="btn btn-success">
+                            <i class="icon-plus icon-white"></i>
+                            Thêm mới
+                        </a>
+                    </div>
+                    <table class="table table-striped table-bordered bootstrap-datatable datatable">
+                        <tr>
+                            <th>
+                                Tên nick
+                            </th>
+                            <th></th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.MailName)
+                                </td>
+                                <td>
+                                    <a href="~/adminmail/Edit/@item.ID" class="btn btn-info">
+                                        <i class="icon-edit icon-white"></i>
+                                        Sửa
+                                    </a>
+                                    <a href="~/adminmail/Delete/@item.ID" class="btn btn-danger">
+                                        <i class="icon-edit icon-white"></i>
+                                        Xóa
+                                    </a>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+        

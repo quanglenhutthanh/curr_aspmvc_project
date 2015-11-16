@@ -1,0 +1,446 @@
+﻿\@{
+    ViewBag.Title = "Sửa sản phẩm " + @Model.TenSP;
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+} 
+<script src="~/ckeditor/ckeditor.js"></script>
+<script src="~/Content/CSS/admin/datetimepicker/jquery-1.9.1.js"></script>
+<link href="~/Content/CSS/admin/datetimepicker/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+<script src="~/Content/CSS/admin/datetimepicker/jquery-ui-1.10.3.custom.js"></script>
+
+<script>
+    $(function () {
+        $("#from").datepicker({
+            minDate: '@ViewBag.mindate',
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 1,
+            dateFormat: 'dd/mm/yy',
+            onClose: function (selectedDate) {
+                $("#to").datepicker("option", "minDate", selectedDate);
+            }
+        });
+        $("#to").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            dateFormat: 'dd/mm/yy',
+            numberOfMonths: 1,
+            onClose: function (selectedDate) {
+                $("#from").datepicker("option", "maxDate", selectedDate);
+            }
+        });
+    });
+</script>
+@model BabyToys.Models.SanPham
+  
+    <div id="content" class="span10">
+   @using (Html.BeginForm("Sua", "AdminSanPham", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{ 
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-content">
+                    <div>
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="#">Home</a> <span class="divider">/</span>
+                            </li>
+                            <li>
+                                <a href="#">Sửa sản phẩm @ViewBag.mindate</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="submit" name="sua" class="btn btn-primary" value="Lưu và đóng">
+                        <input type="submit" name="sua" class="btn btn-success" value="Lưu và tiếp tục">
+                        <a href="~/AdminSanPham" class="btn btn-inverse">Thoát</a>
+                    </div>
+                    <div>
+                        <div>
+                            <span class="error" style="color: red; font-size: 14px">
+                                @Html.ValidationMessageFor(model => model.MaSP)<br />
+                                @Html.ValidationMessageFor(model => model.TenSP)<br />
+                                @Html.ValidationMessageFor(model => model.Gia)<br />
+                                @Html.ValidationMessageFor(model => model.IdDanhMuc)<br />
+                                @Html.ValidationMessageFor(model => model.IdThuongHieu)<br />
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="row-fluid sortable">
+                        <div class="box span12" style="width: 975px;">
+                            <div style="padding-left: 20px; height: 22px;">
+                                <ul id="countrytabs" class="shadetabs">
+                                    <li><a rel="country1" class="selected">Thông tin sản phẩm</a></li>
+                                    <li><a rel="country2">Hình ảnh</a></li>
+                                    @*<li><a rel="country3">Thuộc tính</a></li>*@
+                                    <li><a rel="country4">Đánh giá</a></li>
+                                    <li><a rel="country5">Khuyến mãi</a></li>
+                                </ul>
+                            </div>
+                            <div id="myTabContent" class="tab-content" style="padding-top: 50px;">
+                                    
+                                <div id="country1" class="tabcontent form-horizontal tab-pane">
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Mã sản phẩm</label>
+                                        <div class="controls">
+                                            @Html.HiddenFor(model => model.IdSanPham)
+                                            @Html.TextBoxFor(model => model.MaSP, new { @class = "input_text", style = "width:300px" })
+                                            <span class="error">@Html.ValidationMessageFor(model => model.MaSP)</span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Tên sản phẩm</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.TenSP, new { @class = "input_text", style = "width:300px" })
+                                            <span class="error">@Html.ValidationMessageFor(model => model.TenSP)</span>
+                                        </div>
+                                    </div>
+                                     <div class="control-group">
+                                        <label class="control-label" for="typeahead">Giá bán</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.Gia, new { @class = "input_text", style = "width:300px" })
+                                            <span class="error">@Html.ValidationMessageFor(model => model.Gia)</span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Danh mục phẩm</label>
+                                        <div class="controls">
+                                            @Html.DropDownList("IdDanhMuc", "Chọn danh mục")
+                                            <span class="error">@Html.ValidationMessageFor(model => model.IdDanhMuc)</span>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Xuất xứ</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.ChatLieu, new { @class = "input_text", style = "width:300px" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Trạng thái</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.MauSac, new { @class = "input_text", style = "width:300px" })
+                                        </div>
+                                    </div>
+                                    @*<div class="control-group">
+                                        <label class="control-label" for="typeahead">Thương hiệu</label>
+                                        <div class="controls">
+                                            @Html.DropDownList("IdThuongHieu")
+                                            <span class="error">@Html.ValidationMessageFor(model => model.IdThuongHieu)</span>
+                                        </div>
+                                    </div>*@
+                                    @*<div class="control-group">
+                                        <label class="control-label" for="typeahead">Giá gốc</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.Giaban, new { @class = "input_text", style = "width:200px" }) VNÐ
+                                        <span class="error">@Html.ValidationMessageFor(model => model.Giaban)</span>
+                                        </div>
+                                    </div>*@
+                                    @*<div class="control-group">
+                                        <label class="control-label" for="typeahead">Giá khuyến mãi</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.GiaKM, new { @class = "input_text", style = "width:200px" }) VNÐ
+                                        <span class="error">@Html.ValidationMessageFor(model => model.GiaKM)</span>
+                                        </div>
+                                    </div>*@
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Hiển thị</label>
+                                        <div class="controls">
+                                            @Html.CheckBoxFor(model => model.HienThi) <small>Cho phép hiển thị sản phẩm này</small>
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Mô tả</label>
+                                        <div class="controls">
+                                            @Html.TextAreaFor(model => model.MoTaSP, new { rows = "5", cols = "10", id = "ckemota" })
+                                            <script type="text/javascript">
+                                                var ckeditor1 = CKEDITOR.replace("ckemota")
+                                                ckeditor1.config.width = 800;
+                                                ckeditor1.config.height = 200;
+                                            </script>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="country2" class="tabcontent form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Ảnh đại diện</label>
+                                        <div class="controls">
+                                            @Html.HiddenFor(model => model.HinhDaiDien)
+                                            @Html.HiddenFor(model => model.Thumbnail)
+                                            @{
+                                            
+                                            }
+                                            <img id="preview" src="~/Content/Images/SanPham/@Model.Hinh()" style="width:150px; height:200px" />
+                                            <input type="file" name="anhdaidien" id="anhdaidien" class="input-xxlarge">
+                                            <script>
+                                                function previewImg(input) {
+                                                    if (input.files && input.files[0]) {
+                                                        var reader = new FileReader();
+
+                                                        reader.onload = function (e) {
+                                                            $('#preview').attr('src', e.target.result);
+                                                        }
+
+                                                        reader.readAsDataURL(input.files[0]);
+                                                    }
+                                                }
+
+                                                $("#anhdaidien").change(function () {
+                                                    previewImg(this);
+                                                });
+                                            </script>
+                                        </div>
+                                    </div>
+                                    <div class="row-fluid">
+                                        <div class="page-header">
+                                            <h1><small>Hình ảnh chi tiết cho sản phẩm - <small>Upload tối đa 10 hình</small>
+                                            </small></h1>
+                                        </div>
+                                        <div style="float: left; padding-left: 30px; width: 50%;">
+                                            <button class="btn btn-small" type="submit" name="sua" value="Upload">
+                                                <i class="icon-upload"></i>Upload
+                                            </button>
+                                            <script>
+                                                function clearFileInputField(tagId, i) {
+                                                    document.getElementById(tagId).innerHTML = document.getElementById(tagId).innerHTML;
+                                                    $('#Preview' + i).attr('src', "/Content/Images/SanPham/noimageyet.jpg");
+                                                    document.getElementById("xoa" + i).style.visibility = "hidden";
+                                                }
+                                                function previewchitiet(input, i) {
+                                                    if (input.files && input.files[0]) {
+                                                        var reader = new FileReader();
+
+                                                        reader.onload = function (e) {
+                                                            $('#Preview' + i).attr('src', e.target.result);
+                                                        }
+
+                                                        reader.readAsDataURL(input.files[0]);
+                                                    }
+                                                    document.getElementById("xoa" + i).style.visibility = "visible";
+                                                }
+                                                function AddMoreImages() {
+                                                    if (!document.getElementById && !document.createElement)
+                                                        return false;
+                                                    var fileUploadarea = document.getElementById("up");
+                                                    if (!fileUploadarea)
+                                                        return false;
+                                                    var newLine = document.createElement("br");
+                                                    fileUploadarea.appendChild(newLine);
+
+
+
+                                                    var newFile = document.createElement("input");
+                                                    newFile.type = "file";
+                                                    newFile.setAttribute("class", "fileUpload");
+                                                    if (!AddMoreImages.lastAssignedId)
+                                                        AddMoreImages.lastAssignedId = 100;
+                                                    newFile.setAttribute("id", "FileUpload" + AddMoreImages.lastAssignedId);
+                                                    newFile.setAttribute("name", "FileUpload" + AddMoreImages.lastAssignedId);
+
+                                                    newFile.setAttribute("onchange", "previewchitiet(this," + AddMoreImages.lastAssignedId + ");");
+                                                    var oImg = document.createElement("img");
+                                                    oImg.setAttribute('src', '/Content/Images/SanPham/noimageyet.jpg');
+                                                    oImg.setAttribute('alt', 'na');
+                                                    oImg.setAttribute('height', '100px');
+                                                    oImg.setAttribute('width', '100px');
+                                                    oImg.setAttribute("id", "Preview" + AddMoreImages.lastAssignedId)
+                                                    //leUploadarea.appendChild(oImg);
+
+                                                    var alink = document.createElement("a");
+                                                    alink.setAttribute('id', "xoa" + AddMoreImages.lastAssignedId);
+                                                    alink.innerHTML = "xóa";
+                                                    alink.setAttribute('href', "#");
+                                                    alink.setAttribute('style', "visibility:hidden")
+                                                    alink.setAttribute('onclick', "clearFileInputField('div" + AddMoreImages.lastAssignedId + "'," + AddMoreImages.lastAssignedId + ")")
+                                                    //fileUploadarea.appendChild(alink);
+
+                                                    var div = document.createElement("div");
+                                                    div.appendChild(oImg);
+                                                    div.appendChild(alink);
+                                                    div.appendChild(newFile);
+
+                                                    div.setAttribute("id", "div" + AddMoreImages.lastAssignedId);
+                                                    fileUploadarea.appendChild(div);
+                                                    AddMoreImages.lastAssignedId++;
+                                                }
+                                            </script>
+                                            <div>
+                                                <input style="display: block;" id="btnAddMoreImages" type="button"
+                                                    value="Thêm ảnh" onclick="AddMoreImages();" />
+                                                <br />
+                                                <div id="up">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div style="float: right; padding: 10px; width: 44%;">
+                                            <table>
+                                                <tr class="item_title" style="color: White; background-color: #CCCCCC; font-family: Tahoma; font-size: 12px; font-weight: bold; height: 30px;">
+                                                    <th>Hình</th>
+                                                    <th>Tên</th>
+                                                    <th></th>
+                                                </tr>
+                                                @foreach (var hinh in ViewBag.HinhAnh)
+                                                {
+                                                    <tr>
+                                                        <td class="item_float" style="width:100px;">
+                                                            <img src="~/Content/Images/SanPham/@hinh.AnhGoc" width="100px" height="100px"/>
+                                                        </td>
+                                                        <td class="item_float">@hinh.AnhGoc</td>
+                                                        <td class="item_float"><a href="~/AdminSanPham/XoaAnh/?id=@hinh.ID&IdSanPham=@Model.IdSanPham">Xóa</a></td>
+                                                    </tr>
+                                                }
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div id="country3" class="tabcontent form-horizontal">
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Chất liệu</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.ChatLieu, new { @class = "input_text", style = "width:300px" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Màu sắc</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.MauSac, new { @class = "input_text", style = "width:300px" })
+                                        </div>
+                                    </div>
+                                    <div class="control-group">
+                                        <label class="control-label" for="typeahead">Kích thước</label>
+                                        <div class="controls">
+                                            @Html.TextBoxFor(model => model.KichThuoc, new { @class = "input_text", style = "width:300px" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="country4" class="tabcontent form-horizontal">
+                                    <table class="table">
+                                        <tr>
+                                            <td>Ngày</td>
+                                            <td>Tên</td>
+                                            <td>Email</td>
+                                            <td>Bình luận</td>
+                                            <td>Thao tác</td>
+                                        </tr>
+                                        @if (Model.ListDanhGia != null)
+                                        {
+                                            foreach (var danhgia in Model.ListDanhGia)
+                                            {
+                                            <tr>
+                                                <td>
+                                                    @{string Ngay = String.Format("{0:d/M/yyyy HH:mm:ss}", danhgia.ThoiGian);}
+                                                    @Ngay
+                                                </td>
+                                                <td>@danhgia.HoTen</td>
+                                                <td>@danhgia.Email</td>
+                                                <td>@Html.Raw(danhgia.BinhLuan)</td>
+                                                <td>
+                                                    <a href="~/adminsanpham/XoaDanhGia/@danhgia.Id" class="btn btn-inverse" onclick="return confirm('Bạn có chắc muốn xóa đánh giá này?');">
+                                                        <i class="icon-zoom-in icon-white"></i>
+                                                        Xóa                                           
+                                                    </a>
+
+                                                </td>
+                                            </tr>
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                               
+                                <div id="country5" class="tabcontent form-horizontal">
+                                    <div class="span10 form-inline">
+                                            <div class="control-group">
+                                                <label class="control-label" for="typeahead">Từ ngày</label>
+                                                <div class="controls">
+                                                    <input type="hidden" name="idsp" value="@Model.IdSanPham" />
+                                                    <input type="text" id="from" value="" name="from"/>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="typeahead">Đến ngày</label>
+                                                <div class="controls">
+                                                    <input type="text" id="to" value="" name="to"/>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="typeahead">Giảm giá (%)</label>
+                                                <div class="controls">
+                                                    <input type="text" id="gia" value="1" name="giamgia" onkeyup="this.value = minmax(this.value)"/>
+                                                </div>
+                                                <script type="text/javascript">
+                                                    function minmax(value) {
+                                                        if (parseInt(value) < 1 || isNaN(value))
+                                                            return 1;
+                                                        else if (parseInt(value) > 100)
+                                                            return 100;
+                                                        else return value;
+                                                    }
+                                            </script>
+                                            </div>
+                                            <div class="control-group">
+                                                <div class="controls">
+                                                    <input type="submit" name="sua" class="btn btn-success" value="Lưu">
+                                                </div>
+                                            </div>
+                                    </div>
+                                    <table class="table">
+                                        <tr>
+                                            <td>Từ Ngày</td>
+                                            <td>Đến ngày</td>
+                                            <td>Khuyến mãi (%)</td>
+                                            <td></td>
+                                        </tr>
+                                        @if (Model.ListKhuyenMai != null)
+                                        {
+                                            foreach (var khuyenmai in Model.ListKhuyenMai)
+                                            {
+                                            <tr>
+                                                <td>
+                                                    @{string TuNgay = String.Format("{0:d/M/yyyy}", khuyenmai.TuNgay);}
+                                                    @TuNgay
+                                                </td>
+                                                <td>
+                                                    @{string DenNgay = String.Format("{0:d/M/yyyy}", khuyenmai.DenNgay);}
+                                                    @DenNgay
+                                                </td>
+                                                <td>@khuyenmai.PhanTramGiam</td>
+                                                <td>
+                                                    <a href="/Adminsanpham/xoakhuyenmai/@khuyenmai.IdKhuyenMai" class="btn btn-danger" onclick="return confirm('Bạn có chắc muốn xóa đánh giá này?');">
+                                                        
+                                                        Xóa                                           
+                                                    </a>
+                                                     @*<a href="#" class="btn btn-info">
+                                                        <i class="icon-edit icon-white"></i>
+                                                        Sửa
+                                                    </a>*@
+                                                </td>
+                                            </tr>
+                                            }
+                                        }
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+   
+ 
+
+}
+
+<script type="text/javascript">
+
+    var countries = new ddtabcontent("countrytabs")
+    countries.setpersist(true)
+    countries.setselectedClassTarget("link") //"link" or "linkparent"
+    countries.init()
+</script>
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

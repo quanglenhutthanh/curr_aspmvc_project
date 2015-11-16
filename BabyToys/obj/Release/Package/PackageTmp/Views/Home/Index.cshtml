@@ -1,0 +1,89 @@
+﻿@{
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Trái cây Vita";
+
+}
+@model IEnumerable<BabyToys.Models.SanPham>
+<div class="content">
+    <div class="content-left">
+
+        @{Html.RenderAction("ModuleDanhMuc", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleThuongHieu", "Home");}
+
+        <br />
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+    <div class="content-right">
+        @RenderPage("~/Views/Shared/Home/_ModuleSlider.cshtml")
+        <div class="list1">
+
+        </div>
+       
+        @*<div style="margin-top:30px;text-align:center;">
+            <fieldset>
+                <legend>Tìm kiếm sản phẩm</legend>
+                @using (Html.BeginForm("Index", "TimKiem"))
+                {
+                    <input type="text" class="search-input" name="searchString" placeholder="Nhập tên sản phẩm" />
+                    <input type="submit" class="search-button" />
+                }
+                <a href="~/timkiem" style="font-size:xx-small;">Tìm nâng cao</a>
+            </fieldset>
+
+        </div>*@
+        <h1>Sản phẩm mới</h1>
+
+        <div class="endtitle"></div>
+        @foreach (var sanpham in @Model)
+        {
+            <div class="box-product">
+                @if (sanpham.GiaKhuyenMai() > 0)
+                {
+                    <div class="price-KM"><img src="~/Content/Images/KM.gif" /></div>
+                }
+                else
+                {
+                    <div class="price-KM"></div>
+                }
+                @{string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+                <div class="image-product">
+                    <a href="/san-pham/@sanpham.IdSanPham/@title">
+                        <img src="~/Content/Images/SanPham/@sanpham.Hinh()" style="width:160px;height:160px;" />
+                    </a>
+                </div>
+                <div class="name" style="font-size:19px;">
+                    
+                    @Html.ActionLink(sanpham.TenSP, "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, null)
+                </div>
+                <div class="price" style="font-size:14px;">
+                    @if (sanpham.GiaKhuyenMai() > 0)
+                    {
+                        <span class="price-old">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+                        <span class="price-new">@string.Format("{0:0,000}", @sanpham.GiaKhuyenMai()) VNĐ/Kg</span>
+                    }
+                    else
+                    {
+                        <span class="price-new">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+                    }
+                </div>
+                @*@if (@sanpham.SoLuong() != 0)
+                {
+                    @Html.ActionLink("Xem chi tiết", "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, new { @class = "orange button dlLight" })
+                }
+                else
+                {
+                    <div class="addcart" style="color:#ed339f; margin-bottom:30px; font-size:14px">
+                        Hết hàng
+                    </div>
+                }*@
+                <br />
+                @Html.ActionLink("Chi tiết", "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, new { @class = "green button dlLight", @style="width:100px;" })
+            </div>
+        }
+    </div>
+    <div class="clear"></div>
+</div>

@@ -1,0 +1,44 @@
+﻿@model IEnumerable<BabyToys.Models.Mail>
+<div class="content-left-heading">Hỗ trợ trực tuyến</div>
+<div class="content-left-content">
+    @*<ul>
+            @foreach (var thuonghieu in @Model)
+            {
+                <li>
+                    <img src="~/Content/Images/ThuongHieu/@thuonghieu.Logo" style="width:30px;height:30px;"/>@Html.ActionLink(thuonghieu.TenThuongHieu,"SanPhamTheoThuongHieu","SanPham",new{id=thuonghieu.IdThuongHieu},null)
+                </li>
+
+            }
+        </ul>*@
+    @foreach (var item in @Model)
+    {
+        <table style="width: 100%;font-size:13px;color:#5F1480" cellspacing="0" cellpadding="0" border="0">
+            <tbody>
+                <tr>
+                    <td align="left" valign="middle" style="width: 120px;">
+                        <b style="font-weight:600;font-size:15px;">@item.Name</b>
+                        <br>
+                        <img src="~/Content/Images/khongxoa/phone_icon.png" width="14" height="14" alt="img"> @item.PhoneNumber
+                    </td>
+                    <td align="center" valign="middle">
+                        <a href="ymsgr:sendim?@item.MailName">
+                            <img alt="yahoo" src="~/Content/Images/khongxoa/yahoo.png">
+                        </a>
+                    </td>
+                    <td align="center" valign="middle">
+                        <a href="skype:@item.Skype?chat">
+                            <img src="~/Content/Images/khongxoa/skype.png" width="36" height="36" alt="img">
+                        </a>
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        <hr />
+        @*<a href='ymsgr:sendim?@item.MailName'>
+            <img src="http://opi.yahoo.com/online?u=@item.MailName&m=g&t=2" alt="Liên hệ" border=0>
+        </a>*@
+    }
+
+
+</div>

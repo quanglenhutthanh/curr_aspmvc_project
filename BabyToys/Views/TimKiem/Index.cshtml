@@ -1,0 +1,190 @@
+﻿@{
+    ViewBag.Title = "Tìm kiếm";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@using PagedList
+@using PagedList.Mvc
+<style>
+   fieldset select
+    {
+       width:210px;
+        color:#330066;
+    }
+   
+</style>
+<link href="~/Content/rangeslider/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+<script src="~/Content/rangeslider/jquery-ui-1.10.3.custom.js"></script>
+@*<script>
+    $(document).ready(function () {
+        maximum = 10000000
+        minimum = 0
+        maxcurrent = 100000
+        mincurrent = 0
+        //alert(mincurrent);
+        $("#slider-range").slider({
+            range: true,
+            min: minimum,
+            max: maximum,
+            values: [mincurrent, maxcurrent],
+            slide: function (event, ui) {
+                $("#amount").val("$" + ui.values[0] + " - $" + ui.values[1]);
+                $("#GiaTu").val(ui.values[0]);
+                $("#Den").val(ui.values[1]);
+            }
+        });
+        $("#amount").val("$" + $("#slider-range").slider("values", 0) +
+          " - $" + $("#slider-range").slider("values", 1));
+    });
+  </script>*@
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleDanhMuc", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+    <div class="content-right">
+        @using (Html.BeginForm("Index", "TimKiem", FormMethod.Get))
+        {
+        <fieldset>
+            <legend>Tìm kiếm</legend>
+            <table>
+            
+                 <tr style="height:8px"></tr>
+                <tr>
+                    <td style="width: 230px;"><span>Tên sản phẩm</span></td>
+                    <td style="width: 400px">
+                        <input type="text" name="searchString" value="@ViewBag.CurrentFilter" style="width: 210px" />
+                    </td>
+                </tr>
+                <tr style="height:8px"></tr>
+            <tr>
+                <td style="width: 230px;"><span>Danh mục</span></td>
+                <td style="width: 400px">
+                    @Html.DropDownList("IdDanhMuc", "Tất cả")    
+                </td>
+            </tr>
+                @*<tr style="height:8px"></tr>*@
+            @*<tr>
+                <td style="width: 230px;"><span>Thương hiệu</span></td>
+                <td style="width: 400px">
+                    @Html.DropDownList("IdthuongHieu", "Tất cả")
+                </td>
+            </tr>*@
+                @*<tr style="height:8px"></tr>*@
+            @*<tr>
+                <td style="width: 230px;"><span>Giá</span></td>
+
+                <td style="width: 400px">
+                    
+                    <input type="hidden" id="max" value="@ViewBag.giamax"/>
+                    <input type="hidden" id="min" value="@ViewBag.giamin"/>
+                    <small>từ</small> 
+                    <input type="text" id="GiaTu" value="@ViewBag.gt" name="gt"  style="width:80px"/> 
+                    <small>đến</small> 
+                    <input type="text" id="Den" value="@ViewBag.gd" name="gd" style="width:80px"/>
+                </td>
+                
+            </tr>*@
+                 @*<tr style="height:8px"></tr>*@
+                <tr>
+                    <td></td>
+                    <td ><div style="width: 210px" id="slider-range"></div></td>
+                </tr>
+                   <tr style="height:18px"></tr>
+                <tr>
+                    <td colspan="5 ">  </td> <td><input type="submit" class="green button dlLight" value="Tìm kiếm" style="float:right" /></td>
+                </tr>
+        </table>
+      
+        </fieldset>
+        }
+        <div style="height:40px;"> 
+            <div style="float:left;width:50%;height:40px;"><h1>Kết quả tìm kiếm - @ViewBag.Count kết quả</h1></div>    
+            <div style="float:right;width:36%;height:30px;margin-top:15px;margin-right:0px;padding-right:0px;">
+                    <small style="font-size:12px;">Hiển thị</small> 
+                   <select id="HienThi" style="width:60px; height:20px">
+                       <option value="6" @if (ViewBag.HienThi == 6)
+                                         { @:selected="selected" 
+                           }>6</option>
+                       <option value="9" @if (ViewBag.HienThi == 9)
+                                          { @:selected="selected" 
+                           }>9</option>
+                       <option value="12" @if (ViewBag.HienThi == 12)
+                                          { @:selected="selected" 
+                           }>12</option>
+                       <option value="15" @if (ViewBag.HienThi == 15)
+                                          { @:selected="selected" 
+                           }>15</option>
+                       <option value="30" @if (ViewBag.HienThi == 30)
+                                          { @:selected="selected" 
+                           }>30</option>
+                   </select>
+                   <small style="font-size:12px;">Sắp xếp</small>
+                   <select id="SapXep" style="width:100px; height:20px">
+                       <option value="0" @if (ViewBag.SapXep == 0)
+                                         { @:selected="selected" 
+                           }>Mới nhất</option>
+                       <option value="1" @if (ViewBag.SapXep == 1)
+                                         { @:selected="selected" 
+                           }>Giá tăng dần</option>
+                       <option value="2" @if (ViewBag.SapXep == 2)
+                                         { @:selected="selected" 
+                           }>Giá giảm dần</option>
+                       <option value="3" @if (ViewBag.SapXep == 3)
+                                         { @:selected="selected" 
+                           }>Tên a đến z</option>
+                       <option value="4" @if (ViewBag.SapXep == 4)
+                                         { @:selected="selected" 
+                           }>Tên z về a</option>
+                   </select>
+                 <script>
+                     $("#HienThi").change(function () {
+                         var hienthi = $(this).val();
+                         window.location.href = 'http://' + window.location.host + '/TimKiem/?HienThi=' + hienthi + '&SapXep=@ViewBag.SapXep&currentFilter=@ViewBag.CurrentFilter&IdDanhMuc=@ViewBag.DanhMuc&IdThuongHieu=@ViewBag.ThuongHieu&gt=@ViewBag.gt&gd=@ViewBag.gd';
+
+                    });
+                    $("#SapXep").change(function () {
+                        var sapxep = $(this).val();
+                        window.location.href = 'http://' + window.location.host + '/TimKiem/?SapXep=' + sapxep + '&HienThi=@ViewBag.HienThi&currentFilter=@ViewBag.CurrentFilter&IdDanhMuc=@ViewBag.DanhMuc&IdThuongHieu=@ViewBag.ThuongHieu&gt=@ViewBag.gt&gd=@ViewBag.gd';
+
+                    });
+                </script>
+            </div>
+        </div>
+        
+        <div class="endtitle"></div>
+        @{PagedList<BabyToys.Models.SanPham> sanphams = ViewBag.onePageOfProduct;}
+        @foreach (var sanpham in sanphams)
+        {
+            <div class="box-product">
+                <div class="image-product">
+                    @{string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+                    <a href="/san-pham/@sanpham.IdSanPham/@title">
+                        <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:160px;height:160px;" />
+                    </a>
+                </div>
+                <div class="name">
+                    
+                    @Html.ActionLink(sanpham.TenSP,"ChiTiet","SanPham",new{id=sanpham.IdSanPham,slug=title},null)
+                </div>
+                <div class="price">
+                    @if (sanpham.GiaKhuyenMai() > 0)
+                    {
+                        <span class="price-old">@sanpham.Gia</span>
+                        <span class="price-new">@sanpham.GiaKhuyenMai()</span>
+                    }
+                    else
+                    {
+                        <span class="price-new">@sanpham.Gia</span>
+                    }
+                </div>
+                  @Html.ActionLink("Chi tiết", "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, new { @class = "green button dlLight", @style = "width:100px;" })
+            </div>
+        }
+        <div class="clear"></div>
+        <div style="margin-bottom:0px;">
+             @Html.PagedListPager((IPagedList)ViewBag.onePageOfProduct, page => Url.Action("Index", new { page, HienThi = @ViewBag.HienThi, SapXep = @ViewBag.SapXep, currentFilter = @ViewBag.CurrentFilter, IdDanhMuc = @ViewBag.DanhMuc, IdThuongHieu = @ViewBag.ThuongHieu,gt=ViewBag.gt,gd=ViewBag.gd }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,62 @@
+﻿ body
+        {
+            font-size: 12px;
+            font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            color: #696969;
+            background: #fbfbfb;
+        }
+        ._Admin_Main
+        {
+            width: 100%;
+        }
+        
+        .admin_head
+        {
+            width: 100%;
+            height: 80px;
+            background-color: black;
+        }
+        .head_item
+        {
+            color: #fff;
+            font-size: 30px;
+            padding: 10px;
+        }
+        .admin_conten
+        {
+            width: 100%;
+            margin:0 auto;
+        }
+        .admin_left
+        {
+            width: 17%;
+            float: left;
+        }
+        .admin_right
+        {
+            width: 80%;
+            float: right;
+            margin: 4px;
+            
+        }
+        
+        .admin_fooder
+        {
+            width: 100%;
+            height: 30px;
+            background: #ccc;
+            text-align: center;
+            padding: 20px;
+            color: #000;
+            border-top: 1px solid #000;
+        }
+        
+        .admin_menu
+        {
+            height: 36px;
+            background: #000;
+        }
+
+ 

@@ -1,0 +1,278 @@
+﻿ .Main_nhap
+    {
+        width: 100%;
+       height:auto;
+        background: #F0F0F0;
+        font-size: 12px;
+    }
+    .Main_nhap_left
+    {
+        width: 100%;
+        float: left;
+        font-size: 12px;
+    }
+
+    
+    .Conten_main_add
+    {
+        width: 100%;
+        height: 40px;
+        background: #fc0000;
+        font-size: 12px;
+    }
+    .Conten_main
+    {
+        width: 100%;
+        color: Gray;
+        font-size: 12px;
+    }
+    .row:hover
+    {
+        background: #e4e4e4;
+        border: 1px solid #fff;
+        font-size: 12px;
+    }
+    .Conten_main_sanpham
+    {
+        width: 100%;
+        background: #f2f2f2;
+        text-align: center;
+    }
+    .box_title
+    {
+      
+        padding-left: 10px;
+        width: 20%;
+        height: 35px;
+        color: #000;
+        font-size: 13px;
+        font-weight: bold;
+        padding-right: 10px;
+         text-align:right;
+    }
+    .box_object
+    {
+        font-size: 11px;
+        text-align: left;
+        width: 80%;
+        height: 35px;
+    }
+    
+    .box_object_conten
+    {
+        font-size: 12px text-align: center;
+       
+    }
+    
+    .input_text
+    {
+        font-size: 12px height: 20px;
+        border-radius: 1px;
+        -webkit-border-radius: 1px;
+        height: 20px;
+        -moz-border-radius: 1px;
+        border: 1px solid #ccc;
+      
+    }
+    .input_link
+    {
+        font-size: 12px height: 20px;
+        width: 400px;
+        border-radius: 1px;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border: 1px solid #ccc;
+    }
+    
+    .item_linkweb_id
+    {
+        font-size: 12px padding-top: 5px;
+        padding-left: 10px;
+    }
+    
+    .item_upload
+    {
+        font-size: 12px border-radius: 5px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border: 1px solid #ccc;
+        width: 50%;
+        float: left;
+        min-height: 200px;
+        background-color: #f1f1f1;
+    }
+    
+    .item_linkweb
+    {
+        font-size: 12px border-radius: 5px;
+       
+       
+        width: 47%;
+        float: right;
+        min-height: 200px;
+       
+        padding-top: 5px;
+        text-align:center;
+    }
+    .item_thongso_sp
+    {
+        font-size: 12px border-radius: 1px;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border: 1px solid #ccc;
+        height: 20px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.2) inset;
+    }
+    
+     .thongso_chung
+    {
+        font-weight: bold;
+        width: 150px;
+        text-align: left;
+        padding-left: 10px;
+        background-color: #f6f6f6;
+        border-top: 1px solid #e5e5e5;
+        border-right: 1px solid #e5e5e5;
+        color: #696969;
+        text-shadow: 0 1px 0 #fff;
+        font-size: 12px;
+    }
+    .thongso_item
+    {
+        background-color: #fcfcfc;
+        width: 200px;
+        text-align: left;
+        padding-left: 10px;
+        height: 20px;
+        border-top: 1px solid #e5e5e5;
+        border-right: 1px solid #e5e5e5;
+        color: #696969;
+        font-size: 12px;
+    }
+    .thongso_item1
+    {
+        background-color: #fcfcfc;
+        text-align: left;
+        padding-left: 10px;
+        height: 20px;
+        color: #696969;
+        font-size: 12px;
+    }
+     
+        .thuoctinh_sp
+                                        {
+                                            background: #f7f7f7;
+                                            border-bottom: 1px dotted #ccc;
+                                            min-height: 20px;
+                                            width: 590px;
+                                            padding-top: 5px;
+                                            border-top: 1px solid #fff;
+                                            text-shadow: #fff 0px 1px 0px;
+                                            color:#8b8b8b;
+                                        }
+                                        .item_thuoctinh_title
+                                        {
+                                            font-size: 12px;
+                                            font-weight: bold;
+                                            float: left;
+                                            padding-left: 10px;
+                                            width: 35%;
+                                            color: #5c5c5c;
+                                            min-height: 25px;
+                                           
+                                        }
+                                        .item_thuoctinh_sp
+                                        {
+                                            padding-left: 10px;
+                                            text-align: left;
+                                            float: left;
+                                            min-height: 25px;
+                                            
+                                        }
+                                        
+                                         .control
+  {
+    padding-right:15px;   
+   }
+   .btControl
+   {
+       text-decoration:none;
+       text-align:center;
+       font-size:11px;
+       color:#000;
+   }
+     .btControl:hover
+   {
+      
+       color:#f00;
+   }
+   .error
+   {
+     
+      text-align:center;
+      padding:10px;
+      color:#f00;
+      font-size:14px; 
+      font-weight:bold;
+    }
+    .thongbao
+    {
+      text-align:center;
+      padding:10px;
+      color:#042943;
+      font-size:14px; 
+      font-weight:bold;
+      border:1px solid #46a2e3;
+      background:#d5e8ff;
+        
+       }
+       
+       /*---Row
+---------------------------------------------------*/
+ .item_float
+                    {
+                        text-align: center;
+                        font-size: 12px;
+                    }
+                    .item_float img
+                    {
+                        height: 30px;
+                        padding: 5px;
+                    }
+                    .item_row
+                    {
+                        border: 1px solid #ccc;
+                    }
+                    .item_row:hover
+                    {
+                        background: #f1f1f1;
+                    }
+                    .textalign
+                    {
+                        text-align: right;
+                        color: #636363;
+                        font-size: 12px;
+                        padding-right: 5px;
+                        border: none;
+                        font-weight: bold;
+                    }
+                    .textname
+                    {
+                        font-family: Tahoma;
+                        font-size: 12px;
+                        border: 1px solid #f0f0f0;
+                    }
+                    .item_click
+                    {
+                        width: 120px;
+                        text-align: center;
+                    }
+                    .item_title
+                    {
+                        color:black;
+                        text-shadow: #5c5c5c 0px 1px 1px;
+                    }
+                    
+                    .input
+                    {
+                    }

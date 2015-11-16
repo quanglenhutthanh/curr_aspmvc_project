@@ -1,0 +1,143 @@
+﻿@{
+    ViewBag.Title = "Đăng ký tài khoản";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@model BabyToys.Models.ViewModel.KhachHangViewModel
+<script src="~/Content/CSS/admin/datetimepicker/jquery-1.9.1.js"></script>
+<link href="~/Content/CSS/admin/datetimepicker/jquery-ui-1.10.3.custom.css" rel="stylesheet" />
+<script src="~/Content/CSS/admin/datetimepicker/jquery-ui-1.10.3.custom.js"></script>
+<script>
+    $(function () {
+        $("#ngaysinh").datepicker({
+            defaultDate: "+1w",
+            changeMonth: true,
+            numberOfMonths: 1,
+            dateFormat: 'dd/mm/yy',
+            onClose: function (selectedDate) {
+                $("#to").datepicker("option", "minDate", selectedDate);
+            }
+        });
+
+    });
+</script>
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+    </div>
+    <div class="content-right">
+        @using (Html.BeginForm())
+        {
+            <div class="list">
+                <h1>Đăng kí tài khoản</h1>
+                <div class="endtitle"></div>
+                <h3>Thông tin tài khoản</h3>
+                <div class="register">
+                    <span class="error" style="color:red;font-size:small;">@ViewBag.error</span><br />
+                    <table>
+                        <tr>
+                            <td style="width: 230px;"><span>Tên đăng nhập</span></td>
+                            <td>@Html.TextBoxFor(model => model.TenDangNhap, new { @class = "login-input", style = "width: 200px" })</td>
+                            <td class="error">
+
+                                @Html.ValidationMessageFor(model => model.TenDangNhap)
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span>Tên đầy đủ</span></td>
+                            <td>
+                                @Html.TextBoxFor(model => model.TenDayDu, new { @class = "login-input", style = "width: 200px" })
+
+                            </td>
+                            <td class="error">
+                                <span class="error" style="font-size: 14px">@Html.ValidationMessageFor(model => model.TenDayDu)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>Thông tin liên lạc</h3>
+                <div class="register">
+                    <table>
+                        <tr>
+                            <td style="width: 230px;"><span>Email</span></td>
+                            <td>
+                                @Html.TextBoxFor(model => model.Email, new { @class = "login-input", style = "width: 200px" })
+                            </td>
+                            <td class="error">
+                                <span class="error">@Html.ValidationMessageFor(model => model.Email)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span>Số điện thoại</span></td>
+                            <td>
+                                @Html.TextBoxFor(model => model.SoDienThoai, new { @class = "login-input", style = "width: 200px" })
+                            </td>
+                            <td class="error">
+                                <span class="error">@Html.ValidationMessageFor(model => model.SoDienThoai)</span>
+                            </td>
+                        </tr>
+                        <tr style="height: 8px"></tr>
+                        <tr>
+                            <td><span>Tỉnh\thành</span></td>
+                            <td>
+                            @Html.DropDownList("IdTinhThanh")
+                        </tr>
+                        <tr>
+                            <td><span>Địa chỉ</span></td>
+                            <td>
+                                @Html.TextBoxFor(model => model.DiaChi, new { @class = "login-input", style = "width: 200px" })
+                            </td>
+                            <td class="error">
+                                <span class="error">@Html.ValidationMessageFor(model => model.DiaChi)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <h3>Mật khẩu</h3>
+                <div class="register">
+                    <table>
+                        <tr>
+                            <td style="width: 230px;"><span>Mật khẩu</span></td>
+                            <td>
+                                @Html.PasswordFor(model => model.MatKhau, new { @class = "login-input", style = "width: 200px" })
+                            </td>
+                            <td class="error">
+                                <span class="error" style="font-size: 14px">@Html.ValidationMessageFor(model => model.MatKhau)</span>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><span>Nhập lại mật khẩu</span></td>
+                            <td>
+                                @Html.PasswordFor(model => model.XacNhanMatKhau, new { @class = "login-input", style = "width: 200px" })
+                            </td>
+                            <td class="error">
+                                <span class="error" style="font-size: 14px">@Html.ValidationMessageFor(model => model.XacNhanMatKhau)</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                <div class="register">
+                    <table>
+                        <tr>
+                            <td>
+                                <div style="margin-left: 230px"><span>@CaptchaMvc.HtmlHelpers.CaptchaHelper.Captcha(Html, "", "Nhập mã xác nhận", 5)</span></div>
+                            </td>
+                            <td class="error">
+                                <span class="error">@ViewBag.CaptchaError</span>
+                            </td>
+
+                        </tr>
+                    </table>
+                </div>
+                <div style="float: right; margin-top: 10px">
+                    <input type="submit" value="Đăng kí" class="large purple button dlLight" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        }
+    </div>
+
+</div>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

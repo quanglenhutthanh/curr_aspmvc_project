@@ -1,0 +1,42 @@
+﻿@{
+    string sliderImagesPath = Server.MapPath("~/Content/Images/slider");
+    DirectoryInfo di = new DirectoryInfo(sliderImagesPath);
+    FileInfo[] files = di.GetFiles();
+    
+    List<string> lstFile = new List<string>();
+    string line;
+    System.IO.StreamReader file = new System.IO.StreamReader(Server.MapPath("~/Content/File/slider.txt"));
+    while ((line = file.ReadLine()) != null)
+    {
+       // if(files.Any(x=>x.FullName.Contains(line)))
+       // {
+            lstFile.Add(line);
+       // }
+            
+    }
+    file.Close();
+
+}
+<div class="slider">
+    <script type="text/javascript">
+        $(document).ready(function () {
+            jQuery('.bxslider').bxSlider({
+                auto: true,
+                autoControls: false,
+                pager: false
+            });
+        });
+    </script>
+    <ul class="bxslider">
+        @foreach(string item in lstFile)
+        {
+            <li><img src="@item"  style="width:760px;height:300px"/></li>
+        }
+        @*<li><img src="~/Content/Images/slider/1.jpg"  style="width:760px;height:300px"/></li>
+        <li><img src="~/Content/Images/slider/2.jpg" style="width:760px;height:300px"/></li>
+        <li><img src="~/Content/Images/slider/3.jpg" style="width:760px;height:300px"/></li>
+        <li><img src="~/Content/Images/slider/4.jpg" style="width:760px;height:300px" /></li>
+        <li><img src="~/Content/Images/slider/5.jpg" style="width:760px;height:300px" /></li>*@
+        
+    </ul>
+</div>

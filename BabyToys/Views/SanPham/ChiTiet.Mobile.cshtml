@@ -1,0 +1,87 @@
+﻿@model BabyToys.Models.SanPham
+@{
+    ViewBag.Title = "ChiTiet.Mobile";
+    Layout = "~/Views/Shared/Mobile/_Layout.cshtml";
+}
+<link href="~/Content/jcarousel/jcarousel.connected-carousels.css" rel="stylesheet" />
+<script src="~/content/jcarousel/jquery.jcarousel.min.js"></script>
+<script src="~/Content/jcarousel/jcarousel.connected-carousels.js"></script>
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="back-links">
+                <p><a href="#">Trang chủ</a> &gt;&gt; <a href="#">@Model.DanhMuc.TenDanhMuc</a> &gt;&gt; <a href="#">@Model.TenSP</a></p>
+            </div>
+
+
+        </div>
+        <div class="section group">
+            <div class="heading" style="padding-top:10px;text-align:center;">
+                <h3>@Model.TenSP</h3>
+            </div>
+            <div class="connected-carousels">
+                <div class="stage">
+                    <div class="carousel carousel-stage">
+                        <ul>
+                            <li><img class="my-foto" src="/Content/Images/SanPham/@Model.Hinh()" data-large="/Content/Images/SanPham/@Model.Hinh()" width="260" height="250" alt="" data-imagezoom="true"></li>
+                            @if (ViewBag.ChiTietHinh != null)
+                            {
+                                foreach (var hinhanh in ViewBag.ChiTietHinh)
+                                {
+                                    <li><img class="my-foto" src="/Content/Images/SanPham/@hinhanh.AnhGoc" data-large="/Content/Images/SanPham/@hinhanh.AnhGoc" width="260" height="250" alt=""></li>
+                                }
+                            }
+                            
+                        </ul>
+                    </div>
+                    <p class="photo-credits">
+                        Photos by <a href="http://www.mw-fotografie.de">traicayvita.com</a>
+                    </p>
+                    
+                </div>
+
+                <div class="navigation">
+                    <a href="#" class="prev prev-navigation">&lsaquo;</a>
+                    <a href="#" class="next next-navigation">&rsaquo;</a>
+                    <div class="carousel carousel-navigation">
+                        <ul>
+                            <li>
+                                <img src="/Content/Images/SanPham/@Model.Hinh()" width="50" height="50" alt="">
+                            </li>
+                            @if (ViewBag.ChiTietHinh != null)
+                            {
+                                foreach (var hinhanh in ViewBag.ChiTietHinh)
+                                {
+                                    <li>
+                                        <img src="/Content/Images/SanPham/@hinhanh.Thumbnail" width="50" height="50" alt="">
+                                    </li>
+                                }
+                            }
+                            
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <ul style="list-style: none; line-height: 190%">
+                    <li><b style="color: #1A911A">Mã sản phẩm:</b> @Model.MaSP</li>
+                    <li><b style="color: #1A911A">Loại sản phẩm: </b> @Model.DanhMuc.TenDanhMuc</li>
+                    <li><b style="color: #1A911A">Xuất xứ: </b>@Model.ChatLieu</li>
+                    <li><b style="color: #1A911A">Trạng thái: </b>@Model.MauSac</li>
+                </ul>
+            </div>
+            <br />
+            <div class="price" style="font-size:18px;text-align:center">
+                <p>Giá: <span>90,000 VNĐ/Kg</span></p>
+                <a href="#" class="large orange button dlLight">Gọi đặt hàng</a>
+                
+            </div>
+            <br />
+            <div class="product-desc" style="text-align:left">
+                <h2>Mô tả chi tiết</h2>
+                <p>@Html.Raw(@Model.MoTaSP)</p>
+                
+            </div>
+        </div>
+    </div>
+</div>

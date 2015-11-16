@@ -1,0 +1,150 @@
+﻿@model BabyToys.Models.ThuongHieu
+@{
+    ViewBag.Title = @Model.TenThuongHieu.ToString();
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@using PagedList;
+@using PagedList.Mvc
+
+
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleThuongHieu", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+    <div class="content-right">
+        <div class="list"></div>
+            <h1>@Model.TenThuongHieu</h1>
+            <div class="endtitle"></div>
+            <div class="register">
+                <table>
+                    <tr>
+                        <td>
+                            <img src="~/Content/Images/ThuongHieu/@Model.Logo" style="width:50px;height:50px;"/>
+                        </td>
+                        <td>
+                            @{string thongtin = Html.Raw(Model.ThongTin).ToString();}
+                            @if(!string.IsNullOrEmpty(thongtin))
+                            {
+                                 if (thongtin.Length>=100)
+                                 {
+                                    <p>@Html.Raw(thongtin.Substring(0, 100))...<a href="~/thuonghieu/?id=@Model.IdThuongHieu" style="font-size: 13px; color:#e5b2e5 ">Xem thêm</a></p>
+                                 }
+                                 else
+                                 {
+                                     <p>@Html.Raw(thongtin)</p>
+                                }
+                            }
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            
+            
+        <div style="height:40px;">
+            <div style="float:left;width:50%;height:40px;"><h1>Sản phẩm mới</h1></div>    
+            <div style="float:right;width:36%;height:30px;margin-top:15px;margin-right:0px;padding-right:0px;">
+                    <small style="font-size:12px;">Hiển thị</small> 
+                   <select id="HienThi" style="width:60px; height:20px">
+                       <option value="6" @if (ViewBag.HienThi == 6)
+                                         { @:selected="selected" 
+                           }>6</option>
+                       <option value="9" @if (ViewBag.HienThi == 9)
+                                         { @:selected="selected" 
+                           }>9</option>
+                       <option value="15" @if (ViewBag.HienThi == 15)
+                                          { @:selected="selected" 
+                           }>15</option>
+                       <option value="30" @if (ViewBag.HienThi == 30)
+                                          { @:selected="selected" 
+                           }>30</option>
+                   </select>
+                 
+                   <small style="font-size:12px;">Sắp xếp</small>
+                   <select id="SapXep" style="width:100px; height:20px">
+                       <option value="0" @if (ViewBag.SapXep == 0)
+                                         { @:selected="selected" 
+                           }>Mới nhất</option>
+                       <option value="1" @if (ViewBag.SapXep == 1)
+                                         { @:selected="selected" 
+                           }>Giá tăng dần</option>
+                       <option value="2" @if (ViewBag.SapXep == 2)
+                                         { @:selected="selected" 
+                           }>Giá giảm dần</option>
+                       <option value="3" @if (ViewBag.SapXep == 3)
+                                         { @:selected="selected" 
+                           }>Tên a đến z</option>
+                       <option value="4" @if (ViewBag.SapXep == 4)
+                                         { @:selected="selected" 
+                           }>Tên z về a</option>
+                   </select>
+                
+                <script>
+                    $("#HienThi").change(function () {
+                        var hienthi = $(this).val();
+                        window.location.href = 'http://' + window.location.host + '/thuong-hieu/@ViewBag.id/?hienthi=' + hienthi+'&sapxep=@ViewBag.SapXep';
+                    });
+                    $("#SapXep").change(function () {
+                        var sapxep = $(this).val();
+                        window.location.href = 'http://' + window.location.host + '/thuong-hieu/@ViewBag.id/?hienthi=@ViewBag.HienThi&sapxep=' + sapxep;
+                    });
+                 </script>
+            </div>
+        </div>
+        
+        <div class="endtitle" style="margin:0px;padding:0px;"></div>
+        <div>
+@{PagedList<BabyToys.Models.SanPham> sanphams = ViewBag.onePageOfSanpham;}
+@foreach (var sanpham in sanphams)
+{
+    <div class="box-product">
+                 @if (sanpham.GiaKhuyenMai() > 0)
+                {
+                     <div  class="price-KM"><img src="~/Content/Images/KM.gif"/></div>
+                }   else
+                {
+                         <div  class="price-KM"></div>
+                }
+
+                <div class="image-product">
+                    <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:160px;height:160px;" />
+                </div>
+                <div class="name">
+                    @{string titlesanpham = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+                    @Html.ActionLink(sanpham.TenSP, "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = titlesanpham }, null)
+                </div>
+                 <div class="price">
+                    @if (sanpham.GiaKhuyenMai() > 0)
+                    {
+                        <span class="price-old">@sanpham.Gia đ</span>
+                        <span class="price-new">@sanpham.GiaKhuyenMai() đ</span>
+                    }
+                    else
+                    {
+                        <span class="price-new">@sanpham.Gia đ</span>
+                    }
+                         </div>
+               
+                    @if (@sanpham.SoLuong() != 0)
+                    {
+                   @Html.ActionLink("Thêm giỏ hàng", "ThemVaoGioHang", "GioHang", new { idsanpham = sanpham.IdSanPham, soluong = 1 }, new { @class = "purple button dlLight" })
+                    }
+                    else
+                    {
+                    <div class="addcart" style="color:#ed339f; margin-bottom:30px; font-size:14px">
+                     Hết hàng
+                 </div>
+                    }
+            </div>
+}
+            <div class="clear"></div>
+            </div>
+            <div style="margin-bottom:0px;">
+            @Html.PagedListPager((IPagedList)ViewBag.onePageOfSanPham, page => Url.Action("SanPhamTheoDanhMuc", new { page,hienthi=ViewBag.HienThi,sapxep=ViewBag.SapXep }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+            </div>     
+         </div>
+    <div class="clear"></div>
+    
+</div>

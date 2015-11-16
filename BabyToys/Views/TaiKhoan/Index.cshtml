@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Thông tin tài khoản";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+    </div>
+    <div class="content-right">
+        <div class="list">
+            <h1>Tài khoản của tôi</h1>
+            <div class="endtitle"></div>
+            <div class="register">
+                <a href="~/TaiKhoan/ThayDOiThongTinCaNhan">Thay đổi thông tin cá nhân</a><br />
+                <a href="~/TaiKhoan/DoiMatKhau">Thay đổi mật khẩu</a>
+            </div>
+            <h1>Lịch sử giao dịch</h1>
+            <div class="endtitle"></div>
+            <div class="register">
+                <a href="~/taikhoan/lichsudonhang">Lịch sử mua hàng</a><br />
+                <a href="~/TaiKhoan/XemDiemTichLuy">Điểm tích lũy</a>
+            </div>
+        </div>
+        @ViewBag.ten <br />
+        @ViewBag.loai
+    </div>
+</div>

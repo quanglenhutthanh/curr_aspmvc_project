@@ -1,0 +1,153 @@
+﻿@*@{
+    string textHeader = "";
+    string txtInHeaderFilePath = Server.MapPath("~/Content/File/header.txt");
+    if (System.IO.File.Exists(txtInHeaderFilePath))
+    {
+        textHeader = System.IO.File.ReadAllText(txtInHeaderFilePath);
+    }
+
+    string logo = "";
+    string logoPath = Server.MapPath("~/Content/File/logo.txt");
+    if (System.IO.File.Exists(logoPath))
+    {
+        logo = System.IO.File.ReadAllText(logoPath);
+    }
+}*@
+<div class="logo">
+    <div id="qd_logo_wrapper"
+         style="width: 400px; height: 321px; background-color: none; margin:0px;margin-left:50px; position: relative;padding:0px;">
+        <style>
+            #qd_logo_wrapper {
+                font-family: 'Arial', 'Helvetica', sans-serif;
+            }
+            /*Zoom and scale: QUANG TRONG*/
+            #qd_logo_wrapper {
+                zoom: 0.5;
+                -ms-zoom: 0.5;
+                -webkit-zoom: 0.5;
+                -moz-transform: scale(0.5, 0.5);
+                margin: 0 auto;
+                transform-origin: top left; /*transform-origin: top;*/
+            }
+
+            /*----------------------------------------------------*/
+            #qd_righttext {
+                font-size: 55px;
+                color: black;
+                position: absolute;
+                color: #00A859;
+                font-weight:bolder;
+            }
+
+            #qd_toptext, #qd_bottomtext {
+                color: white;
+                position: absolute;
+                font-size: 40px;
+                /*text stroke: Chrome, FF, IE*/
+                text-shadow: -2px -2px 0 #00A859, 2px -2px 0 #00A859, -2px 2px 0 #00A859, 2px 2px 0 #00A859;
+            }
+        </style>
+        @*<script type="text/javascript" src="js/jquery.min.js"></script>*@
+
+        <script src="~/Content/logo/jquery.arctext.js"></script>
+        <script src="~/Content/logo/typed.js"></script>
+        <script>
+            $(document).ready(function () {
+                //hien thi vien xanh
+                $("#qd_vienxanh").fadeIn({
+                    duration: 500, queue: false, complete: function () {
+                        //hien thi nen vang
+                        $("#qd_nenvang").fadeIn({
+                            duration: 2000, queue: false, complete: function () {
+                                $("#qd_righttext").typed({
+                                    strings: ["TRÁI CÂY VITA"],
+                                    typeSpeed: 100 //cang am cang nhanh
+                                });
+                            }
+                        });
+                    }
+                });
+
+                //top text
+                $("#qd_toptext").animate({ right: "+=300" }, {
+                    duration: 1500, queue: false, complete: function () {
+
+                    }
+                });
+                //bottom text
+                $("#qd_bottomtext").animate({
+                    left: "+=355"
+                }, {
+                    duration: 1500, queue: false, complete: function () {
+                        //reset to straight first
+                        $("#qd_toptext").arctext({ radius: -1 });
+                        $("#qd_bottomtext").arctext({ radius: -1 });
+                        //curve toptext
+                        $("#qd_toptext").arctext('set', {
+                            radius: 170,
+                            dir: 1,
+                            animation: {
+                                speed: 200,
+                                easing: 'ease-out'
+                            }
+                        });
+                        //curve bottomtext
+                        $("#qd_bottomtext").arctext('set', {
+                            radius: 177,
+                            dir: -1,
+                            animation: {
+                                speed: 200,
+                                easing: 'ease-out'
+                            }
+                        });
+                    }
+                });
+
+
+            });
+        </script>
+        <img id="qd_nenvang" src="~/Content/logo/img/vitar.png"
+             style="display: none; position: absolute; left: 71px; top: 58px; width: 260px;" />
+        <img id="qd_vienxanh" src="~/Content/logo/img/vien_xanh.png" style="display: none; position: absolute;" />
+
+
+        <div id="qd_toptext" style="right: -190px; top: 10px">TRÁI CÂY</div>
+        <div id="qd_bottomtext" style="bottom: 5px; left: -300px;">FRESH FRUITS</div>
+        <div id="qd_righttext" style="left: -20px; top: -85px; width: 700px"></div>
+    </div>
+    @*<img src="@logo" width="280" height="150" />*@
+    @*<object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
+            codebase="http://download.macromedia.com/pub/shockwave/
+    cabs/flash/swflash.cab#version=6,0,40,0"
+            width=100% height=100% id="intro">
+
+        <param name="movie" value="sample.swf" />
+
+        <param name="quality" value="high" />
+
+        <param name="bgcolor" value="#1C140D" />
+        
+        <embed src="@logo" quality="high" bgcolor="#1C140D"
+               width=100% height=100% name="intro" align=""
+               type="application/x-shockwave-flash"
+               pluginspage="http://www.macromedia.com/go/getflashplayer">
+        </embed>
+
+    </object>*@
+</div>
+
+<div class="search">
+        @*<div class="slogan">
+            <p>@Html.Raw(textHeader)</p>
+        </div>*@
+        @*<div class="search-box">
+            @using (Html.BeginForm("Index", "TimKiem"))
+            {
+                <input type="text" class="search-input" name="searchString" placeholder="Nhập tên sản phẩm" />
+                <input type="submit" class="search-button" />
+            }
+        </div>*@
+        <div class="cart-box">
+            
+        </div>
+    </div>

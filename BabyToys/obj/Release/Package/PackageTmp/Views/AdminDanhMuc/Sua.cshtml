@@ -1,0 +1,78 @@
+﻿@{
+    ViewBag.Title = "Sửa danh mục";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+@model BabyToys.Models.DanhMuc
+@using (Html.BeginForm())
+{
+    <div id="content" class="span10">
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-content">
+                    <div>
+                        <label>Sản phẩm >> Sửa danh mục sản phẩm</label>
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="submit" name="luu" class="btn btn-primary" value="Lưu và đóng">
+                        <a href="~/AdminDanhMuc" class="btn btn-inverse">Thoát</a>
+                    </div>
+                    <div class="row-fluid sortable">
+                        <div class="box span12 form-horizontal" style="padding-top: 50px;width:975px;">
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Tên danh mục</label>
+                                <div class="controls">
+                                    @Html.HiddenFor(model=>model.IdDanhMuc)
+                                    @Html.TextBoxFor(model => model.TenDanhMuc, new { @class = "input_text", style = "width: 300px" })
+                                    <span class="error">@Html.ValidationMessageFor(model => model.TenDanhMuc)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Danh mục cha</label>
+                                <div class="controls">
+                                    @Html.DropDownList("IdDanhMucCha")
+                                    <span class="error">@Html.ValidationMessageFor(model => model.DanhMucCha.IdDanhMuc)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Mô tả</label>
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.MoTa, new { rows = "5", cols = "10", id = "ckemota" })
+                                    <script type="text/javascript">
+                                        var ckeditor1 = CKEDITOR.replace("ckemota")
+                                        ckeditor1.config.toolbar = [
+                                                       ['Styles', 'Format', 'Font', 'FontSize'],
+                                                       '/',
+                                                       ['Bold', 'Italic', 'Underline', 'StrikeThrough', '-', 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'Find', 'Replace', '-', 'Outdent', 'Indent', '-', 'Print'],
+                                                       '/'
+                                        ];
+                                        ckeditor1.config.width = 500;
+                                        ckeditor1.config.height = 150;
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Ghi chú</label>
+                                <div class="controls">
+                                    @Html.TextAreaFor(model=>model.GhiChu,new {style="width: 300px",rows="4"})
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Hiển thị</label>
+                                <div class="controls">
+                                    @Html.CheckBoxFor(model=>model.IsActive)
+                                    Cho phép hiển thị danh mục này
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = ViewBag.TieuDe;
+    Layout = "~/Views/Shared/Mobile/_Layout.cshtml";
+}
+
+<div class="main">
+    <div class="content">
+        <div class="content_top">
+            <div class="back-links">
+                <p><a href="/Home">Trang chủ</a> &gt;&gt; <a href="#">@ViewBag.TieuDe</a></p>
+            </div>
+            
+            
+        </div>
+        <div class="clear"></div>
+        <br />
+        <div class="section group">
+            <p style="font-size:13px;">
+                @Html.Raw(ViewBag.NoiDung)
+            </p>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "ThemUser";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+@model BabyToys.Models.LoaiKhachHang
+@using (Html.BeginForm())
+{
+    <div id="content" class="span10">
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-content">
+                    <div>
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="#">Home</a> <span class="divider">/</span>
+                            </li>
+                            <li>
+                                <a href="#">Thêm loại khách hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="submit" name="luu" class="btn btn-primary" value="Lưu và đóng">
+                        <a href="~/AdminKhachHang/LoaiKhachHang" class="btn btn-inverse">Thoát</a>
+                    </div>
+                    <div class="row-fluid sortable">
+                        <div class="box span12 form-horizontal" style="padding-top: 50px;width:975px;">
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Tên</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.TenLoai,new {@class="input_text", style="width: 300px"})
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.TenLoai)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Điểm tích lũy cần</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.Diem,new {@class="input_text", style="width: 300px"})
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.Diem)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Giảm giá (%)</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.GiamGia,new {@class="input_text", style="width: 300px",onkeyup="this.value=minmax(this.value)"}) %
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.GiamGia)</span>
+                                    <script type="text/javascript">
+                                        function minmax(value) {
+                                            if (parseInt(value) < 1 || isNaN(value))
+                                                return 1;
+                                            else if (parseInt(value) > 100)
+                                                return 100;
+                                            else return value;
+                                        }
+                                            </script>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Ghi chú</label>
+                                <div class="controls">
+                                    @Html.TextAreaFor(model=>model.GhiChu,new {style="width: 300px",rows="4"})
+                                </div>
+                            </div>
+                            @*<div class="control-group">
+                                <label class="control-label" for="typeahead">Hiển thị</label>
+                                <div class="controls">
+                                    @Html.CheckBoxFor(model=>model.IsActive)
+                                    Cho phép hiển thị danh mục này
+                                </div>
+                            </div>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+

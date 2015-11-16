@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = ViewBag.TieuDe;
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@model BabyToys.Models.Menu
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleDanhMuc", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+    <div class="content-right">
+        @Html.Raw(ViewBag.NoiDung)
+    </div>
+</div>

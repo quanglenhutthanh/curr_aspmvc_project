@@ -1,0 +1,303 @@
+﻿@model BabyToys.Models.SanPham
+@{
+    ViewBag.Title = "Chi tiết " + @Model.TenSP;
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+
+<script src="/ckeditor/ckeditor.js"></script>
+<link href="/Content/CSS/multizoom.css" rel="stylesheet" />
+<link href="/Content/CSS/tabControl.css" rel="stylesheet" />
+<link href="/Content/CSS/button_styles.css" rel="stylesheet" />
+<link href="/Content/rating/css/application.css" rel="stylesheet" />
+<link href="/Content/accordion/jquery-ui-1.10.3.custom.min.css?version=2" rel="stylesheet" />
+<script src="/Content/accordion/jquery-ui-1.10.3.custom.min.js"></script>
+<script src="/Content/rating/jquery.raty.min.js"></script>
+<script src="/Scripts/tabControl.js"></script>
+@*<script src="/Scripts/jquery-2.0.3.min.js"></script>*@
+<script language="javascript" type="text/javascript" src="http://www.kleverfruits.com.vn/libraries/jquery/jquery-1.10.0.min.js"></script>
+<script src="/Scripts/multizoom.js"></script>
+
+<link href="~/Content/jcarousel/jcarousel.connected-carousels.css" rel="stylesheet" />
+<script src="~/content/jcarousel/jquery.jcarousel.min.js"></script>
+<script src="~/Content/jcarousel/jcarousel.connected-carousels.js"></script>
+
+<script src="~/Content/jcarousel/zoomsl-3.0.js"></script>
+<script type="text/javascript">
+    
+    jQuery(document).ready(function ($) {
+        $(".my-foto").imagezoomsl({
+            zoomrange: [3, 3],
+            magnifiersize: [400, 400]
+        });
+    
+    })
+</script>
+<style type="text/css">
+    #img_thum {
+        padding: 0px;
+        margin: 0px;
+    }
+
+        #img_thum li {
+            list-style: none;
+            padding: 3px 3px;
+            float: left;
+            border: 1px solid #ccc;
+            width: 50px;
+            height: 40px;
+            margin: 2px;
+        }
+
+            #img_thum li img {
+                width: 50px;
+                height: 40px;
+            }
+</style>
+
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleDanhMuc", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleThuongHieu", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+
+    <div class="content-right">
+        <div class="detail">
+            <div class="detail-image">
+                <div class="connected-carousels">
+                    <div class="stage">
+                        <div class="carousel carousel-stage">
+                            <ul>
+                                <li><img class="my-foto" src="/Content/Images/SanPham/@Model.Hinh()" data-large="/Content/Images/SanPham/@Model.Hinh()" width="260" height="250" alt="" data-imagezoom="true"></li>
+                                @if (ViewBag.ChiTietHinh != null)
+                                {
+                                    foreach (var hinhanh in ViewBag.ChiTietHinh)
+                                    {
+                                        <li><img class="my-foto" src="/Content/Images/SanPham/@hinhanh.AnhGoc" data-large="/Content/Images/SanPham/@hinhanh.AnhGoc" width="260" height="250" alt=""></li> 
+                                    }
+                                }
+                                @*<li><img class="my-foto" src="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" data-large="http://sorgalla.com/jcarousel/examples/_shared/img/img2.jpg" width="260" height="250" alt=""></li>
+                                <li><img class="my-foto" src="http://sorgalla.com/jcarousel/examples/_shared/img/img3.jpg" data-large="http://sorgalla.com/jcarousel/examples/_shared/img/img3.jpg" width="260" height="250" alt=""></li>
+                                <li><img class="my-foto" src="http://sorgalla.com/jcarousel/examples/_shared/img/img4.jpg" data-large="http://sorgalla.com/jcarousel/examples/_shared/img/img4.jpg" width="260" height="250" alt=""></li>
+                                <li><img class="my-foto" src="http://sorgalla.com/jcarousel/examples/_shared/img/img5.jpg" data-large="http://sorgalla.com/jcarousel/examples/_shared/img/img5.jpg" width="260 " height="250" alt=""></li>
+                                <li><img class="my-foto" src="http://sorgalla.com/jcarousel/examples/_shared/img/img6.jpg" data-large="http://sorgalla.com/jcarousel/examples/_shared/img/img6.jpg" width="260" height="250" alt=""></li>*@
+                            </ul>
+                        </div>
+                        <p class="photo-credits">
+                            Photos by <a href="http://www.mw-fotografie.de">traicayvita.com</a>
+                        </p>
+                        @*<a href="#" class="prev prev-stage"><span>&lsaquo;</span></a>
+                        <a href="#" class="next next-stage"><span>&rsaquo;</span></a>*@
+                    </div>
+
+                    <div class="navigation">
+                        <a href="#" class="prev prev-navigation">&lsaquo;</a>
+                        <a href="#" class="next next-navigation">&rsaquo;</a>
+                        <div class="carousel carousel-navigation">
+                            <ul>
+                                <li>
+                                    <img src="/Content/Images/SanPham/@Model.Hinh()" width="50" height="50" alt=""></li>
+                                    @if (ViewBag.ChiTietHinh != null)
+                                    {
+                                        foreach (var hinhanh in ViewBag.ChiTietHinh)
+                                        {
+                                        <li>
+                                            <img src="/Content/Images/SanPham/@hinhanh.Thumbnail" width="50" height="50" alt="">
+                                        </li>
+                                    }
+                                }
+                                @*<li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img1_thumb.jpg" width="50" height="50" alt=""></li>
+                                <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img2_thumb.jpg" width="50" height="50" alt=""></li>
+                                <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img3_thumb.jpg" width="50" height="50" alt=""></li>
+                                <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img4_thumb.jpg" width="50" height="50" alt=""></li>
+                                <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img5_thumb.jpg" width="50" height="50" alt=""></li>
+                                <li><img src="http://sorgalla.com/jcarousel/examples/_shared/img/img6_thumb.jpg" width="50" height="50" alt=""></li>*@
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                @*<div class="targetarea" style="">
+                        <img id="multizoom1" alt="zoomable" title="" src="/Content/Images/SanPham/@Model.Hinh()" style="width: 250px; height: 250px; visibility: visible; opacity: 0.1; top: 0px;" />
+                    </div>
+                    <div class="multizoom1 thumbs list-image">
+                        <ul id="img_thum">
+                            <li><a href="/Content/Images/SanPham/@Model.Thumbnail" data-large="/Content/Images/SanPham/@Model.Hinh()" data-title="Milla Jojovitch">
+                                <img src="/Content/Images/SanPham/@Model.Thumbnail" alt="Milla" title="" /></a></li>
+
+
+                            @if (ViewBag.ChiTietHinh != null)
+                            {
+                                foreach (var hinhanh in ViewBag.ChiTietHinh)
+                                {
+                                    <li><a href="/Content/Images/SanPham/@hinhanh.Thumbnail" data-large="/Content/Images/SanPham/@hinhanh.AnhGoc" data-title="Milla Jojovitch">
+                                    <img src="/Content/Images/SanPham/@hinhanh.Thumbnail" alt="Milla" title="" /></a></li>
+                                }
+                            }
+                        </ul>
+                    </div>*@
+            </div>
+            <div class="detail-content">
+                <div class="detail-content-title">
+                    <h4>@Model.TenSP</h4>
+                </div>
+                <div class="detail-content-social">
+                    @{string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(Model.TenSP);}
+                    <div class="fb-like" style="float:left;" data-href="http://traicayvita.com/san-pham/@Model.IdSanPham/@title" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+                    @*<div style="margin-left:35px;float:left;">
+                    <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script><g:plusone size="medium"></g:plusone></div>
+                    <div style="float:left;">
+                        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://traicayvita.com/san-pham/@Model.IdSanPham/@title">Tweet</a>
+                        <script>!function (d, s, id) { var js, fjs = d.getElementsByTagName(s)[0], p = /^http:/.test(d.location) ? 'http' : 'https'; if (!d.getElementById(id)) { js = d.createElement(s); js.id = id; js.src = p + '://platform.twitter.com/widgets.js'; fjs.parentNode.insertBefore(js, fjs); } }(document, 'script', 'twitter-wjs');</script>
+                    </div>*@
+                </div>
+                <div class="detail-content-detail">
+                    <ul style="line-height:190%">
+                        <li><b>Mã sản phẩm:</b> @Model.MaSP</li>
+                        <li><b>Loại sản phẩm: </b> @Model.DanhMuc.TenDanhMuc</li>
+                        <li><b>Xuất xứ: </b>@Model.ChatLieu</li>
+                        <li><b>Trạng thái: </b>@Model.MauSac</li>
+                        @*<li><b>Hãng sản xuất:</b> @Model.ThuongHieu.TenThuongHieu</li>*@
+                        @*<li><b>Xuất xứ:</b> @Model.ThuongHieu.QuocGia</li>*@
+
+                    </ul>
+                </div>
+                <div class="detail-content-price">
+                    @if (@Model.GiaKhuyenMai() > 0)
+                    {
+                        <div class="old-price">Giá cũ:  @string.Format("{0:0,000}", @Model.Gia) VNĐ/Kg</div>
+                        <div class="" style="color:red;font-size:20px;">  Nay chỉ còn @string.Format("{0:0,000}", @Model.GiaKhuyenMai()) VNĐ/Kg</div>
+                    }
+                    else
+                    {
+                        <div class="" style="color:red;font-size:28px;padding-left: 150px;float: initial;margin-top: 20px;font-weight: 700;">
+                            @string.Format("{0:0,000}", @Model.Gia) VNĐ/Kg
+                        </div>
+                    }
+
+                    <small></small>
+                </div>
+                @*@if (@Model.SoLuong() != 0)
+                      {
+                     <div class="detail-content-left">
+
+                         Số lượng <select id="soluong" style="width:70px;height:30px;">
+                             <option value="1">1</option>
+                             <option value="2">2</option>
+                             <option value="3">3</option>
+                                  </select>
+
+                     </div>
+                        <div class="detail-content-right">
+                         <a id="addcart" class="large purple button dlLight" href="#">
+                             <span>Thêm giỏ hàng</span>
+                         </a>
+                     </div>
+                      }
+                    else
+                    {
+                      <div style="width:435px; height:40px;  color:red; text-align:center; margin-top:30px; font-size:14px">
+                          Sản phẩm tạm thời hết hàng
+                      </div>
+                    }*@
+
+                <script>
+                    $("#addcart").click(function () {
+                        var soluong = $("#soluong").val();
+                        window.location.href = 'http://' + window.location.host + '/GioHang/ThemVaoGioHang?idsanpham=@Model.IdSanPham&soluong=' + soluong;
+                    });
+                </script>
+            </div>
+
+        </div>
+
+        <div class="tabchitiet" style="padding-left: 20px; width: 98%; height: 20px; padding-top: 20px; border-bottom: 1px solid #ccc;">
+            <ul id="countrytabs" class="shadetabs">
+                <li><a href="#" rel="country1" class="selected">Mô tả chi tiết</a> </li>
+                @*<li><a href="#" rel="country2">Thông số sản phẩm</a></li>*@
+                <li><a href="#" rel="country4">Đánh giá sản phẩm  (@Model.ListDanhGia.Count)</a></li>
+            </ul>
+        </div>
+        <div style="background: #fff; padding: 0px; min-height: 200px;">
+            <div id="country1" class="tabcontent">
+                <p>@Html.Raw(@Model.MoTaSP)</p>
+            </div>
+            <div id="country2" class="tabcontent">
+                <ul>
+                    <li><b>Chất liệu:</b>  @Model.ChatLieu</li>
+                    <li><b> Màu sắc:</b> @Model.MauSac</li>
+                    <li> <b>Kích thước:</b> @Model.KichThuoc</li>
+                    @*<li> <b>Thương hiệu:</b> @Model.ThuongHieu.TenThuongHieu</li>*@
+                    <li> <b>Loại sản phẩm:</b> @Model.DanhMuc.TenDanhMuc</li>
+
+                </ul>
+            </div>
+
+            <div id="country4" class="tabcontent">
+                <div id="accordion">
+                    <h3>Đánh giá sản phẩm</h3>
+                    <div>
+                        <div style="padding:30px;padding-top:10px;">
+                            @Html.Action("DanhGia", "SanPham", new { id = Model.IdSanPham })
+                        </div>
+                    </div>
+                    <h3>Đánh giá mới nhất</h3>
+                    <div>
+                        @if (Model.ListDanhGia.Count <= 0)
+                        {
+                            <span>Chưa có đánh giá cho sản phẩm này!</span>
+                        }
+                        else
+                        {
+                            <h4><b>Điểm đánh giá trung bình: </b><span id="danhgiatrungbinh"></span> (<small>@Model.DiemDanhGiaTrungBinh() </small>)<br /></h4>
+                            <script>
+                                var rate =@Model.DiemDanhGiaTrungBinh()
+                                $('#danhgiatrungbinh').raty({ readOnly: true, score: rate });
+                            </script>
+                            <table>
+                                @foreach (var danhgia in Model.ListDanhGia)
+                                {
+                                    <tr>
+                                        <td>
+                                            @{string idrate = "danhgia" + danhgia.Id;}
+                                            <span id="@idrate"></span><br />
+                                            <script>
+                                                var rate =@danhgia.DiemDanhGia
+                                                $('#@idrate').raty({ readOnly: true, score: rate });
+                                            </script>
+                                            <b>@danhgia.HoTen</b>
+                                        </td>
+                                        <td style="padding-left:20px;">
+                                            @Html.Raw(danhgia.BinhLuan)
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><div class="endtitle" style="width:670px;"></div></td>
+                                    </tr>
+                                }
+                            </table>
+                        }
+                    </div>
+
+                </div>
+            </div>
+            <script type="text/javascript">
+                $(function () {
+                    $("#accordion").accordion({ active: 1 });
+                });
+                var countries = new ddtabcontent("countrytabs")
+                countries.setpersist(true)
+                countries.setselectedClassTarget("link") //"link" or "linkparent"
+                countries.init()
+
+                
+            </script>
+            
+
+        </div>
+    </div>
+   
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }

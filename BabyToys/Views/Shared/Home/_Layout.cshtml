@@ -1,0 +1,95 @@
+﻿<!DOCTYPE html>
+<html xmlns ="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>@ViewBag.Title</title>
+        <meta name="description" content="Cung cấp các loại trái cây trong nước và nhập khẩu, với nhiều chủng loại trái cây, nhận đặt và giao hàng giá sỉ cho các siêu thị, nhà hàng, khách sạn với chế độ giao hàng tận nơi ">
+        <meta name="keywords" content="trái cây, trái cây trong nước, trái cây nhập khẩu, trái cây cao cấp, trái cây vita, vita, trái cây tươi">
+        <meta property="og:title" content="Trái cây Vita" />
+        <meta property="og:url" content="http://www.traicayvita.com/" />
+        <meta property="og:image" content="~/Content/Images/khongxoa/logo.png" />
+        <meta property="og:description" content="Cung cấp các loại trái cây trong nước và nhập khẩu, với nhiều chủng loại trái cây, nhận đặt và giao hàng giá sỉ cho các siêu thị, nhà hàng, khách sạn với chế độ giao hàng tận nơi" />
+        <link rel="icon" type="image/png" href="~/Content/Images/khongxoa/favicon.ico">
+        <link href="~/Content/CSS/button_styles.css?version=1" rel="stylesheet" />
+        <link href="~/Content/CSS/style.css?version=13" rel="stylesheet" />
+        <script src="~/Scripts/jquery-2.0.3.min.js"></script>
+        <script src="~/Scripts/jquery.bxslider.min.js"></script>
+        <link href="~/Content/CSS/jquery.bxslider.css?version=3" rel="stylesheet" />
+        <link href="~/Content/CSS/PagedList.css" rel="stylesheet" />
+        @RenderSection("scripts", false)
+
+    </head>
+    <body>
+        <div id="fb-root"></div>
+        <script>
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+
+        </script>
+        <!--Start of Tawk.to Script-->
+        <script type="text/javascript">
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/564874b1e014ea2c3cb32243/default';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        </script>
+        <!--End of Tawk.to Script-->
+        <div class="page">
+
+            <div class="header" style="margin-bottom:10px;padding-bottom:20px;">
+                @RenderPage("~/Views/Shared/Home/_Header.cshtml")
+            </div>
+            <div class="navigation">
+                @{Html.RenderAction("navigation", "Home");}
+            </div>
+            @RenderBody()
+            <div class="clear"></div>
+            @Html.Partial("~/Views/Shared/Home/_leftRightSlider.cshtml")
+
+            <div class="footer">
+                <div style="float:left;width:1000px;">
+                    @{
+                        string textFooter = "";
+                        string txtInFooterFilePath = Server.MapPath("~/Content/File/footer.txt");
+                        if (System.IO.File.Exists(txtInFooterFilePath))
+                        {
+                            textFooter = System.IO.File.ReadAllText(txtInFooterFilePath);
+                        }
+                    }
+                    <p>@Html.Raw(textFooter)</p>
+                    <br />
+                </div>
+                @*<div style="float:left;width:200px;">
+                    <div style="float:right;margin-top:50px;">
+                        <a href="http://www.hitwebcounter.com/" target="_blank">
+                            <img src="http://hitwebcounter.com/counter/counter.php?page=5925601&style=0002&nbdigits=5&type=page&initCount=0" title="installing easiest cool counters" alt="installing easiest cool counters" border="0">
+                        </a><br />
+                    </div>
+
+
+
+                </div>*@
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("div[style='position: fixed; z-index: 2147483647; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: transparent; margin: 0px; padding: 0px;']").remove();
+                $("div[style='opacity: 0.9; z-index: 2147483647; position: fixed; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: #202020; margin: 0px; padding: 0px;']").remove();
+                $("div[style='height: 65px;']").remove();
+                $("center").remove();
+                $("script[src='http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert4.js']").remove();
+            });
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Đã đăng nhập";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="row-fluid">
+        <div class="box" style="text-align:center;">
+            <p>
+                Đăng nhập thành công, đang chuyển đến trang trước đó...
+                <br />
+                Nếu trình duyệt của bạn không chuyển đến hãy click vào <a href="~/@ViewBag.returnurl">đây</a>
+                <br />
+                <img src="~/Content/CSS/admin/img/ajax-loaders/ajax-loader-1.gif" />
+            </p>
+        </div>
+    </div>
+</div>
+@section scripts {
+    <script type="text/javascript">
+        function redirectToHome() {
+            window.location.href = 'http://' + window.location.host + '/@ViewBag.returnurl';
+        }
+
+        setInterval(redirectToHome, 4000);
+    </script>
+}
+

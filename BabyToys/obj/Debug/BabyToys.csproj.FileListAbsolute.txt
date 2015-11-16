@@ -1,0 +1,251 @@
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\BabyToys.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\BabyToys.pdb
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\Antlr3.Runtime.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\EntityFramework.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\EntityFramework.SqlServer.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\Microsoft.QualityTools.Testing.Fakes.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\Microsoft.Web.Helpers.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\Microsoft.Web.Infrastructure.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\Mvc.Mailer.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\Newtonsoft.Json.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\PagedList.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\PagedList.Mvc.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Net.Http.Formatting.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Helpers.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Http.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Http.WebHost.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Mvc.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Optimization.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Providers.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Razor.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.WebPages.Deployment.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.WebPages.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.WebPages.Razor.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\WebGrease.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\WebMatrix.Data.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\WebMatrix.WebData.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\CaptchaMvc.pdb
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\CaptchaMvc.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\EntityFramework.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\EntityFramework.SqlServer.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\PagedList.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\PagedList.Mvc.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Helpers.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Razor.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.WebPages.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.WebPages.Deployment.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.WebPages.Razor.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\Newtonsoft.Json.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Net.Http.Formatting.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Http.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Http.WebHost.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\System.Web.Mvc.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\WebMatrix.Data.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\bin\WebMatrix.WebData.xml
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.csprojResolveAssemblyReference.cache
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.InitialCreate.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.a.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_ton_kho.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don1.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khach_hang.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.menu.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.menu_update.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.csproj.GenerateResource.Cache
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.dll
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.pdb
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khachhang_user.resources
+G:\SGU\Thuong Mai Dien Tu\baocao\BabyToys\obj\Debug\BabyToys.Migrations.loaikhahchang.resources
+G:\Programming\current\BabyToys\bin\BabyToys.dll
+G:\Programming\current\BabyToys\bin\BabyToys.pdb
+G:\Programming\current\BabyToys\bin\Antlr3.Runtime.dll
+G:\Programming\current\BabyToys\bin\EntityFramework.dll
+G:\Programming\current\BabyToys\bin\Microsoft.QualityTools.Testing.Fakes.dll
+G:\Programming\current\BabyToys\bin\Microsoft.Web.Helpers.dll
+G:\Programming\current\BabyToys\bin\Microsoft.Web.Infrastructure.dll
+G:\Programming\current\BabyToys\bin\Mvc.Mailer.dll
+G:\Programming\current\BabyToys\bin\Newtonsoft.Json.dll
+G:\Programming\current\BabyToys\bin\PagedList.dll
+G:\Programming\current\BabyToys\bin\PagedList.Mvc.dll
+G:\Programming\current\BabyToys\bin\System.Net.Http.Formatting.dll
+G:\Programming\current\BabyToys\bin\System.Web.Helpers.dll
+G:\Programming\current\BabyToys\bin\System.Web.Http.dll
+G:\Programming\current\BabyToys\bin\System.Web.Http.WebHost.dll
+G:\Programming\current\BabyToys\bin\System.Web.Mvc.dll
+G:\Programming\current\BabyToys\bin\System.Web.Optimization.dll
+G:\Programming\current\BabyToys\bin\System.Web.Providers.dll
+G:\Programming\current\BabyToys\bin\System.Web.Razor.dll
+G:\Programming\current\BabyToys\bin\System.Web.WebPages.Deployment.dll
+G:\Programming\current\BabyToys\bin\System.Web.WebPages.dll
+G:\Programming\current\BabyToys\bin\System.Web.WebPages.Razor.dll
+G:\Programming\current\BabyToys\bin\WebGrease.dll
+G:\Programming\current\BabyToys\bin\WebMatrix.Data.dll
+G:\Programming\current\BabyToys\bin\WebMatrix.WebData.dll
+G:\Programming\current\BabyToys\bin\CaptchaMvc.pdb
+G:\Programming\current\BabyToys\bin\CaptchaMvc.xml
+G:\Programming\current\BabyToys\bin\EntityFramework.xml
+G:\Programming\current\BabyToys\bin\PagedList.xml
+G:\Programming\current\BabyToys\bin\PagedList.Mvc.xml
+G:\Programming\current\BabyToys\bin\System.Web.Helpers.xml
+G:\Programming\current\BabyToys\bin\System.Web.Razor.xml
+G:\Programming\current\BabyToys\bin\System.Web.WebPages.xml
+G:\Programming\current\BabyToys\bin\System.Web.WebPages.Deployment.xml
+G:\Programming\current\BabyToys\bin\System.Web.WebPages.Razor.xml
+G:\Programming\current\BabyToys\bin\Newtonsoft.Json.xml
+G:\Programming\current\BabyToys\bin\System.Net.Http.Formatting.xml
+G:\Programming\current\BabyToys\bin\System.Web.Http.xml
+G:\Programming\current\BabyToys\bin\System.Web.Http.WebHost.xml
+G:\Programming\current\BabyToys\bin\System.Web.Mvc.xml
+G:\Programming\current\BabyToys\bin\WebMatrix.Data.xml
+G:\Programming\current\BabyToys\bin\WebMatrix.WebData.xml
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.csprojResolveAssemblyReference.cache
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.InitialCreate.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.a.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_ton_kho.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don1.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khach_hang.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.menu.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.menu_update.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khachhang_user.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.loaikhahchang.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.csproj.GenerateResource.Cache
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.dll
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.pdb
+G:\Programming\current\BabyToys\bin\BabyToys.dll.config
+G:\Programming\current\BabyToys\bin\CKFinder.dll
+G:\Programming\current\BabyToys\bin\CKFinder.pdb
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.add_mail.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.update_mail.resources
+G:\Programming\current\BabyToys\obj\Debug\BabyToys.Migrations.update_mail_1.resources
+G:\Programming\current\BabyToys\bin\EntityFramework.SqlServer.dll
+G:\Programming\current\BabyToys\bin\EntityFramework.SqlServer.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\BabyToys.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\BabyToys.pdb
+D:\Programming\current\TraiCayViTa\BabyToys\bin\Antlr3.Runtime.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\CKFinder.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.SqlServer.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\Microsoft.QualityTools.Testing.Fakes.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\Microsoft.Web.Helpers.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\Microsoft.Web.Infrastructure.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\Newtonsoft.Json.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.Mvc.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.Formatting.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.WebRequest.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Helpers.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.WebHost.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Mvc.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Optimization.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Providers.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Razor.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Deployment.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Razor.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\WebGrease.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.Data.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.WebData.dll
+D:\Programming\current\TraiCayViTa\BabyToys\bin\CKFinder.pdb
+D:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.SqlServer.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.Mvc.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Helpers.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Razor.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Deployment.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Razor.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\Newtonsoft.Json.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.Formatting.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.WebRequest.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.WebHost.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Mvc.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.Data.xml
+D:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.WebData.xml
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.InitialCreate.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.a.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_ton_kho.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don1.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khach_hang.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.menu.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.menu_update.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khachhang_user.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.loaikhahchang.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.add_mail.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.update_mail.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.update_mail_1.resources
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.csproj.GenerateResource.Cache
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.dll
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.pdb
+D:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.csprojResolveAssemblyReference.cache
+G:\Programming\current\TraiCayViTa\BabyToys\bin\BabyToys.dll.config
+G:\Programming\current\TraiCayViTa\BabyToys\bin\BabyToys.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\BabyToys.pdb
+G:\Programming\current\TraiCayViTa\BabyToys\bin\Antlr3.Runtime.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\CKFinder.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.SqlServer.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\Microsoft.QualityTools.Testing.Fakes.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\Microsoft.Web.Helpers.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\Microsoft.Web.Infrastructure.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\Newtonsoft.Json.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.Mvc.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.Formatting.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.WebRequest.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Helpers.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.WebHost.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Mvc.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Optimization.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Providers.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Razor.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Deployment.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Razor.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\WebGrease.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.Data.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.WebData.dll
+G:\Programming\current\TraiCayViTa\BabyToys\bin\CKFinder.pdb
+G:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\EntityFramework.SqlServer.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\PagedList.Mvc.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Helpers.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Razor.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Deployment.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.WebPages.Razor.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\Newtonsoft.Json.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.Formatting.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Net.Http.WebRequest.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Http.WebHost.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\System.Web.Mvc.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.Data.xml
+G:\Programming\current\TraiCayViTa\BabyToys\bin\WebMatrix.WebData.xml
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.csprojResolveAssemblyReference.cache
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.InitialCreate.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.a.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_ton_kho.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_hoa_don1.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khach_hang.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.menu.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.menu_update.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_khachhang_user.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.loaikhahchang.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.add_mail.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.update_mail.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.Migrations.update_mail_1.resources
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.csproj.GenerateResource.Cache
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.dll
+G:\Programming\current\TraiCayViTa\BabyToys\obj\Debug\BabyToys.pdb

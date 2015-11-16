@@ -1,0 +1,131 @@
+﻿@{
+    ViewBag.Title = "ThemUser";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+@model BabyToys.Models.ViewModel.KhachHangViewModel
+@using(Html.BeginForm())
+{
+    <div id="content" class="span10">
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-content">
+                    <div>
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="#">Home</a> <span class="divider">/</span>
+                            </li>
+                            <li>
+                                <a href="#">Sửa thông tin khách hàng</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="submit" name="luu" class="btn btn-primary" value="Lưu">
+                        <a href="~/AdminKhachHang" class="btn btn-inverse">Thoát</a>
+                    </div>
+                    <div class="row-fluid sortable">
+                        <div class="box span12 form-horizontal" style="padding-top: 50px;">
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">@ViewBag.thongbao</label>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Tên đăng nhập</label>
+                                <div class="controls">
+                                    @Html.HiddenFor(model=>model.Id,new {@class="input_text", style="width: 300px"})
+                                    @Html.HiddenFor(model=>model.TenDangNhap,new {@class="input_text", style="width: 300px"})
+                                    @Html.HiddenFor(model=>model.NgayTao)
+                                    @Html.HiddenFor(model=>model.TenDangNhap)
+                                    <span class="error">@Html.ValidationMessageFor(model => model.Id)</span>
+                                    <span class="error">@Html.ValidationMessageFor(model => model.NgayTao)</span>
+                                    <input type="text" class="input_text" style="width: 300px" disabled="disabled" value="@Html.DisplayFor(model=>model.TenDangNhap)"/>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Tên đầy đủ</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.TenDayDu,new {@class="input_text", style="width: 300px"})
+                                    <span class="error">@Html.ValidationMessageFor(model => model.TenDayDu)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Email</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.Email,new {@class="input_text", style="width: 300px"})
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.Email)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Địa chỉ</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.DiaChi,new {@class="input_text", style="width: 300px"})
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.DiaChi)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Số điện thoại</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.SoDienThoai,new {@class="input_text", style="width: 300px"})
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.SoDienThoai)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                            <label class="control-label" for="typeahead">Tỉnh thành</label>
+                                <div class="controls">
+                                    @Html.DropDownList("IdTinhThanh")
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.IdTinhThanh)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Ghi chú</label>
+                                <div class="controls">
+                                    @Html.TextAreaFor(model=>model.GhiChu,new {style="width: 300px",rows="4"})
+                                    @Html.ValidationMessageFor(model=>model.GhiChu)
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Hoạt động</label>
+                                <div class="controls">
+                                    @Html.CheckBoxFor(model=>model.IsActive)
+                                    @Html.ValidationMessageFor(model=>model.IsActive)
+                                    Cho phép khách hàng này hoạt động
+                                </div>
+                            </div>
+                             <fieldset>
+                                <legend></legend>
+                                <div class="control-group">
+                                <label class="control-label" for="typeahead">Nhóm khách hàng</label>
+                                <div class="controls">
+                                    @Html.DropDownList("IdLoaiKhachHang")
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.IdLoaiKhachHang)</span>
+                                </div>
+                            </div>
+                            </fieldset>
+                            <fieldset>
+                                <legend></legend>
+                                <div class="control-group">
+                                <label class="control-label" for="typeahead">Mật khẩu</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.MatKhau,new {style="width: 300px",type="password"})
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.MatKhau)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Xác nhận mật khẩu</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model=>model.XacNhanMatKhau,new {style="width: 300px",type="password"})
+                                    <span class="error">@Html.ValidationMessageFor(model=>model.XacNhanMatKhau)</span>
+                                    @Html.HiddenFor(model=>model.IsActive)
+                                </div>
+                            </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,23 @@
+﻿@model BabyToys.Models.Mail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Mail</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.MailName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.MailName)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

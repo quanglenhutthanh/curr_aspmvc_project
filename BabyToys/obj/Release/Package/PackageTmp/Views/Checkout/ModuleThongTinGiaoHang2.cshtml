@@ -1,0 +1,108 @@
+﻿<div class="thongtingiaohang2">
+
+    <input type="radio" name="rdndiachi" class="rdndiachi" value="DCDaCo" checked="checked" />Sử dụng địa chỉ giao hàng đã có
+    <br />
+    <input type="text" name="txtDiaChiCu" value=" @ViewBag.DiaChi @ViewBag.Tinh" 
+        style="width: 400px; height: 27px; margin-left: 10px; margin-top: 10px;margin-right:40px" disabled />
+    Phí vận chuyển
+    <input type="text" name="txtPhiVC" id="diachicu_khachhang_phivc" value="@ViewBag.PhiVC"
+        style="width: 100px; height: 27px; margin-left: 10px; margin-top: 10px;" disabled />
+    <br />
+    <input type="radio" name="rdndiachi" class="rdndiachi" value="DCMoi" onclick="" />Tôi muốn dùng địa chỉ giao hàng mới<br />
+    <br />
+    <script>
+        $(function () {
+            $("#nhap").hide();
+        });
+        $(".rdndiachi").click(function () {
+            if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
+                $("#nhap").show();
+            }
+            if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
+                $("#nhap").hide();
+            }
+        });
+    </script>
+    <script type="text/jscript">
+        $('#IdTinhThanh').click(function () {
+            $.getJSON(
+           "/Checkout/LayPhi", {},
+           function (myData) {
+               alert(myData);
+           });
+        })
+    </script>
+    <div id="nhap">
+
+        <div class="thongtingiaohang2-left">
+            <h4>Thông tin giao hàng</h4>
+            <table>
+                <tr>
+                    <td>Tên người nhận:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <input type="text" name="khachhang_tennguoinhan" id="khachhang_tennguoinhan" /></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Số điện thoại:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <input type="text" name="khachhang_SDT" id="khachhang_SDT" /></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                    <td>
+                        <input type="text" name="khachhang_email" id="khachhang_email" /></td>
+                    <td>&nbsp;&nbsp;&nbsp;</td>
+                </tr>
+
+                <tr style="height: 8px;"></tr>
+
+            </table>
+        </div>
+
+        <div class="thongtingiaohang2-right">
+            <table>
+                <tr style="height: 60px"></tr>
+
+                <tr>
+                    <td>Địa chỉ giao hàng:</td>
+                    <td>&nbsp;&nbsp;</td>
+                    <td>
+                        <input type="text" name="khachhang_diachi" id="khachhang_diachi" value="" /></td>
+                    <td>&nbsp;</td>
+                </tr>
+                <tr style="height: 8px;"></tr>
+                <tr>
+                    <td>Tỉnh/ thành phố:</td>
+                    <td>&nbsp;</td>
+                    <td>
+                        @{List<BabyToys.Models.TinhThanh> tinhthanhs = ViewBag.tinhthanh;}
+                        <select id="khachhang_phivanchuyen">
+                            <option value="0" selected>Chọn tỉnh thành</option>
+                            @foreach (var item in tinhthanhs)
+                            {
+                                <option value="@item.IdTinhThanh">@item.TenTinh - @item.PhiVanChuyen đồng</option>
+                            }
+                        </select>
+                    <td>&nbsp;</td>
+
+                </tr>
+                <tr style="height: 8px;"></tr>
+
+                <tr>
+                    <td>Ghi chú đơn hàng: </td>
+                    <td>&nbsp;</td>
+                    <td>
+                        <input type="text" name="khachhang_GhiChu" /></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+
+</div>
+<div class="error"><span id="error" /></div>

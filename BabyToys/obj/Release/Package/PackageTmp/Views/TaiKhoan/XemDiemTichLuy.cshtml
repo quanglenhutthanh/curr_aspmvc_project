@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Điểm tích lũy của bạn";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@model BabyToys.Models.KhachHang
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+    </div>
+    <div class="content-right">
+        <div class="list">
+            <h1>Điểm tích lũy</h1>
+            <div class="endtitle"></div>
+            <div class="register">
+                <table style="margin-left: 100px">
+                    <tr style="height: 10px"></tr>
+                    <tr>
+                        <td style="width: 240px">Số điểm hiện có của bạn là</td>
+
+                        <td>
+                            @Model.TongDiemTichLuy()  điểm
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bậc: </td>
+                        <td>
+                            @Html.DisplayFor(model => model.LoaiKhachHang.TenLoai)
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>Bạn được giảm giá </td>
+                        <td>
+                            @Html.DisplayFor(model => model.LoaiKhachHang.GiamGia) % cho mỗi hóa đơn mua hàng ở cửa hàng chúng tôi.
+                        </td>
+                    </tr>
+                </table>
+
+            </div>
+            <h1>Lịch sử điểm tích lũy</h1>
+            <div class="endtitle"></div>
+            <div class="register cart-info">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Ngày giao dịch </td>
+                            <td>Số tiền mua hàng</td>
+                            <td>Số tiền tích lũy</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ListDiemTichLuy != null)
+                        {
+                            foreach (var diem in Model.ListDiemTichLuy)
+                            {
+                            <tr>
+                                <td>
+                                    @{string date = String.Format("{0:dd/MM/yyyy hh:mm:ss}", diem.ThoiGian);}
+                                    @date
+                                </td>
+                                <td>@diem.hoadon.TongGiaTri</td>
+                                <td>@diem.Diem</td>
+                            </tr>
+                            }
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div style="float: right; margin-top: 10px">
+                <a href="~/TaiKhoan">
+                    <input type="button" value="Quay lại" class="large purple button dlLight" /></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

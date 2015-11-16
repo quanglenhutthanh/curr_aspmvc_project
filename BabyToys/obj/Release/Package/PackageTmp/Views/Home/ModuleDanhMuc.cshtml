@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BabyToys.Models.DanhMuc>
+<div class="content-left-heading"> Danh mục</div>
+<div class="content-left-content">
+    <ul class="nav">
+        @foreach (var danhmuc in @Model.Where(d => d.IdDanhMuc != 1))
+        {
+            if (danhmuc.DanhMucCha.IdDanhMuc == 1)
+            {
+                string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(danhmuc.TenDanhMuc.ToString());
+                <li>
+                    @Html.ActionLink(danhmuc.TenDanhMuc, "SanPhamTheoDanhMuc", "SanPham", new { id = danhmuc.IdDanhMuc, slug = title }, null)
+                @if (Model.Where(d => d.IdDanhMuc != 1).Count(d => d.DanhMucCha.IdDanhMuc == danhmuc.IdDanhMuc) > 0)
+                {
+                    @: <ul>
+                        }
+                @RenderMenuItem(Model, danhmuc)
+
+                @if (Model.Where(d => d.IdDanhMuc != 1).Count(d => d.DanhMucCha.IdDanhMuc == danhmuc.IdDanhMuc) > 0)
+                {
+                    @:</ul>
+                        }
+            </li>
+            }
+
+        }
+
+    </ul>
+</div>
+
+@helper RenderMenuItem(IEnumerable<BabyToys.Models.DanhMuc> DanhMucList, BabyToys.Models.DanhMuc danhmuc)
+{
+    foreach (var dm in DanhMucList.Where(d => d.IdDanhMuc != 1))
+    {
+        if (dm.DanhMucCha.IdDanhMuc == danhmuc.IdDanhMuc)
+        {
+            string title1 = BabyToys.Utilities.EditString.BoDauTrenChuoi(dm.TenDanhMuc.ToString());
+            <li>
+                @Html.ActionLink(dm.TenDanhMuc, "SanPhamTheoDanhMuc", "SanPham", new { id = dm.IdDanhMuc, slug = title1 }, null)
+            @if (Model.Where(d => d.IdDanhMuc != 1).Count(d => d.DanhMucCha.IdDanhMuc == danhmuc.IdDanhMuc) > 0)
+            {
+                @:<ul>
+                        }
+            @RenderMenuItem(Model, dm)
+
+            @if (Model.Where(d => d.IdDanhMuc != 1).Count(d => d.DanhMucCha.IdDanhMuc == danhmuc.IdDanhMuc) > 0)
+            {
+                @:</ul>
+                        }
+        </li>
+        }
+    }
+}

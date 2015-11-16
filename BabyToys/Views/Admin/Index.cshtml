@@ -1,0 +1,77 @@
+﻿@{
+    ViewBag.Title = "Quản lí website";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+<div id="content" class="span10">
+    <div class="sortable row-fluid">
+        <a data-rel="tooltip" title="6 new members." class="well span3 top-block" href="~/adminkhachhang">
+            <span class="icon32 icon-red icon-user"></span>
+            <div>Khách hàng mới</div>
+            <div>@ViewBag.khachhangmoi</div>
+            @*<span class="notification">6</span>*@
+        </a>
+
+        <a data-rel="tooltip" title="4 new pro members." class="well span3 top-block" href="#">
+            <span class="icon32 icon-color icon-star-on"></span>
+            <div>Doanh thu</div>
+            <div>@ViewBag.doanhso</div>
+            
+        </a>
+
+        <a data-rel="tooltip" title="Hóa đơn trong ngày" class="well span3 top-block" href="~/adminhoadon">
+            <span class="icon32 icon-color icon-cart"></span>
+            <div>Hóa đơn trong ngày</div>
+            <div>@ViewBag.hoadontrongngay</div>
+            @*<span class="notification yellow">@ViewBag.chuaxuli</span>*@
+        </a>
+
+        <a data-rel="tooltip" title="12 new messages." class="well span3 top-block" href="#">
+            <span class="icon32 icon-color icon-envelope-closed"></span>
+            <div></div>
+            <div></div>
+        </a>
+    </div>
+    <div class="sortable row-fluid">
+        <div class="box span12">
+            <div class="box-header well">
+                <h2><i class="icon-info-sign"></i>Tổng quan</h2>
+            </div>
+            <div class="box-content">
+                <ul>
+                    <li>Doanh số bán hàng: @ViewBag.doanhso</li>
+                    <li>Tổng số sản phẩm: @ViewBag.tongsanpham</li>
+                    <li>Tổng số khách hàng: @ViewBag.tongkhachhang</li>
+                    <li>Tổng số đơn hàng: @ViewBag.tongdonhang</li>
+                    <li>Đơn hàng chờ duyệt: <a href="~/adminhoadon">@ViewBag.chuaxuli</a></li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <div class="sortable row-fluid">
+        <div class="box span12">
+            <div class="box-header well">
+                <h2><i class="icon-info-sign"></i>Thông tin máy chủ</h2>
+            </div>
+            <div class="box-content">
+                <ul>
+                    <li><b>SERVER_NAME:</b>@Request.ServerVariables["SERVER_NAME"]</li>
+                    <li><b>SERVER_PORT:</b>@Request.ServerVariables["SERVER_PORT"]</li>
+                    <li><b>SERVER_PROTOCOL:</b>@Request.ServerVariables["SERVER_PROTOCOL"]</li>
+                    <li><b>SERVER_SOFTWARE:</b>@Request.ServerVariables["SERVER_SOFTWARE"]</li>
+                    <li><b>URL:</b>@Request.ServerVariables["URL"]</li>
+                    <li><b>HTTP_ACCEPT:</b>@Request.ServerVariables["HTTP_ACCEPT"]</li>
+                    <li><b>HTTP_ACCEPT_LANGUAGE:</b>@Request.ServerVariables["HTTP_ACCEPT_LANGUAGE"]</li>
+                    <li><b>HTTP_REFERER:</b>@Request.ServerVariables["HTTP_REFERER"]</li>
+                    <li><b>HTTP_USER_AGENT:</b>@Request.ServerVariables["HTTP_USER_AGENT"]</li>
+                    <li><b>DOCUMENT_ROOT:</b>@Request.ServerVariables["DOCUMENT_ROOT"]</li>
+
+                </ul>
+
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

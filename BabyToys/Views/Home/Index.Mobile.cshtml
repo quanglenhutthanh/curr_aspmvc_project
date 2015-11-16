@@ -1,0 +1,64 @@
+﻿@{
+    ViewBag.Title = "Index.Mobile";
+    Layout = "~/Views/Shared/Mobile/_Layout.cshtml";
+}
+
+
+@model IEnumerable<BabyToys.Models.SanPham>
+
+<div class="header_bottom">
+    <div class="header_bottom_right_images">
+        <div id="slideshow">
+            <ul class="slides">
+                <li>
+                    <img src="~/Content/Images/slider/1.jpg" style="height: 300px" />
+                </li>
+                <li>
+                    <img src="~/Content/Images/slider/2.jpg" style="height: 300px" />
+                </li>
+                <li>
+                    <img src="~/Content/Images/slider/3.jpg" style="height: 300px" />
+                </li>
+                <div class="clear"></div>
+            </ul>
+            <span class="arrow previous"></span>
+            <span class="arrow next"></span>
+        </div>
+    </div>
+
+    <div class="clear"></div>
+</div>
+<div class="main">
+    <div class="content">
+        <div class="section group">
+            <div class="heading" style="padding-top:10px;">
+    		    <h3>Sản phẩm đang bán</h3>
+    		</div>
+            @foreach (var sanpham in @Model)
+{
+    <div class="grid_1_of_4 images_1_of_4" style="text-align: center">
+        <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:160px;height:160px;" />
+        <h2>@sanpham.TenSP</h2>
+        <p style="text-align: center">
+            @if (sanpham.GiaKhuyenMai() > 0)
+            {
+                <span class="strike">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+                <span class="price">@string.Format("{0:0,000}", @sanpham.GiaKhuyenMai()) VNĐ/Kg</span>
+            }
+            else
+            {
+                <span class="price">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+            }
+        </p>
+        <div class="" style="text-align: center">
+            <span>
+                @{string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+                @Html.ActionLink("Chi tiết", "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, new { @class = "large orange button dlLight", @style = "width:100px;" })
+            </span>
+        </div>
+
+    </div>
+}
+        </div>
+    </div>
+</div>

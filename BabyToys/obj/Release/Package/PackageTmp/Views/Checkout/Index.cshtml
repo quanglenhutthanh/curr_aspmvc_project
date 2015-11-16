@@ -1,0 +1,361 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+<style>
+    .demoHeaders {
+        margin-top: 2em;
+    }
+
+    #dialog-link {
+        padding: .4em 1em .4em 20px;
+        text-decoration: none;
+        position: relative;
+    }
+
+        #dialog-link span.ui-icon {
+            margin: 0 5px 0 0;
+            position: absolute;
+            left: .2em;
+            top: 50%;
+            margin-top: -8px;
+        }
+
+    #icons {
+        margin: 0;
+        padding: 0;
+    }
+
+        #icons li {
+            margin: 2px;
+            position: relative;
+            padding: 4px 0;
+            cursor: pointer;
+            float: left;
+            list-style: none;
+        }
+
+        #icons span.ui-icon {
+            float: left;
+            margin: 0 4px;
+        }
+
+    .fakewindowcontain .ui-widget-overlay {
+        position: absolute;
+    }
+</style>
+<script>
+    $(document).ready(function () {
+        x = @ViewBag.IsLogin
+        checkout = $("#accordion").accordion({ event: false });
+        if (x == 1) {
+            $(".module2").show();
+            $(".module1").hide();
+            $("#accordion").accordion({ active: 1 });
+        }
+        else {
+            $(".module2").hide();
+            $(".module1").show();
+        }
+        function kiemtrabuoc2() {
+            if (document.getElementById('khachhang_tennguoinhan').value.length == 0) {
+                document.getElementById('error').innerHTML = "Xin qúy khách vui lòng nhập họ tên!";
+                return false;
+            }
+
+            if (document.getElementById('khachhang_SDT').value.length == 0) {
+                document.getElementById('error').innerHTML = "Xin qúy khách vui lòng nhập số điện thoại!";
+                return false;
+            }
+            var tennumber = /^\d{10}$/;
+            var elevennumber = /^\d{11}$/;
+            if (!document.getElementById('khachhang_SDT').value.match(tennumber) && !document.getElementById('khachhang_SDT').value.match(elevennumber)) {
+                document.getElementById('error').innerHTML = "Số điện thoại vừa nhập không hợp lệ.";
+                return false;
+            }
+            if (document.getElementById('khachhang_email').value.length == 0) {
+                document.getElementById('error').innerHTML = "Xin qúy khách vui lòng nhập email!";
+                return false;
+            }
+            var input = document.getElementById('khachhang_email').value;
+            var atpos = input.indexOf("@Html.Raw("@")");
+            var dotpos = input.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= input.length) {
+                document.getElementById('error').innerHTML = "Email vừa nhập không hợp lệ.";
+                return false;
+            }
+            if (document.getElementById('khachhang_diachi').value.length == 0) {
+                document.getElementById('error').innerHTML = "Xin qúy khách vui lòng nhập địa chỉ!";
+                return false;
+            }
+           // alert("ok");
+            document.getElementById('error').innerHTML = "";
+            return true;
+        }
+
+
+        function kiemtrabuoc2_2() {
+            if (document.getElementById('guest_ten').value.length == 0) {
+                document.getElementById('guest_error').innerHTML = "Xin qúy khách vui lòng nhập họ tên!";
+                return false;
+            }
+
+            if (document.getElementById('guest_SDT').value.length == 0) {
+                document.getElementById('guest_error').innerHTML = "Xin quý khách vui lòng nhập số điện thoại!";
+                return false;
+            }
+            var tennumber = /^\d{10}$/;
+            var elevennumber = /^\d{11}$/;
+            if (!document.getElementById('guest_SDT').value.match(tennumber) && !document.getElementById('guest_SDT').value.match(elevennumber)) {
+                document.getElementById('guest_error').innerHTML = "Số điện thoại vừa nhập không hợp lệ.";
+                return false;
+            }
+            if (document.getElementById('guest_email').value.length == 0) {
+                document.getElementById('guest_error').innerHTML = "Xin qúy khách vui lòng nhập email!";
+                return false;
+            }
+            var input = document.getElementById('guest_email').value;
+            var atpos = input.indexOf("@Html.Raw("@")");
+            var dotpos = input.lastIndexOf(".");
+            if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= input.length) {
+                document.getElementById('guest_error').innerHTML = "Email vừa nhập không hợp lệ";
+                return false;
+            }
+            if (document.getElementById('guest_diachi').value.length == 0) {
+                document.getElementById('guest_error').innerHTML = "Xin quý khách vui lòng nhập địa chỉ!";
+                return false;
+            }
+            //alert("ok");
+            document.getElementById('error').innerHTML = "";
+            return true;
+        }
+
+        $('div.step', checkout).each(function (index) {
+            $(this)
+            .children(':submit')
+            .filter('.next, .prev')
+            .click(function () {
+                if (x == 1) {
+                    if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
+                        if (kiemtrabuoc2() == true) {
+                            checkout.accordion('option', 'active', index + ($(this).is('.next') ? 1 : -1));
+                        }
+                    }
+                    if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
+                        checkout.accordion('option', 'active', index + ($(this).is('.next') ? 1 : -1));
+                    }
+                } else {
+                    if ($(this).attr('id') == "buoc1") {
+                        checkout.accordion('option', 'active', index + ($(this).is('.next') ? 1 : -1));
+                    }
+                    if ($(this).attr('id') == "buoc2") {
+                        if (kiemtrabuoc2_2() == true) {
+                            checkout.accordion('option', 'active', index + ($(this).is('.next') ? 1 : -1));
+                        }
+                    }
+                }
+
+                return false;
+            });
+        });
+    });
+</script>
+<link href="~/Content/accordion/jquery-ui-1.10.3.custom.min.css?version=2" rel="stylesheet" />
+<script src="~/Content/accordion/jquery-ui-1.10.3.custom.min.js"></script>
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+
+    <div class="content-right">
+        <div style="height: 40px;">
+            <div style="float: left; width: 50%; height: 40px;">
+                <h1>Xác nhận đơn hàng</h1>
+            </div>
+        </div>
+
+        <div id="accordion">
+            <h3>Bước 1: Tùy chọn thanh toán</h3>
+            <div>
+                <div class="payment-tuychon-left">
+
+                    <div style="border-bottom: 1px solid rgb(221, 221, 221); height: 25px">
+                        <h4>Khách hàng mới</h4>
+                    </div>
+                    <div style="height: 217px">
+                        <br />
+                        Bạn có thể mua hàng theo 2 cách
+                    
+                        <br />
+                        - @Html.ActionLink("Đăng ký tài khoản", "DangKy", "TaiKhoan")
+                        <br />
+                        <br />
+                        Bằng việc tạo tài khoản bạn có thể mua sắm nhanh hơn,
+                     theo dõi trạng thái đơn hàng, và theo dõi đơn hàng mà bạn đã đặt.
+                        <br />
+                        <br />
+                        - Hoặc thanh toán không cần đăng nhập<br />
+                    </div>
+                    <div class="step" style="margin: 0; padding: 8px 13px;">
+                        <input type="submit" value="Tiếp tục" id="buoc1" class="next large button input purple" />
+                    </div>
+                </div>
+
+                <div class="payment-tuychon-right">
+                    @{Html.RenderAction("pDangNhap", "TaiKhoan", new { returnUrl = "/Checkout" });}
+                </div>
+
+            </div>
+            <h3>Bước 2: Thông tin giao hàng</h3>
+            <div style="height: 350px">
+                <div>
+                    <div class="module1">
+                        @{Html.RenderAction("ModuleThongTinGiaoHang1", "Checkout");}
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div class="module2">
+                        @{Html.RenderAction("ModuleThongTinGiaoHang2", "Checkout", new { DiaChi = ViewBag.DiaChi, Tinh = ViewBag.Tinh, PhiVC = ViewBag.PhiVC??0 });}
+                        <div style="clear:both;"></div>
+                    </div>
+                    <div style="clear:both;"></div>
+                </div>
+                <div class="step">
+                    <input type="submit" value="Tiếp tục" class="next large button input purple" id="buoc2" style="margin-top: 10px; float: right; margin-right: 20px" />
+                </div>
+            </div>
+            <h3>Bước 3: Xác nhận</h3>
+            <div class="step cart-info">
+                @{BabyToys.Models.ViewModel.Cart cart = ViewBag.Cart as BabyToys.Models.ViewModel.Cart;}
+                <table border="1">
+                    <thead>
+                        <tr style="background-color:#e2cbea">
+                            <td>Hình ảnh</td>
+                            <td>Tên sản phẩm</td>
+                            <td>Số lượng</td>
+                            <td>Đơn giá</td>
+                            <td>Thành tiền</td>
+                            <td></td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in cart.ListItem)
+                        {
+                            
+                            <tr>
+                                <td class="image">
+                                    <img src="~/Content/Images/SanPham/@item.SanPham.HinhDaiDien" width="80px" height="80px"></td>
+                                <td class="name"><a href="#">@item.SanPham.TenSP</a></td>
+                                <td class="quantity">
+                                    @using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+                                    {
+                                        <input type="hidden" value="@item.SanPham.IdSanPham" name="idsanpham" />
+                                        <input type="text" value="@item.SoLuong" name="soluong" class="quantity" style="width:50px; margin:10px">
+                                        <input type="submit" value="Cập nhật" class="small button input purple" style="width:80px"/>
+                                    }
+                                </td>
+                                <td class="price">@item.SanPham.GiaHienTai</td>
+                                
+                                <td class="total">@item.ThanhTien</td>
+
+                                <td><a href="~/GioHang/XoaKhoiGioHang/?idsanpham=@item.SanPham.IdSanPham">Xóa</a></td>
+                            </tr>
+                        }
+                        <tr>
+                            <td colspan="6" style="text-align:left;">
+                            
+                                @{BabyToys.Models.KhachHang khachhang = Session["khachhang"] as BabyToys.Models.KhachHang;}
+                                Tổng tiền hàng: @ViewBag.TongCong đồng<br />
+                                
+                             </td>
+                         </tr>
+
+                         <tr>
+                            <td colspan="6" style="text-align:left;">
+                                
+                                Phí vận chuyển: <label id="phi"></label><br />
+                                @{int giamgia = (khachhang != null) ? khachhang.LoaiKhachHang.GiamGia : 0;}
+                                Giảm giá: @giamgia %
+                            </td>
+                        </tr> 
+                    </tbody>
+                </table>
+               
+                <input type="submit" value="Quay lại" class="prev large button input purple"/>
+                <input type="submit" value="Hoàn tất" class="large button input purple" id="btnCheckout" />
+                <img src="~/Content/CSS/admin/img/ajax-loaders/ajax-loader-1.gif" id="process"/>
+
+                <script>
+                    $("#process").hide();
+                    $("#buoc2").click(function () {
+                        if (x == 1) {
+                            //alert($("#diachicu_khachhang_phivc").val());
+                            type = $("input[name=rdndiachi]:checked").val();
+                            //alert("đã đăng nhập");
+                            if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
+                                //alert("sử dụng địa chỉ đã có");
+                                document.getElementById("phi").innerHTML = $("#diachicu_khachhang_phivc").val();
+                            }
+                            if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
+                                if ($("#khachhang_phivanchuyen").val() != 0) {
+                                    document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
+                                }
+                            }
+                        }
+                        else {
+                            document.getElementById("phi").innerHTML = $("#guest_phivc option:selected").html();
+                        }
+
+                    });
+                    $("#btnCheckout").click(function () {
+                        $("#process").show();
+                        var ten;
+                        var diachi;
+                        var sdt;
+                        var email;
+                        var type;
+                        var idtinhthanh;
+                        if (x == 1) {
+                            type = $("input[name=rdndiachi]:checked").val();
+                            //alert("đã đăng nhập");
+                            if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
+                                idtinhthanh = $("#khachhang_phivanchuyen").val();
+                                //alert(idtinhthanh);
+                            }
+                            if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
+                                //alert("sử dụng địa chỉ mới");
+                                ten = $("#khachhang_tennguoinhan").val();
+                                diachi = $("#khachhang_diachi").val();
+                                sdt = $("#khachhang_SDT").val();
+                                email = $("#khachhang_email").val();
+                                idtinhthanh = $("#khachhang_phivanchuyen").val();
+                                //alert(idtinhthanh);
+                                document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
+                            }
+                        }
+                        else {
+                            ten = $("#guest_ten").val();
+                            diachi = $("#guest_diachi").val();
+                            sdt = $("#guest_SDT").val();
+                            email = $("#guest_email").val();
+                            idtinhthanh = $("#guest_phivc").val();
+                            //alert(idtinhthanh);
+                            type = "null";
+                            x = 0;
+                        }
+
+                        $.post("/Checkout/XuLi/", { "IsLogin": x, "type": type, "diachi": diachi, "ten": ten, "sdt": sdt, "email": email,"idtinhthanh":idtinhthanh },
+                           function (data) {
+                               //alert("C?p Nh?t Thành Công");
+                               $("#process").hide();
+                               window.location.href = 'http://' + window.location.host + '/Checkout/Success';
+                               //window.location.reload();
+                           });
+                        //alert("check out");
+                    });
+                </script>
+            </div>
+
+        </div>
+
+    </div>
+</div>

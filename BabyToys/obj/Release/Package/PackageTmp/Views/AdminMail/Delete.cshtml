@@ -1,0 +1,48 @@
+﻿@model BabyToys.Models.Mail
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+<div id="content" class="span10">
+    <!-- content starts -->
+    <div>
+        <ul class="breadcrumb">
+            <li>
+                <a href="#">Home</a> <span class="divider">/</span>
+            </li>
+            <li>
+                <a href="#">Danh sách nick yahoo hỗ trợ trực tuyến</a>
+            </li>
+        </ul>
+    </div>
+    <div class="row-fluid sortable">
+        <div class="box span12">
+            <div class="box-content">
+                <div class="row-fluid">
+                    <h3>Bạn có chắc muốn xóa?</h3>
+                    <fieldset>
+                        <legend>Mail</legend>
+
+                        <div class="display-label">
+                            @Html.DisplayNameFor(model => model.MailName)
+                        </div>
+                        <div class="display-field">
+                            @Html.DisplayFor(model => model.MailName)
+                        </div>
+                    </fieldset>
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <p>
+                            <input type="submit" value="Xóa" class="btn btn-primary" /> |
+                            @Html.ActionLink("Trở lại", "Index")
+                        </p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+                    

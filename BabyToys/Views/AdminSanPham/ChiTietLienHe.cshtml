@@ -1,0 +1,62 @@
+﻿@{
+    ViewBag.Title = "ChiTietLienHe";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+
+@{
+    ViewBag.Title = "SuaPhiVC";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+@model BabyToys.Models.DanhGia
+<div id="content" class="span10">
+    <div class="row-fluid sortable">
+        <div class="box span12">
+            <div class="box-content">
+                <div>
+                    <ul class="breadcrumb">
+                        <li>
+                            <a href="#">Home</a> <span class="divider">/</span>
+                        </li>
+                        <li>
+                            <a href="~/Adminsanpham/chitietlienhe">Chi tiết thông tin liên hệ từ khách hàng @Model.HoTen</a><br />
+                           
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="form-actions">
+                    <a href="~/AdminSanPham/LienHe" class="btn btn-inverse">Thoát</a>
+                </div>
+                <div class="row-fluid sortable">
+                    <div class="box span12 form-horizontal" style="padding-top: 50px;">
+                        <div class="control-group">
+                            <label class="control-label" for="typeahead"><b>Gửi vào lúc</b></label>
+                            <div class="controls">
+                                @Html.DisplayFor(danhgia => danhgia.ThoiGian)
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="typeahead"><b>Tên</b></label>
+                            <div class="controls">
+                                @Html.DisplayFor(danhgia => danhgia.HoTen)
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="typeahead"><b>Email</b></label>
+                            <div class="controls">
+                                @Html.DisplayFor(danhgia => danhgia.Email)
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <label class="control-label" for="typeahead"><b>Nội dung</b></label>
+                            <div class="controls">
+                                @Html.TextAreaFor(danhgia => danhgia.BinhLuan)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

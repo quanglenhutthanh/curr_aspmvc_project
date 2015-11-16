@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "Cập nhật thông tin cá nhân";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@model BabyToys.Models.KhachHang
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+    </div>
+    <div class="content-right">
+        <div class="list">
+            Cập nhật thông tin cá nhân
+            <div class="endtitle"></div>
+            @using (Html.BeginForm())
+            {
+            <div class="register">
+                    <table>
+                         <tr>
+                            <td><span>Tên đầy đủ</span></td>
+                            <td>
+                                  @Html.TextBoxFor(k => k.TenDayDu)
+                             </td>
+                             <td class="error" >
+                                
+                            </td>
+                        </tr>
+                   <tr style="height: 8px"></tr>
+                        <tr>
+                            <td style="width: 230px;"><span>Tên đăng nhập</span></td>
+                           <td><input type="text" value="@Model.TenDangNhap" disabled /></td>
+                            @Html.HiddenFor(k=>k.TenDangNhap)
+                             <td class="error" >
+                               
+                            </td>
+                        </tr>
+                       
+                    </table>
+            </div>
+                <h3>Thông tin liên lạc</h3>
+            <div class="register">
+                    <table>
+                        <tr>
+                            <td style="width: 230px;"><span>Email</span></td>
+                            <td>
+                                @Html.TextBoxFor(k =>k.Email)
+                            </td>
+                             <td class="error" >
+                            </td>
+                        </tr>
+                              <tr style="height: 8px"></tr>
+                        <tr>
+                            <td><span>Số điện thoại</span></td>
+                            <td>
+                                @Html.TextBoxFor(k =>k.SoDienThoai)
+                            </td>
+                              <td class="error" >
+                            </td>
+
+                        </tr>
+                              <tr style="height: 8px"></tr>
+                        <tr>
+                            <td><span>Tỉnh\thành</span></td>
+                            <td> @Html.DropDownList("IdTinhThanh")</td>
+                        </tr>
+                              <tr style="height: 8px"></tr>
+                        <tr>
+                            <td><span>Địa chỉ</span></td>
+                            <td>
+                                @Html.TextBoxFor(k => k.DiaChi)
+                            </td>
+                               <td class="error" >
+                            </td>  
+
+                        </tr>
+                    </table>
+            </div>
+      
+         <div style="float: right; margin-top: 10px">
+              @Html.HiddenFor(k =>k.IdKhachHang)
+                @Html.HiddenFor(k =>k.TenDangNhap)
+              @Html.HiddenFor(k =>k.MatKhau)
+             @Html.HiddenFor(k =>k.GhiChu)
+             @Html.HiddenFor(k =>k.IdLoaiKhachHang)
+             @Html.HiddenFor(k =>k.IsActive)
+           
+                    <input type="submit" value="Lưu" class="large purple button dlLight" />
+                </div>
+                <div class="clear"></div>
+        <div class="clear"></div>
+            }
+        </div>
+    </div>
+</div>

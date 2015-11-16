@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "ThemUser";
+    Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
+}
+<script src="~/ckeditor/ckeditor.js"></script>
+@model BabyToys.Models.ThuongHieu
+@using (Html.BeginForm("SuaThuongHieu", "AdminThuongHieu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div id="content" class="span10">
+        <div class="row-fluid sortable">
+            <div class="box span12">
+                <div class="box-content">
+                    <div>
+                        <ul class="breadcrumb">
+                            <li>
+                                <a href="#">Home</a> <span class="divider">/</span>
+                            </li>
+                            <li>
+                                <a href="#">Sửa thương hiệu</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="form-actions">
+                        <input type="submit" name="luu" class="btn btn-primary" value="Lưu và đóng">
+                        <input type="submit" name="luu" class="btn btn-success" value="Lưu và tạo mới">
+                        <a href="~/AdminDanhMuc" class="btn btn-inverse">Thoát</a>
+                    </div>
+                    <div class="row-fluid sortable">
+                        <div class="box span12 form-horizontal" style="padding-top: 50px;">
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Tên thương hiệu</label>
+                                <div class="controls">
+                                    @Html.HiddenFor(model => model.IdThuongHieu)
+                                    @Html.TextBoxFor(model => model.TenThuongHieu, new { @class = "input_text", style = "width: 300px" })
+                                    <span class="error">@Html.ValidationMessageFor(model => model.TenThuongHieu)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Quốc gia</label>
+                                <div class="controls">
+                                    @Html.TextBoxFor(model => model.QuocGia, new { @class = "input_text", style = "width: 300px" })
+                                    <span class="error">@Html.ValidationMessageFor(model => model.QuocGia)</span>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Logo</label>
+                                <div class="controls">
+                                    @Html.HiddenFor(model => model.Logo)
+                                    @{
+    string src = "";
+    if (Model.Logo == "noimageyet.jpg")
+    {
+        src = "/Content/Images/SanPham/noimageyet.jpg";
+    }
+    else
+    {
+        src = "/Content/Images/ThuongHieu/" + Model.Logo;
+    }
+                                    }
+                                    <img id="preview" src="@src" width=150px height="200px"/>
+                                    <input type="file" name="anhdaidien" id="anhdaidien" class="input-xxlarge">
+                                    <script>
+                                        function previewImg(input) {
+                                            if (input.files && input.files[0]) {
+                                                var reader = new FileReader();
+
+                                                reader.onload = function (e) {
+                                                    $('#preview').attr('src', e.target.result);
+                                                }
+
+                                                reader.readAsDataURL(input.files[0]);
+                                            }
+                                        }
+
+                                        $("#anhdaidien").change(function () {
+                                            previewImg(this);
+                                        });
+                                    </script>
+
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Thông tin thương hiệu</label>
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.ThongTin, new { rows = "5", cols = "10", id = "ckemota" })
+                                    <script type="text/javascript">
+                                        var ckeditor1 = CKEDITOR.replace("ckemota")
+                                        ckeditor1.config.toolbar = [
+                                                       ['Styles', 'Format', 'Font', 'FontSize'],
+                                                       '/',
+                                                       ['Bold', 'Italic', 'Underline', 'StrikeThrough', '-', 'Undo', 'Redo', '-', 'Cut', 'Copy', 'Paste', 'Find', 'Replace', '-', 'Outdent', 'Indent', '-', 'Print'],
+                                                       '/'
+                                        ];
+                                        ckeditor1.config.width = 500;
+                                        ckeditor1.config.height = 150;
+                                    </script>
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Ghi chú</label>
+                                <div class="controls">
+                                    @Html.TextAreaFor(model => model.GhiChu, new { style = "width: 300px", rows = "4" })
+                                </div>
+                            </div>
+                            <div class="control-group">
+                                <label class="control-label" for="typeahead">Hiển thị</label>
+                                <div class="controls">
+                                    @Html.CheckBoxFor(model => model.IsActive)
+                                    Cho phép hiển thị thương hiệu này
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+                
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

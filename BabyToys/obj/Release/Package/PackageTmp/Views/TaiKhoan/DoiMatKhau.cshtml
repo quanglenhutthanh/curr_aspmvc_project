@@ -1,0 +1,80 @@
+﻿@{
+    ViewBag.Title = "Đổi mật khẩu";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@model BabyToys.Models.KhachHang
+<script>
+    function change_event() {
+        document.getElementById('error').innerHTML = "";
+    }
+    function kiemtra() {
+        if (document.getElementById('oldpass').value.length == 0) {
+            document.getElementById('error').innerHTML = "Nhập mật cũ!";
+            return false;
+        }
+        if (document.getElementById('newpass').value.length == 0) {
+            document.getElementById('error').innerHTML = "Nhập mật khẩu mới!";
+            return false;
+        }
+        if (document.getElementById('newpass').value.length > 0 && document.getElementById('newpass').value.length < 6) {
+            document.getElementById('error').innerHTML = "Mật khẩu tối thiểu 6 kí tự";
+            return false;
+        }
+        if (document.getElementById('newpass').value != document.getElementById('confirm').value) {
+            document.getElementById('error').innerHTML = "Xác nhận mật khẩu không đúng!";
+            return false;
+        }
+        return true;
+    }
+</script>
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+    </div>
+    <div class="content-right">
+        <div class="list">
+            <h1>Đổi mật khẩu</h1>
+            <div class="endtitle"></div>
+            <div class="register">
+                @using(Html.BeginForm())
+                {
+                    <span id="error" style="color:red; font-size:12px">@ViewBag.thongbao</span>
+                <table style="margin-left:100px">
+                    <tr>
+                        <td style="width: 230px;"><span>Mật khẩu cũ</span></td>
+                        <td>
+                            @Html.HiddenFor(model=>model.IdKhachHang)
+                            <input type="password" id="oldpass" name="oldpass" onkeydown="change_event();"/>
+                        </td>
+                    </tr>
+                    <tr style="height:6px"></tr>
+
+                    <tr>
+                        <td><span>Mật khẩu mới</span></td>
+                        <td>
+                           <input type="password" id="newpass" name="newpass" onkeydown="change_event();"/>
+                        </td>
+                    </tr>
+                     <tr style="height:6px"></tr>
+                    <tr>
+                        <td><span>Xác nhận mật khẩu mới</span></td>
+                        <td>
+                            <input type="password" id="confirm" name="confirm"  onkeydown="change_event();"/>
+                        </td>
+                    </tr>
+                    <tr style="height:10px"></tr>
+                    <tr>
+                        <td></td>
+                        <td>
+                             <input  type="submit" class="large button input purple" value="Gửi" onclick="return kiemtra();" style="float:right"/>
+                        </td>
+                    </tr>
+                </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+

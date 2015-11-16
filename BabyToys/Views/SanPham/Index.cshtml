@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = "Sản phẩm";
+}
+@{
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@using PagedList;
+@using PagedList.Mvc
+@model IEnumerable<BabyToys.Models.SanPham>
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleDanhMuc", "Home");}
+        <br />
+        @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
+    </div>
+    <div class="content-right">
+        
+        <div class="list"></div>
+        <div style="height:40px;">
+            <div style="float:left;width:50%;height:40px;"><h1>Sản phẩm mới</h1></div>    
+            <div style="float:right;width:36%;height:30px;margin-top:15px;margin-right:0px;padding-right:0px;">
+                    <small style="font-size:12px;">Hiển thị</small> 
+                   <select id="HienThi" style="width:60px; height:20px">
+                       <option value="6" @if (ViewBag.HienThi == 6)
+                                         { @:selected="selected" 
+                           }>6</option>
+                       <option value="9" @if (ViewBag.HienThi == 9)
+                                          { @:selected="selected" 
+                           }>9</option>
+                       <option value="15" @if (ViewBag.HienThi == 15)
+                                          { @:selected="selected" 
+                           }>15</option>
+                       <option value="30" @if (ViewBag.HienThi == 30)
+                                          { @:selected="selected" 
+                           }>30</option>
+                   </select>
+                   <small style="font-size:12px;">Sắp xếp</small>
+                   <select id="SapXep"style="width:100px; height:20px" >
+                       <option value="0" @if (ViewBag.SapXep == 0)
+                                         { @:selected="selected" 
+                           }>Mới nhất</option>
+                       <option value="1" @if (ViewBag.SapXep == 1)
+                                         { @:selected="selected" 
+                           }>Giá tăng dần</option>
+                       <option value="2" @if (ViewBag.SapXep == 2)
+                                         { @:selected="selected" 
+                           }>Giá giảm dần</option>
+                       <option value="3" @if (ViewBag.SapXep == 3)
+                                         { @:selected="selected" 
+                           }>Tên a đến z</option>
+                       <option value="4" @if (ViewBag.SapXep == 4)
+                                         { @:selected="selected" 
+                           }>Tên z về a</option>
+                   </select>
+                     <script>
+                    $("#HienThi").change(function () {
+                        var hienthi = $(this).val();
+                        window.location.href = 'http://' + window.location.host + '/sanpham/?hienthi=' + hienthi+'&sapxep=@ViewBag.SapXep';
+                    });
+                    $("#SapXep").change(function () {
+                        var sapxep = $(this).val();
+                        window.location.href = 'http://' + window.location.host + '/sanpham/?hienthi=@ViewBag.HienThi&sapxep=' + sapxep;
+                    });
+                 </script>
+            </div>
+        </div>
+        
+        <div class="endtitle"></div>
+        @{PagedList<BabyToys.Models.SanPham> sanphams = ViewBag.onePageOfSanpham;}
+        @foreach (var sanpham in sanphams)
+        {
+            <div class="box-product">
+                   @if (sanpham.GiaKhuyenMai() > 0)
+                {
+                     <div  class="price-KM"><img src="~/Content/Images/KM.gif"/></div>
+                }
+                   else
+                {
+                         <div  class="price-KM"></div>
+                }
+                @{string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+                <div class="image-product">
+                    <a href="/san-pham/@sanpham.IdSanPham/@title">
+                        <img src="~/Content/Images/SanPham/@sanpham.Hinh()" style="width:160px;height:160px;" />
+                    </a>
+                </div>
+                <div class="name">
+                    
+                    @Html.ActionLink(sanpham.TenSP,"ChiTiet","SanPham",new{id=sanpham.IdSanPham,slug=title},null)
+                </div>
+                <div class="price">
+                    @if (sanpham.GiaKhuyenMai() > 0)
+                    {
+                        <span class="price-old">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+                        <span class="price-new">@string.Format("{0:0,000}", @sanpham.GiaKhuyenMai()) VNĐ/Kg</span>
+                    }
+                    else
+                    {
+                        <span class="price-new">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+                    }
+                </div>
+                @*@if (@sanpham.SoLuong() != 0)
+                {
+                     @Html.ActionLink("Thêm giỏ hàng", "ThemVaoGioHang", "GioHang", new { idsanpham = sanpham.IdSanPham, soluong = 1 }, new {@class="purple button dlLight" })
+                }
+                else {
+                    <div class="addcart" style="color:#ed339f; margin-bottom:30px; font-size:14px">
+                     Tạm hết hàng
+                 </div>
+                }*@
+                @Html.ActionLink("Chi tiết", "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, new { @class = "green button dlLight", @style = "width:100px;" })
+            </div>
+        }
+        <div class="clear"></div>
+    <div style="margin-bottom:0px;">
+            @Html.PagedListPager((IPagedList)ViewBag.onePageOfSanPham, page => Url.Action("Index", new { page,hienthi=ViewBag.HienThi,sapxep=ViewBag.SapXep }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
+            </div> 
+    </div>
+    
+    
+</div>
+
+

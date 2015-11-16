@@ -1,0 +1,57 @@
+﻿@{
+    ViewBag.Title = "Điểm tích lũy của bạn";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+@model BabyToys.Models.KhachHang
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+    </div>
+    <div class="content-right">
+        <div class="list">
+            <h1>Lịch sử đơn hàng</h1>
+            <div class="endtitle"></div>
+            <div class="register">
+                
+
+            </div>
+            <h1>Lịch sử điểm tích lũy</h1>
+            <div class="endtitle"></div>
+            <div class="register cart-info">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Ngày giao dịch </td>
+                            <td>Tổng giá trị</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.ListDiemTichLuy != null)
+                        {
+                            foreach (var hoadon in Model.ListDonHang)
+                            {
+                            <tr>
+                                <td>
+                                    @{string date = String.Format("{0:dd/MM/yyyy hh:mm:ss}", hoadon.NgayLapHD);}
+                                    @date
+                                </td>
+                                <td>@hoadon.TongGiaTri</td>
+                            </tr>
+                            }
+                        }
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <div style="float: right; margin-top: 10px">
+                <a href="~/TaiKhoan">
+                    <input type="button" value="Quay lại" class="large purple button dlLight" /></a>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+</div>

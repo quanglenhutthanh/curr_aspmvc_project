@@ -1,0 +1,49 @@
+﻿@{
+    ViewBag.Title = "Quên mật khẩu";
+    Layout = "~/Views/Shared/Home/_Layout.cshtml";
+}
+
+<div class="content">
+    <div class="content-left">
+        @{Html.RenderAction("ModuleTaiKhoan", "Home");}
+        <br />
+    </div>
+    <div class="content-right">
+        <div class="list">
+            <h1>Quên mật khẩu?</h1>
+            <h3>Vui lòng điền chính xác những thông tin dưới đây để chúng tôi có thể cấp mật khẩu mới cho bạn</h3>
+            <div class="endtitle"></div>
+            @using(Html.BeginForm())
+            {
+                <div class="register">
+                <table>
+                    <tr>
+                        <td colspan="2">@ViewBag.thongbao</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 230px;"><span>Tên tài khoản</span></td>
+                        <td>
+                            <input type="text" name="TenDangNhap" value="@ViewBag.tendangnhap"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td><span>Email đã đăng kí</span></td>
+                        <td>
+                            <input type="text" name="Email" value="@ViewBag.email"/>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td></td>
+                        <td>
+                             <input  type="submit" class="large purple button dlLight" value="Gửi"/>
+                        </td>
+                    </tr>
+                </table>
+               
+            </div>
+            }
+        </div>
+    </div>
+</div>
+

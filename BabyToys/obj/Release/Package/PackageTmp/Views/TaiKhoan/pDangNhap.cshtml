@@ -1,0 +1,33 @@
+﻿@model BabyToys.Models.LoginModel
+@using (Html.BeginForm())
+{
+<div style="border-bottom: 1px solid rgb(221, 221, 221);height:25px">
+    <h4>Bạn đã có tài khoản</h4>
+</div>
+
+<div style="height:200px">
+<p>
+    
+     <span class="error" style="color:red;font-size:small;">@ViewBag.error</span><br />
+    <span>Tên đăng nhập</span><br />
+    @Html.HiddenFor(model=>model.returnUrl)
+    @Html.TextBoxFor(model=>model.LoginName)
+    <span class="error" style="color:red;font-size:small;">@Html.ValidationMessageFor(model => model.LoginName)</span>
+    <br />
+    <span>Mật khẩu</span><br />
+    @Html.PasswordFor(model=>model.PassWord)
+    <span class="error" style="color:red;font-size:small;">@Html.ValidationMessageFor(model => model.PassWord)</span>
+    <br />
+    @Html.CheckBoxFor(model=>model.RememberMe) duy trì đăng nhập
+    <br />
+    <a href="~/TaiKhoan/QuenMatKhau">Quên mật khẩu</a><br />
+    <br />
+</p>
+    </div>
+<div class="login-button">
+    <input type="submit" value="Đăng nhập" id="dangnhap" class="next large purple button dlLight"  style="width: 120px;" />
+</div>
+}
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

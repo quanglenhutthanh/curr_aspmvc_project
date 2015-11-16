@@ -1,0 +1,129 @@
+/*--navigation--*/
+.primary-nav {
+	width:100%;
+     margin:10px 0 0px 0;
+     font-family:Arial, Helvetica, sans-serif;
+}
+.primary-nav span{
+	padding:0px 5px;
+	color:#FFF;
+	font-size:1em;
+	font-weight:bold;
+	background:url(../images/nav-icon.png) no-repeat 0;
+	float:right;
+	text-align:right;
+	width:94%;
+}
+.toggleMenu {
+    display: none;
+ 	padding-top: 10px;
+    padding-bottom:10px;
+    padding-left:0px;
+    padding-right:0px;
+    margin:0 auto;
+    color:#fff;
+	width:100%;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#1A911A',endColorstr='#1A911A');
+	background: -webkit-gradient(linear,left top,left bottom,from(#1A911A),to(#1A911A));
+	background: -moz-linear-gradient(top,#1A911A,#1A911A);
+	background: -o-linear-gradient(top,#1A911A,#1A911A);
+	background: -ms-linear-gradient(top,#1A911A,#1A911A);
+}
+.nav {
+    list-style: none;
+     *zoom: 1;
+     background:#1A911A;
+}
+.nav:before,
+.nav:after {
+    content: " "; 
+    display: table; 
+}
+.nav:after {
+    clear: both;
+}
+.nav ul {
+    list-style: none;
+    width: 9em;
+}
+.nav a {
+    padding: 10px 15px;
+    color:#fff;
+}
+.nav li {
+    position: relative;
+}
+.nav > li {
+    float:left;
+    border-top: 1px solid #1A911A;
+    
+}
+.nav > li > .parent {
+    background: url(../images/downArrow.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    text-transform: uppercase;
+	font-family: 'Monda', sans-serif;
+}
+.nav > li > a {
+    display: block;
+    text-transform: uppercase;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:0.8em;
+}
+.nav > li > a:hover{
+	background:#444;
+}
+.nav li  ul {
+    position: absolute;
+    left: -9999px;
+}
+.nav > li.hover > ul {
+    left: 0;
+}
+.nav li li.hover ul {
+    left: 100%;
+    top: 0;
+}
+.nav li li a {
+    display: block;
+    background: #444;
+    position: relative;
+    z-index:100;
+    border-top: 1px solid #1A911A;
+    text-transform: uppercase;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:0.8em;
+}
+.nav li li a:hover{
+	background:#1A911A;
+}
+.nav li li li a {
+  	background:#521B7C;
+    z-index:200;
+     border-top: 1px solid #1A911A;
+}
+
+@media screen and (max-width: 768px) {
+    .active {
+        display: block;
+    }
+    .nav > li {
+        float: none;
+    }
+    .nav > li > .parent {
+        background-position: 95% 50%;
+    }
+    .nav li li .parent {
+        background-image: url(../images/downArrow.png);
+       	background-repeat: no-repeat;
+        background-position: 95% 50%;
+    }
+    .nav ul {
+        display: block;
+        width: 100%;
+    }
+   .nav > li.hover > ul , .nav li li.hover ul {
+        position: static;
+    }
+ }
