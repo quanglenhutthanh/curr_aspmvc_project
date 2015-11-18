@@ -7,51 +7,113 @@
 @using PagedList.Mvc
 <div class="main">
     <div class="content">
-        <div class="content_top">
-            <div class="back-links">
-                <p><a href="#">Trang chủ</a> &gt;&gt; <a href="#">Tìm kiếm</a></p>
+        <div class="section group">
+            <div class="heading" style="padding-top:10px;">
+                <h3>Tìm kiếm</h3>
             </div>
             <div>
-                <p>
-                    <h3>Kết quả tìm kiếm cho "@ViewBag.CurrentFilter" - @ViewBag.Count kết quả</h3>
+                <p style="font-size:13px;">
+                    Kết quả tìm kiếm cho "@ViewBag.CurrentFilter" - @ViewBag.Count kết quả
                 </p>
             </div>
-            <div class="page-no">
-                @Html.PagedListPager((IPagedList)ViewBag.onePageOfProduct, page => Url.Action("SanPhamTheoDanhMuc", new { page, hienthi = ViewBag.HienThi, sapxep = ViewBag.SapXep }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
-            </div>
             
-            <div class="section group">
-                <div class="heading" style="padding-top:10px;">
-                    <h3>Sản phẩm</h3>
-                </div>
-                @{PagedList<BabyToys.Models.SanPham> sanphams = ViewBag.onePageOfProduct;}
-                @foreach (var sanpham in sanphams)
-                {
-                    <div class="grid_1_of_4 images_1_of_4" style="text-align: center">
-                        <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:160px;height:160px;" />
-                        <h2>@sanpham.TenSP</h2>
-                        <p style="text-align: center">
-                            @if (sanpham.GiaKhuyenMai() > 0)
-                            {
-                                <span class="strike">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
-                                <span class="price">@string.Format("{0:0,000}", @sanpham.GiaKhuyenMai()) VNĐ/Kg</span>
-                            }
-                            else
-                            {
-                                <span class="price">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
-                            }
-                        </p>
-                        <div class="" style="text-align: center">
-                            <span>
-                                @{string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
-                                @Html.ActionLink("Chi tiết", "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, new { @class = "large orange button dlLight", @style = "width:100px;" })
-                            </span>
-                        </div>
+                <div class="sort" style="float:left;width:50%;padding-top:0px;">
+                    <p style="font-size: 0.8125em;">
+                        <span style="font-size: 0.8125em;">Sắp xếp</span>
+                        <select id="SapXep" style="height: 20px; font-size: 0.8125em;">
+                            <option value="0" @if (ViewBag.SapXep == 0) { @: selected="selected"
+                                                                                                                                                                                                                                           }>
+                                Mới nhất
+                            </option>
+                            <option value="1" @if (ViewBag.SapXep == 1) { @: selected="selected"
+                                                                                                                                                                                                                                           }>
+                                Giá tăng dần
+                            </option>
+                            <option value="2" @if (ViewBag.SapXep == 2) { @: selected="selected"
+                                                                                                                                                                                                                                           }>
+                                Giá giảm dần
+                            </option>
+                            <option value="3" @if (ViewBag.SapXep == 3) { @: selected="selected"
+                                                                                                                                                                                                                                           }>
+                                Tên a đến z
+                            </option>
+                            <option value="4" @if (ViewBag.SapXep == 4) { @: selected="selected"
+                                                                                                                                                                                                                                           }>
+                                Tên z về a
+                            </option>
+                        </select>
 
+                    </p>
+
+                </div>
+                <div class="show" style="float:left;width:50%;">
+                    <p style="font-size: 0.8125em">
+                        <span style="font-size: 0.8125em;">Hiển thị</span>
+                        <select id="HienThi" style="height: 20px; font-size: 0.8125em;">
+                            <option value="6" @if (ViewBag.HienThi == 6) { @: selected="selected"
+                                                                                                                                                                                                                                                                           }>
+                                6
+                            </option>
+                            <option value="9" @if (ViewBag.HienThi == 9) { @: selected="selected"
+                                                                                                                                                                                                                                                                           }>
+                                9
+                            </option>
+                            <option value="15" @if (ViewBag.HienThi == 15) { @: selected="selected"
+                                                                                                                                                                                                                                                                           }>
+                                15
+                            </option>
+                            <option value="30" @if (ViewBag.HienThi == 30) { @: selected="selected"
+                                                                                                                                                                                                                                                                           }>
+                                30
+                            </option>
+                        </select>
+
+                    </p>
+                </div>
+                <script>
+                     $("#HienThi").change(function () {
+                         var hienthi = $(this).val();
+                         window.location.href = 'http://' + window.location.host + '/TimKiem/?HienThi=' + hienthi + '&SapXep=@ViewBag.SapXep&currentFilter=@ViewBag.CurrentFilter&IdDanhMuc=@ViewBag.DanhMuc&IdThuongHieu=@ViewBag.ThuongHieu&gt=@ViewBag.gt&gd=@ViewBag.gd';
+
+                    });
+                    $("#SapXep").change(function () {
+                        var sapxep = $(this).val();
+                        window.location.href = 'http://' + window.location.host + '/TimKiem/?SapXep=' + sapxep + '&HienThi=@ViewBag.HienThi&currentFilter=@ViewBag.CurrentFilter&IdDanhMuc=@ViewBag.DanhMuc&IdThuongHieu=@ViewBag.ThuongHieu&gt=@ViewBag.gt&gd=@ViewBag.gd';
+
+                    });
+                </script>
+            
+            @{PagedList<BabyToys.Models.SanPham> sanphams = ViewBag.onePageOfProduct;}
+            @foreach (var sanpham in sanphams)
+            {
+                <div class="grid_1_of_4 images_1_of_4" style="text-align: center">
+                    <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:160px;height:160px;" />
+                    <h2>@sanpham.TenSP</h2>
+                    <p style="text-align: center">
+                        @if (sanpham.GiaKhuyenMai() > 0)
+                        {
+                            <span class="strike">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+                            <span class="price">@string.Format("{0:0,000}", @sanpham.GiaKhuyenMai()) VNĐ/Kg</span>
+                        }
+                        else
+                        {
+                            <span class="price">@string.Format("{0:0,000}", @sanpham.Gia) VNĐ/Kg</span>
+                        }
+                    </p>
+                    <div class="" style="text-align: center">
+                        <span>
+                            @{string title = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+                            @Html.ActionLink("Chi tiết", "ChiTiet", "SanPham", new { id = sanpham.IdSanPham, slug = title }, new { @class = "large orange button dlLight", @style = "width:100px;" })
+                        </span>
                     </div>
-                }
+
+                </div>
+            }
+            <div class="page-no">
+                @Html.PagedListPager((IPagedList)ViewBag.onePageOfProduct, page => Url.Action("Index", new { page, HienThi = @ViewBag.HienThi, SapXep = @ViewBag.SapXep, currentFilter = @ViewBag.CurrentFilter, IdDanhMuc = @ViewBag.DanhMuc, IdThuongHieu = @ViewBag.ThuongHieu, gt = ViewBag.gt, gd = ViewBag.gd }), PagedListRenderOptions.OnlyShowFivePagesAtATime)
             </div>
         </div>
     </div>
 </div>
+
 

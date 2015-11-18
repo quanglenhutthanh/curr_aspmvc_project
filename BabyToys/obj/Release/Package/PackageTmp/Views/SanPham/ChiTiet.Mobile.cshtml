@@ -8,13 +8,6 @@
 <script src="~/Content/jcarousel/jcarousel.connected-carousels.js"></script>
 <div class="main">
     <div class="content">
-        <div class="content_top">
-            <div class="back-links">
-                <p><a href="#">Trang chủ</a> &gt;&gt; <a href="#">@Model.DanhMuc.TenDanhMuc</a> &gt;&gt; <a href="#">@Model.TenSP</a></p>
-            </div>
-
-
-        </div>
         <div class="section group">
             <div class="heading" style="padding-top:10px;text-align:center;">
                 <h3>@Model.TenSP</h3>
@@ -63,7 +56,7 @@
                 </div>
             </div>
             <div>
-                <ul style="list-style: none; line-height: 190%">
+                <ul style="list-style: none; line-height: 190%;font-size:13px;">
                     <li><b style="color: #1A911A">Mã sản phẩm:</b> @Model.MaSP</li>
                     <li><b style="color: #1A911A">Loại sản phẩm: </b> @Model.DanhMuc.TenDanhMuc</li>
                     <li><b style="color: #1A911A">Xuất xứ: </b>@Model.ChatLieu</li>
@@ -79,7 +72,7 @@
             <br />
             <div class="product-desc" style="text-align:left">
                 <h2>Mô tả chi tiết</h2>
-                <p>@Html.Raw(@Model.MoTaSP)</p>
+                <p style="margin-left:0px;">@Html.Raw(@Model.MoTaSP)</p>
                 
             </div>
         </div>
