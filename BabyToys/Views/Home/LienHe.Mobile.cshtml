@@ -1,0 +1,72 @@
+﻿@{
+    ViewBag.Title = "LienHe.Mobile";
+    Layout = "~/Views/Shared/Mobile/_Layout.cshtml";
+}
+<style>
+    #message {
+        min-height: 94px;
+        width: 100%;
+        border: 1px solid #cccccc;
+        border-radius: 4px;
+        color: #555555;
+        font-size: 15px;
+        font-family: "MyriadPro-Regular";
+        box-sizing: border-box;
+        padding: 12px;
+        margin-bottom: 12px;
+    }
+</style>
+@model BabyToys.Models.DanhGia
+<div class="main">
+    <div class="content">
+        <div class="clear"></div>
+        <br />
+        <div class="section group">
+            <div class="col span_2_of_3">
+                <div class="contact-form">
+                    <div class="heading" style="padding-top:10px;">
+                        <h3>Liên hệ với chúng tôi</h3>
+                    </div>
+                    <br />
+                    @using (Html.BeginForm("LienHe", "Home", FormMethod.Post))
+                    {
+                        <span class="error" style="font-size:15px;">@ViewBag.Success</span><br />
+                        <div>
+                            <span><label>Họ tên</label></span>
+                            <span>
+                                @Html.TextBoxFor(model => model.HoTen)
+                                <span class="error">@Html.ValidationMessageFor(model => model.HoTen)</span>
+                            </span>
+                        </div>
+                        <div>
+                            <span><label>Email</label></span>
+                            <span>
+                                @Html.TextBoxFor(model => model.Email)
+                                <span class="error">
+                                    @Html.ValidationMessageFor(model => model.Email)
+                                </span>
+                            </span>
+                        </div>
+                        @*<div>
+                            <span><label>MOBILE.NO</label></span>
+                            <span><input type="text" value=""></span>
+                        </div>*@
+                        <div>
+                            <span><label>Nội dung</label></span>
+                            <span>@Html.TextAreaFor(model => model.BinhLuan, new { id = "message" })</span>
+                        </div>
+                        
+                        <div>
+                            <span><label>Mã xác nhận</label></span>
+                            <span>@CaptchaMvc.HtmlHelpers.CaptchaHelper.Captcha(Html, "", "Nhập mã xác nhận", 5)</span>
+                            <span class="error">@ViewBag.CaptchaError</span>
+                        </div>
+                        <div>
+                            <span><input type="submit" value="Gửi" class="large button input orange" /></span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

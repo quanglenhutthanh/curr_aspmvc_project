@@ -281,9 +281,10 @@ li.sodo {
     border: 1px solid #CC90E8;
     background-image: url('../Images/head.png');
     padding: 8px 10px 7px 10px;
-    font-family: Tahoma, serif;
-    font-size: 16px;
-    font-weight: 800;
+    /*font-family: Tahoma, serif;*/
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
     line-height: 14px;
     color: white;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, .3);
@@ -316,7 +317,7 @@ li.sodo {
             color: #5F1480;
             text-decoration: none;
             font-family: Tahoma, serif;
-            font-size: 15px;
+            font-size: 13px;
         }
 
         .content-left-content > ul > li ul > li {
@@ -324,7 +325,7 @@ li.sodo {
         }
 
             .content-left-content > ul > li ul > li a {
-                font-size: 11px;
+                font-size: 13px;
             }
 
 .content-right {
@@ -371,7 +372,7 @@ li.sodo {
 }
 
 .detail-content {
-    font-size: 14px;
+    font-size: 13px;
     width: 436px;
     height: 400px;
     float: right;
@@ -390,14 +391,14 @@ li.sodo {
 }
 
 .detail-content-detail {
-    font-size: 15px;
+    font-size: 13px;
     font-weight: normal;
     height: 115px;
     border-bottom: 1px solid rgb(221, 221, 221);
 }
 
 .detail-content-price {
-    font-size: 12px;
+    font-size: 13px;
     font-weight: normal;
     height: 40px;
     border-bottom: 1px solid rgb(221, 221, 221);
@@ -429,7 +430,7 @@ li.sodo {
 
 .old-price {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 12px;
     float: left;
     margin-left: 30px;
     text-decoration: line-through;
@@ -464,7 +465,7 @@ li.sodo {
 }
 
 h1 {
-    font-size: 16px;
+    font-size: 18px;
     color: #5F1482;
     font-weight: bold;
     height: 15px;
@@ -529,7 +530,7 @@ h1 {
 }
 
 .list h1 {
-    font-size: 16px;
+    font-size: 18px;
     color: #b356db;
     font-weight: bold;
     height: 15px;
@@ -657,7 +658,8 @@ h1 {
 
 .cart-info {
     margin-top: 20px;
-    font-size: 12px;
+    font-size: 13px;
+    color: #330066;
 }
 
     .cart-info table {
@@ -675,7 +677,7 @@ h1 {
     }
 
     .cart-info thead td {
-        color: #b200ff;
+        color: #330066;
         font-weight: bold;
         background-color: #F7F7F7;
         border-bottom: 1px solid #DDDDDD;
@@ -696,7 +698,7 @@ h1 {
     .cart-info tbody td {
         vertical-align: top;
         border-bottom: 1px solid #DDDDDD;
-        color: #7A018C;
+        color: #330066;
     }
 
     .cart-info tbody .remove {
@@ -716,8 +718,8 @@ h1 {
     }
 
     .cart-info tbody span.stock {
-        color: #F00;
-        font-weight: bold;
+        color: #330066;
+        font-weight: bolder;
     }
 
     .cart-info a {

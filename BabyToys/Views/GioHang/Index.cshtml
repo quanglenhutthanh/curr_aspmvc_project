@@ -13,18 +13,19 @@
     </div>
     <div class="content-right">
         <div class="list">
-            <h1>Giỏ hàng của bạn</h1>
+            <h1 style="color: #330066">Giỏ hàng của bạn</h1>
+            <div class="endtitle"></div>
              @if (@Model.Count() ==0)
                             {
                                 <p>Chưa có hàng trong giỏ!</p>
                             }
             <div class="cart-info">
-                @if(Model.Any(c=>c.VuotSoLuong==true))
+                @*@if(Model.Any(c=>c.VuotSoLuong==true))
                 {
                 <span>Những sản phẩm đánh dấu <b style="color:red">***</b> là những sản phẩm không đủ số lượng    <br /></span>
                 
-                }
-                <table border="1" style="margin-top:30px">
+                }*@
+                <table border="1" style="margin-top: 30px; font-size: 13px;">
                     <thead>
                         <tr>
                             <td>Hình ảnh</td>
@@ -45,10 +46,10 @@
                                 <img src="~/Content/Images/SanPham/@item.SanPham.HinhDaiDien" width="80px" height="80px"></td>
                             <td class="name">
                                 <a href="#">@item.SanPham.TenSP</a>
-                                @if (item.VuotSoLuong == true)
+                                @*@if (item.VuotSoLuong == true)
                                 {
                                     <span style="color:red">***</span>
-                                }
+                                }*@
                             </td>
                             <td class="quantity">
                                 @using(Html.BeginForm("CapNhatGioHang","GioHang"))
@@ -59,7 +60,7 @@
                                         <option value="2" @Html.Raw(item.SoLuong==2?"selected=\"selected\"":"")>2</option>
                                         <option value="3"@Html.Raw(item.SoLuong==3?"selected=\"selected\"":"")>3</option>
                                     </select>
-                                    <input type="submit" value="Cập nhật" class="small button input purple" style="width:80px"/>
+                                    <input type="submit" value="Cập nhật" class="small button input orange" style="width:80px"/>
                                 }
                             </td>
                             <td class="price">@item.Gia</td>
@@ -73,15 +74,15 @@
                  <div class="cart-cost">
                       Tổng cộng: @ViewBag.TongCong  đồng
                     </div>
-                <div class="cart-cost">
+                @*<div class="cart-cost">
                    Hóa đơn chưa bao gồm phí vận chuyển, tham khảo phí vận chuyển ở <a href="~/home/phivanchuyen" style="display:inline">đây</a>
-                </div>
+                </div>*@
 
             </div>
             <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px; text-align: right;">
-                <a href="~/GioHang/XoaGioHang" class="large purple button dlLight">Xóa giỏ hàng</a>
-                <a href="~/home" class="large purple button dlLight">Tiếp tục</a>
-                <a href="~/checkout" class="large purple button dlLight">Thanh toán</a>
+                <a href="~/GioHang/XoaGioHang" class="large orange button dlLight">Xóa giỏ hàng</a>
+                <a href="~/home" class="large orange button dlLight">Tiếp tục</a>
+                <a href="~/checkout" class="large orange button dlLight">Thanh toán</a>
             </div>
         </div>
     </div>
