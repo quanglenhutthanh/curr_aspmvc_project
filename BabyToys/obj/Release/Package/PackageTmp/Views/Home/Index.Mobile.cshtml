@@ -37,8 +37,13 @@
             @foreach (var sanpham in @Model)
 {
     <div class="grid_1_of_4 images_1_of_4" style="text-align: center">
-        <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:160px;height:160px;" />
-        <h2>@sanpham.TenSP</h2>
+        @{string title1 = BabyToys.Utilities.EditString.BoDauTrenChuoi(sanpham.TenSP);}
+        <a href="/san-pham/@sanpham.IdSanPham/@title1">
+            <img src="~/Content/Images/SanPham/@sanpham.HinhDaiDien" style="width:160px;height:160px;" />
+        </a>
+        <a href="/san-pham/@sanpham.IdSanPham/@title1">
+            <h2>@sanpham.TenSP</h2>
+        </a>
         <p style="text-align: center">
             @if (sanpham.GiaKhuyenMai() > 0)
             {
