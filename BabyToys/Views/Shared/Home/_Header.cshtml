@@ -147,7 +147,8 @@
                 <input type="submit" class="search-button" />
             }
         </div>*@
-        <div class="cart-box">
-            
-        </div>
+        @*<div class="cart-box">
+            @{int count = BabyToys.Models.ViewModel.CartSession.GetCart(this.Context) != null ? @BabyToys.Models.ViewModel.CartSession.GetCart(this.Context).ListItem.Count() : 0;}
+            <span><a href="/GioHang">Giỏ hàng (@count)</a></span>
+        </div>*@
     </div>

@@ -10,5 +10,6 @@
     </div>
 </div>
 <div class="navigation-right">
-    
+    @*@{int count = BabyToys.Models.ViewModel.CartSession.GetCart(this.Context) != null ? @BabyToys.Models.ViewModel.CartSession.GetCart(this.Context).ListItem.Count() : 0;}*@
+    <span><a href="/GioHang">Giỏ hàng</a></span>
 </div>

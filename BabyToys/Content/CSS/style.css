@@ -244,7 +244,7 @@ li.sodo {
     width: 150px;
     height: 50px;
     float: left;
-    padding-top:5px;
+    padding-top:0px;
 }
 
 
@@ -316,7 +316,7 @@ li.sodo {
         .content-left-content > ul > li a {
             color: #5F1480;
             text-decoration: none;
-            font-family: Tahoma, serif;
+            font-family:'Roboto', sans-serif;
             font-size: 13px;
         }
 
