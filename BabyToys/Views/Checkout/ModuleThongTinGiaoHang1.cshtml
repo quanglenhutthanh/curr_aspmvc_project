@@ -1,7 +1,11 @@
-﻿<div class="thongtingiaohang1-left">
+﻿<style>
+    input[type="text"] {
+        width: 100%;
+    }
+</style>
+<div class="thongtingiaohang1-left" style="font-family: 'Roboto', sans-serif;font-size:13px;">
     <h4>Thông tin tài khoản</h4>
     <table>
-
         <tr>
             <td>Tên khách hàng:</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
@@ -33,14 +37,15 @@
 </div>
 
 
-<div class="thongtingiaohang1-right">
+<div class="thongtingiaohang1-right" style="font-family: 'Roboto', sans-serif;font-size:13px;padding-left:10px;">
     <table>
         <tr style="height: 67px"></tr>
         <tr>
             <td>Địa chỉ giao hàng:</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-                <input type="text" class="" name="guest_diachi" id="guest_diachi" /></td>
+                <input type="text" class="" name="guest_diachi" id="guest_diachi" />
+            </td>
             <td>&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr style="height: 8px;"></tr>
@@ -49,15 +54,17 @@
             <td>Tỉnh/ thành phố:</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-            @{List<BabyToys.Models.TinhThanh> tinhthanhs = ViewBag.tinhthanh;}
-                        <select id="guest_phivc">
-                           
-                            @foreach(var item in tinhthanhs)
-                            {
-                                <option value="@item.IdTinhThanh">@item.TenTinh 
-                                    - @item.PhiVanChuyen đồng</option>
-                            }
-                        </select>
+                @{List<BabyToys.Models.TinhThanh> tinhthanhs = ViewBag.tinhthanh;}
+                <select id="guest_phivc">
+
+                    @foreach (var item in tinhthanhs)
+                    {
+                        <option value="@item.IdTinhThanh">
+                            @item.TenTinh
+                        - @item.PhiVanChuyen đồng
+                    </option>
+                    }
+                </select>
             <td>&nbsp;&nbsp;&nbsp;</td>
         </tr>
         <tr style="height: 8px"></tr>
@@ -65,7 +72,8 @@
             <td>Ghi chú đơn hàng: </td>
             <td>&nbsp;</td>
             <td>
-                <input type="text" name="guest_GhiChu" /></td>
+                <input type="text" name="guest_GhiChu" />
+            </td>
         </tr>
         <tr style="height: 8px"></tr>
         <tr>
@@ -85,3 +93,4 @@
     </table>
     <div class="error" style="width: 290px; float: right"><span id="guest_error" /></div>
 </div>
+

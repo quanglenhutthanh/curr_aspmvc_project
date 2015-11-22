@@ -62,31 +62,31 @@ namespace BabyToys.Controllers
                 NgayLapHD = System.DateTime.Now,
                 TienHang = CartSession.TongTien(this.HttpContext)
             };
-            if (idtinhthanh > 0)
-            {
-                var tinhthanh = db.TinhThanhs.SingleOrDefault(t => t.IdTinhThanh == idtinhthanh);
-                hoadon.PhiVanChuyen = tinhthanh.PhiVanChuyen;
-                hoadon.TinhThanh = tinhthanh;
-            }
-            KhachHang khachhang = Session["khachhang"] as KhachHang;
+            //if (idtinhthanh > 0)
+            //{
+            //    var tinhthanh = db.TinhThanhs.SingleOrDefault(t => t.IdTinhThanh == idtinhthanh);
+            //    hoadon.PhiVanChuyen = tinhthanh.PhiVanChuyen;
+            //    hoadon.TinhThanh = tinhthanh;
+            //}
+            //KhachHang khachhang = Session["khachhang"] as KhachHang;
 
-            if (khachhang != null)
-            {
-                var kh = db.KhachHangs.SingleOrDefault(k => k.IdKhachHang == khachhang.IdKhachHang);
-                hoadon.IdKhachHang = khachhang.IdKhachHang;
-                if (type == "DCDaCo")
-                {
-                    TinhThanh tinh = db.TinhThanhs.SingleOrDefault(t => t.IdTinhThanh == kh.TinhThanh.IdTinhThanh);
-                    email = kh.Email;
-                    hoadon.DiaChiGiaoHang = kh.DiaChi;
-                    hoadon.Email = kh.Email;
-                    hoadon.TenNguoiNhan = kh.TenDayDu;
-                    hoadon.SoDienThoai = kh.SoDienThoai;
-                    hoadon.PhiVanChuyen = tinh.PhiVanChuyen;
-                    hoadon.TinhThanh = tinh;
-                    hoadon.TienKhuyenMai = CartSession.TongTien(this.HttpContext) * kh.LoaiKhachHang.GiamGia / 100;
-                }
-            }
+            //if (khachhang != null)
+            //{
+            //    var kh = db.KhachHangs.SingleOrDefault(k => k.IdKhachHang == khachhang.IdKhachHang);
+            //    hoadon.IdKhachHang = khachhang.IdKhachHang;
+            //    if (type == "DCDaCo")
+            //    {
+            //        TinhThanh tinh = db.TinhThanhs.SingleOrDefault(t => t.IdTinhThanh == kh.TinhThanh.IdTinhThanh);
+            //        email = kh.Email;
+            //        hoadon.DiaChiGiaoHang = kh.DiaChi;
+            //        hoadon.Email = kh.Email;
+            //        hoadon.TenNguoiNhan = kh.TenDayDu;
+            //        hoadon.SoDienThoai = kh.SoDienThoai;
+            //        hoadon.PhiVanChuyen = tinh.PhiVanChuyen;
+            //        hoadon.TinhThanh = tinh;
+            //        hoadon.TienKhuyenMai = CartSession.TongTien(this.HttpContext) * kh.LoaiKhachHang.GiamGia / 100;
+            //    }
+            //}
 
             db.HoaDons.Add(hoadon);
             db.SaveChanges();
@@ -101,11 +101,11 @@ namespace BabyToys.Controllers
             //    Console.WriteLine(ex.ToString());
             //}
             CartSession.XoaCartSession(this.HttpContext);
-            if (khachhang != null)
-            {
-                int diem = (int)((float)hoadon.TongGiaTri * 0.0002);
-                TichLuyDiem(khachhang, diem, hoadon);
-            }
+            //if (khachhang != null)
+            //{
+            //    int diem = (int)((float)hoadon.TongGiaTri * 0.0002);
+            //    TichLuyDiem(khachhang, diem, hoadon);
+            //}
             return View();
         }
         public void TichLuyDiem(KhachHang khachhang, int diem, HoaDon hoadon)
