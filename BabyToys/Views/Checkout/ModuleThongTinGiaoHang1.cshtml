@@ -3,43 +3,85 @@
         width: 100%;
     }
 </style>
-<div class="thongtingiaohang1-left" style="font-family: 'Roboto', sans-serif;font-size:13px;">
-    <h4>Thông tin tài khoản</h4>
+<div class="thongtingiaohang1-left" style="font-family: 'Roboto', sans-serif;font-size:13px;padding-left:7px;margin-left:0px;">
+
     <table>
+        <tr style="height: 37px"></tr>
         <tr>
             <td>Tên khách hàng:</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-                <input type="text" name="guest_ten" id="guest_ten" /></td>
+                <input type="text" name="guest_ten" id="guest_ten" />
+            </td>
             <td>&nbsp;&nbsp;&nbsp;</td>
         </tr>
-        <tr style="height: 8px;"></tr>
         <tr>
             <td>Số điện thoại:</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-                <input type="text" name="guest_SDT" id="guest_SDT" /></td>
+                <input type="text" name="guest_SDT" id="guest_SDT" />
+            </td>
             <td>&nbsp;&nbsp;&nbsp;</td>
         </tr>
-        <tr style="height: 8px;"></tr>
+        
 
         <tr>
             <td>Email:</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
             <td>
-                <input type="text" name="guest_email" id="guest_email" /></td>
+                <input type="text" name="guest_email" id="guest_email" />
+            </td>
             <td>&nbsp;&nbsp;&nbsp;</td>
         </tr>
+
         
-        <tr style="height: 8px;"></tr>
     </table>
 
 </div>
 
 
 <div class="thongtingiaohang1-right" style="font-family: 'Roboto', sans-serif;font-size:13px;padding-left:10px;">
-    <table>
-        <tr style="height: 67px"></tr>
+    <div style="width:100%;">
+        <label>Họ tên</label><br />
+        <input type="text" name="guest_ten" id="guest_ten" />
+    </div>
+    <div style="width:100%;">
+        <label>Số điẹn thoại</label><br />
+        <input type="text" name="guest_SDT" id="guest_SDT" />
+    </div>
+    @*<table>
+        <tr style="height: 37px"></tr>
+        <tr>
+            <td>Tên khách hàng:</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <input type="text" name="guest_ten" id="guest_ten" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+        <tr>
+            <td>Số điện thoại:</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <input type="text" name="guest_SDT" id="guest_SDT" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+
+
+        <tr>
+            <td>Email:</td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+            <td>
+                <input type="text" name="guest_email" id="guest_email" />
+            </td>
+            <td>&nbsp;&nbsp;&nbsp;</td>
+        </tr>
+
+
+    </table>*@
+    @*<table>
+        <tr style="height: 37px"></tr>
         <tr>
             <td>Địa chỉ giao hàng:</td>
             <td>&nbsp;&nbsp;&nbsp;</td>
@@ -48,7 +90,7 @@
             </td>
             <td>&nbsp;&nbsp;&nbsp;</td>
         </tr>
-        <tr style="height: 8px;"></tr>
+        
 
         <tr>
             <td>Tỉnh/ thành phố:</td>
@@ -61,13 +103,14 @@
                     {
                         <option value="@item.IdTinhThanh">
                             @item.TenTinh
-                        - @item.PhiVanChuyen đồng
-                    </option>
+                            - @item.PhiVanChuyen đồng
+                        </option>
                     }
                 </select>
+            </td>
             <td>&nbsp;&nbsp;&nbsp;</td>
         </tr>
-        <tr style="height: 8px"></tr>
+        
         <tr>
             <td>Ghi chú đơn hàng: </td>
             <td>&nbsp;</td>
@@ -75,22 +118,12 @@
                 <input type="text" name="guest_GhiChu" />
             </td>
         </tr>
-        <tr style="height: 8px"></tr>
-        <tr>
-            <td colspan="3">Chúng tôi sẽ thu tiền khi giao hàng.</td>
-        </tr>
-        <tr style="height: 8px"></tr>
-        <tr>
-            <td colspan="3"></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td colspan="2"></td>
-
-        </tr>
-
-    </table>
+   
+        
+    
+       
+       
+    </table>*@
     <div class="error" style="width: 290px; float: right"><span id="guest_error" /></div>
 </div>
 

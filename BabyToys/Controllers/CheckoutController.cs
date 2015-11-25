@@ -46,7 +46,7 @@ namespace BabyToys.Controllers
             return RedirectToAction("Index", "GioHang");
         }
 
-        [HttpPost]
+        //[HttpPost]
         public ActionResult XuLi(int IsLogin, string type, string diachi, string ten, string sdt, string email, int idtinhthanh)
         {
             int phivanchuyen = 0;

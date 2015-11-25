@@ -170,10 +170,11 @@
     <div class="content-right" style="font-family: 'Roboto', sans-serif;">
         <div style="height: 40px;">
             <div style="float: left; width: 50%; height: 40px;">
-                <h1>Xác nhận đơn hàng</h1>
+                <h1 style="color: #330066">Đặt hàng</h1>
+                <div class="endtitle"></div>
             </div>
         </div>
-
+        <br />
         <div id="accordion">
             @*<h3>Bước 1: Tùy chọn thanh toán</h3>
             <div>
@@ -315,25 +316,25 @@
                         var email;
                         var type;
                         var idtinhthanh;
-                        if (x == 1) {
-                            type = $("input[name=rdndiachi]:checked").val();
-                            //alert("đã đăng nhập");
-                            if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
-                                idtinhthanh = $("#khachhang_phivanchuyen").val();
-                                //alert(idtinhthanh);
-                            }
-                            if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
-                                //alert("sử dụng địa chỉ mới");
-                                ten = $("#khachhang_tennguoinhan").val();
-                                diachi = $("#khachhang_diachi").val();
-                                sdt = $("#khachhang_SDT").val();
-                                email = $("#khachhang_email").val();
-                                idtinhthanh = $("#khachhang_phivanchuyen").val();
-                                //alert(idtinhthanh);
-                                document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
-                            }
-                        }
-                        else {
+                        //if (x == 1) {
+                        //    type = $("input[name=rdndiachi]:checked").val();
+                        //    //alert("đã đăng nhập");
+                        //    if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
+                        //        idtinhthanh = $("#khachhang_phivanchuyen").val();
+                        //        //alert(idtinhthanh);
+                        //    }
+                        //    if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
+                        //        //alert("sử dụng địa chỉ mới");
+                        //        ten = $("#khachhang_tennguoinhan").val();
+                        //        diachi = $("#khachhang_diachi").val();
+                        //        sdt = $("#khachhang_SDT").val();
+                        //        email = $("#khachhang_email").val();
+                        //        idtinhthanh = $("#khachhang_phivanchuyen").val();
+                        //        //alert(idtinhthanh);
+                        //        document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
+                        //    }
+                        //}
+                        //else {
                             ten = $("#guest_ten").val();
                             diachi = $("#guest_diachi").val();
                             sdt = $("#guest_SDT").val();
@@ -342,9 +343,9 @@
                             //alert(idtinhthanh);
                             type = "null";
                             x = 0;
-                        }
+                        //}
 
-                        $.post("/Checkout/XuLi/", { "IsLogin": x, "type": type, "diachi": diachi, "ten": ten, "sdt": sdt, "email": email, "idtinhthanh": idtinhthanh },
+                        $.post("/Checkout/XuLi/", { "IsLogin": 0, "type": type, "diachi": diachi, "ten": ten, "sdt": sdt, "email": email, "idtinhthanh": idtinhthanh },
                            function (data) {
                                //alert("C?p Nh?t Thành Công");
                                $("#process").hide();

@@ -1613,6 +1613,7 @@
     <Content Include="Views\SanPham\SanPhamTheoDanhMuc.Mobile.cshtml" />
     <Content Include="Views\TimKiem\Index.Mobile.cshtml" />
     <Content Include="Views\Home\LienHe.Mobile.cshtml" />
+    <Content Include="Views\Checkout\CheckOutInfo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
