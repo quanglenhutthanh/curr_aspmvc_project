@@ -104,13 +104,13 @@ namespace BabyToys.Controllers
             var hoadon = db.HoaDons.SingleOrDefault(h => h.IdHoaDon == id);
             if(hoadon!=null)
             {
-                if (trangthai == 4)
-                {
-                    foreach (var cthd in hoadon.ChiTietHoaDons)
-                    {
-                        XuLiTonKho(cthd.SanPham, cthd.SoLuong);
-                    }
-                }
+                //if (trangthai == 4)
+                //{
+                //    foreach (var cthd in hoadon.ChiTietHoaDons)
+                //    {
+                //        XuLiTonKho(cthd.SanPham, cthd.SoLuong);
+                //    }
+                //}
                 hoadon.TrangThai = trangthai;
                 db.Entry(hoadon).State = EntityState.Modified;
                 db.SaveChanges();

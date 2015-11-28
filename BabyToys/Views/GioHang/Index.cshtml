@@ -141,7 +141,7 @@
         </script>
         <div class="list" style="margin-top: 10px;">
             <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px;">
-                @using (Html.BeginForm())
+                @using (Html.BeginForm("XuLi","Checkout"))
                 {
                     <h1 style="color: #330066">Thông tin giao hàng</h1>
                     <div class="endtitle" style="width:737px"></div>
@@ -161,7 +161,7 @@
                     </div>
                     <div style="width:100%;">
                         <label>Địa chỉ</label><br />
-                        <textarea id="guest_diachi" cols="60" rows="4"></textarea>
+                        <textarea id="guest_diachi" name="guest_diachi" cols="60" rows="4"></textarea>
                     </div>
                     <div style="width:100%;">
                         <label>Ghi chú</label><br />

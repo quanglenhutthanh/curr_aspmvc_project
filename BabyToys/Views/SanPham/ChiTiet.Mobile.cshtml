@@ -24,13 +24,13 @@
                                     <li><img class="my-foto" src="/Content/Images/SanPham/@hinhanh.AnhGoc" data-large="/Content/Images/SanPham/@hinhanh.AnhGoc" width="260" height="250" alt=""></li>
                                 }
                             }
-                            
+
                         </ul>
                     </div>
                     <p class="photo-credits">
                         Photos by <a href="http://www.mw-fotografie.de">traicayvita.com</a>
                     </p>
-                    
+
                 </div>
 
                 <div class="navigation">
@@ -50,7 +50,7 @@
                                     </li>
                                 }
                             }
-                            
+
                         </ul>
                     </div>
                 </div>
@@ -67,14 +67,44 @@
             <div class="price" style="font-size:18px;text-align:center">
                 <p>Giá: <span>90,000 VNĐ/Kg</span></p>
                 <a href="tel:0932641106" class="large orange button dlLight">Gọi đặt hàng</a>
-                
+
             </div>
             <br />
-            <div class="product-desc" style="text-align:left">
-                <h2>Mô tả chi tiết</h2>
-                <p style="margin-left:0px;">@Html.Raw(@Model.MoTaSP)</p>
-                
+            <div style="border-top: 1px solid rgb(221, 221, 221);padding-top:5px;">
+                <div>
+                    <span style="font-size: 0.8125em;">Số lượng</span>
+                    <select id="soluong">
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+                <div style="padding-top:5px;">
+                    <a id="addcart" class="large orange button dlLight" href="#">
+                        <span>Thêm giỏ hàng</span>
+                    </a>
+                </div>
+                <script>
+                    $("#addcart").click(function () {
+                        var soluong = $("#soluong").val();
+                        window.location.href = 'http://' + window.location.host + '/GioHang/ThemVaoGioHang?idsanpham=@Model.IdSanPham&soluong=' + soluong;
+                    });
+                </script>
+                <div class="clear"></div>
             </div>
+            <br />
+            @if (Model.MoTaSP != null)
+            {
+                <div class="product-desc" style="text-align:left">
+                    <h2>Mô tả chi tiết</h2>
+                    <p style="margin-left:0px;">@Html.Raw(@Model.MoTaSP)</p>
+
+                </div>
+
+
+            }
         </div>
     </div>
 </div>

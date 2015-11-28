@@ -46,18 +46,18 @@ namespace BabyToys.Controllers
             return RedirectToAction("Index", "GioHang");
         }
 
-        //[HttpPost]
-        public ActionResult XuLi(int IsLogin, string type, string diachi, string ten, string sdt, string email, int idtinhthanh)
+        [HttpPost]
+        public ActionResult XuLi(FormCollection collection)
         {
             int phivanchuyen = 0;
             HoaDon hoadon = new HoaDon
             {
                 PhiVanChuyen = phivanchuyen,
                 TienKhuyenMai = 0,
-                TenNguoiNhan = ten,
-                Email = email,
-                SoDienThoai = sdt,
-                DiaChiGiaoHang = diachi,
+                TenNguoiNhan = collection["guest_ten"],
+                Email = collection["guest_email"],
+                SoDienThoai = collection["guest_SDT"],
+                DiaChiGiaoHang = collection["guest_diachi"],
                 TrangThai = 1,
                 NgayLapHD = System.DateTime.Now,
                 TienHang = CartSession.TongTien(this.HttpContext)
@@ -106,7 +106,7 @@ namespace BabyToys.Controllers
             //    int diem = (int)((float)hoadon.TongGiaTri * 0.0002);
             //    TichLuyDiem(khachhang, diem, hoadon);
             //}
-            return View();
+            return RedirectToAction("Success","Checkout");
         }
         public void TichLuyDiem(KhachHang khachhang, int diem, HoaDon hoadon)
         {
@@ -155,7 +155,7 @@ namespace BabyToys.Controllers
                     };
                     db.ChiTietHoaDon.Add(cthd);
                     db.SaveChanges();
-                    XuLiTonKho(sp, item.SoLuong);
+                    //XuLiTonKho(sp, item.SoLuong);
                 }
             }
         }
