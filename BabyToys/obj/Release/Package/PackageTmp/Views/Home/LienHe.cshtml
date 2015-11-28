@@ -40,7 +40,7 @@
         <span class="error">@Html.ValidationMessageFor(model => model.Email)</span>
         <br />
         <br />
-        <label>Ý kiến của bạn</label>
+        <label>Nội dung</label>
         @Html.TextAreaFor(model => model.BinhLuan, new { id = "message" })
         <label>Mã xác nhận</label>    
         <span>@CaptchaMvc.HtmlHelpers.CaptchaHelper.Captcha(Html, "", "Nhập mã xác nhận", 5)</span>

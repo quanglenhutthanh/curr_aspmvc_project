@@ -3,6 +3,20 @@
     Layout = "~/Views/Shared/Home/_Layout.cshtml";
 }
 @model IEnumerable<BabyToys.Models.ViewModel.CartItem>
+           <style>
+               #guest_diachi {
+                   min-height: 94px;
+                   width: 80%;
+                   border: 1px solid #cccccc;
+                   border-radius: 4px;
+                   color: #555555;
+                   font-size: 15px;
+                   font-family: "MyriadPro-Regular";
+                   box-sizing: border-box;
+                   padding: 12px;
+                   margin-bottom: 12px;
+               }
+           </style>
 <div class="content">
     <div class="content-left">
         @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
@@ -13,18 +27,19 @@
     </div>
     <div class="content-right">
         <div class="list">
-            <h1>Giỏ hàng của bạn</h1>
-             @if (@Model.Count() ==0)
-                            {
-                                <p>Chưa có hàng trong giỏ!</p>
-                            }
+            <h1 style="color: #330066">Giỏ hàng của bạn</h1>
+            <div class="endtitle"></div>
+            @if (@Model.Count() == 0)
+            {
+                <p>Chưa có hàng trong giỏ!</p>
+            }
             <div class="cart-info">
-                @if(Model.Any(c=>c.VuotSoLuong==true))
-                {
-                <span>Những sản phẩm đánh dấu <b style="color:red">***</b> là những sản phẩm không đủ số lượng    <br /></span>
-                
-                }
-                <table border="1" style="margin-top:30px">
+                @*@if(Model.Any(c=>c.VuotSoLuong==true))
+                    {
+                    <span>Những sản phẩm đánh dấu <b style="color:red">***</b> là những sản phẩm không đủ số lượng    <br /></span>
+
+                    }*@
+                <table border="1" style="margin-top: 30px; font-size: 13px;">
                     <thead>
                         <tr>
                             <td>Hình ảnh</td>
@@ -36,52 +51,129 @@
                         </tr>
                     </thead>
                     <tbody>
-                        
-                        @foreach(var item in Model)
+
+                        @foreach (var item in Model)
                         {
-                            
-                        <tr>
-                            <td class="image">
-                                <img src="~/Content/Images/SanPham/@item.SanPham.HinhDaiDien" width="80px" height="80px"></td>
-                            <td class="name">
-                                <a href="#">@item.SanPham.TenSP</a>
-                                @if (item.VuotSoLuong == true)
-                                {
-                                    <span style="color:red">***</span>
-                                }
-                            </td>
-                            <td class="quantity">
-                                @using(Html.BeginForm("CapNhatGioHang","GioHang"))
-                                {
-                                    <input type="hidden" value="@item.SanPham.IdSanPham" name="idsanpham" />
-                                    <select id="quantity" name="soluong" style="width:50px; margin:0 10px; height:25px">
-                                        <option value="1" @Html.Raw(item.SoLuong==1?"selected=\"selected\"":"")>1</option>
-                                        <option value="2" @Html.Raw(item.SoLuong==2?"selected=\"selected\"":"")>2</option>
-                                        <option value="3"@Html.Raw(item.SoLuong==3?"selected=\"selected\"":"")>3</option>
-                                    </select>
-                                    <input type="submit" value="Cập nhật" class="small button input purple" style="width:80px"/>
-                                }
-                            </td>
-                            <td class="price">@item.Gia</td>
-                            <td class="total">@item.ThanhTien</td>
-                           
-                            <td><a href="~/GioHang/XoaKhoiGioHang/?idsanpham=@item.SanPham.IdSanPham">Xóa</a></td>
-                        </tr>
+
+                            <tr>
+                                <td class="image">
+                                    <img src="~/Content/Images/SanPham/@item.SanPham.HinhDaiDien" width="80px" height="80px">
+                                </td>
+                                <td class="name">
+                                    <a href="#">@item.SanPham.TenSP</a>
+                                    @*@if (item.VuotSoLuong == true)
+                                        {
+                                            <span style="color:red">***</span>
+                                        }*@
+                                </td>
+                                <td class="quantity">
+                                    @using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+                                    {
+                                        <input type="hidden" value="@item.SanPham.IdSanPham" name="idsanpham" />
+                                        <select id="quantity" name="soluong" style="width:50px; margin:0 10px; height:25px">
+                                            <option value="1" @Html.Raw(item.SoLuong == 1 ? "selected=\"selected\"" : "")>1</option>
+                                            <option value="2" @Html.Raw(item.SoLuong == 2 ? "selected=\"selected\"" : "")>2</option>
+                                            <option value="3" @Html.Raw(item.SoLuong == 3 ? "selected=\"selected\"" : "")>3</option>
+                                            <option value="3" @Html.Raw(item.SoLuong == 4 ? "selected=\"selected\"" : "")>4</option>
+                                            <option value="3" @Html.Raw(item.SoLuong == 5 ? "selected=\"selected\"" : "")>5</option>
+                                        </select>
+                                        <input type="submit" value="Cập nhật" class="small button input orange" style="width:80px" />
+                                    }
+                                </td>
+                                <td class="price">@string.Format("{0:0,000}", item.Gia)</td>
+                                <td class="total">@string.Format("{0:0,000}", item.ThanhTien)</td>
+
+                                <td><a href="~/GioHang/XoaKhoiGioHang/?idsanpham=@item.SanPham.IdSanPham">Xóa</a></td>
+                            </tr>
                         }
                     </tbody>
                 </table>
-                 <div class="cart-cost">
-                      Tổng cộng: @ViewBag.TongCong  đồng
-                    </div>
                 <div class="cart-cost">
-                   Hóa đơn chưa bao gồm phí vận chuyển, tham khảo phí vận chuyển ở <a href="~/home/phivanchuyen" style="display:inline">đây</a>
+                    Tổng cộng: @string.Format("{0:0,000}", ViewBag.TongCong) đồng
                 </div>
+                @*<div class="cart-cost">
+                       Hóa đơn chưa bao gồm phí vận chuyển, tham khảo phí vận chuyển ở <a href="~/home/phivanchuyen" style="display:inline">đây</a>
+                    </div>*@
 
             </div>
             <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px; text-align: right;">
-                <a href="~/GioHang/XoaGioHang" class="large purple button dlLight">Xóa giỏ hàng</a>
-                <a href="~/home" class="large purple button dlLight">Tiếp tục</a>
-                <a href="~/checkout" class="large purple button dlLight">Thanh toán</a>
+                <a href="~/GioHang/XoaGioHang" class="large orange button dlLight">Xóa giỏ hàng</a>
+                <a href="~/home" class="large orange button dlLight">Tiếp tục</a>
+                @*<a href="~/checkout" class="large orange button dlLight">Thanh toán</a>*@
+            </div>
+            <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px; text-align: right;">
+                <span>QUÝ KHÁCH CÓ THỂ GỌI ĐIỆN TRỰC TIẾP ĐỂ ĐẶT HÀNG </span><span style="color:red">0932641106</span>
+            </div>
+
+            </div>
+        <script>
+            function kiemtrabuoc2_2() {
+                if (document.getElementById('guest_ten').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin qúy khách vui lòng nhập họ tên!";
+                    return false;
+                }
+
+                if (document.getElementById('guest_SDT').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin quý khách vui lòng nhập số điện thoại!";
+                    return false;
+                }
+                var tennumber = /^\d{10}$/;
+                var elevennumber = /^\d{11}$/;
+                if (!document.getElementById('guest_SDT').value.match(tennumber) && !document.getElementById('guest_SDT').value.match(elevennumber)) {
+                    document.getElementById('guest_error').innerHTML = "Số điện thoại vừa nhập không hợp lệ.";
+                    return false;
+                }
+                if (document.getElementById('guest_email').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin qúy khách vui lòng nhập email!";
+                    return false;
+                }
+                var input = document.getElementById('guest_email').value;
+                var atpos = input.indexOf("@Html.Raw("@")");
+                var dotpos = input.lastIndexOf(".");
+                if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= input.length) {
+                    document.getElementById('guest_error').innerHTML = "Email vừa nhập không hợp lệ";
+                    return false;
+                }
+                if (document.getElementById('guest_diachi').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin quý khách vui lòng nhập địa chỉ!";
+                    return false;
+                }
+                //alert("ok");
+                document.getElementById('error').innerHTML = "";
+                return true;
+            }
+        </script>
+        <div class="list" style="margin-top: 10px;">
+            <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px;">
+                @using (Html.BeginForm("XuLi","Checkout"))
+                {
+                    <h1 style="color: #330066">Thông tin giao hàng</h1>
+                    <div class="endtitle" style="width:737px"></div>
+                    //Html.RenderAction("ModuleThongTinGiaoHang1", "Checkout");
+                    <br />
+                    <div style="width:100%;">
+                        <label>Họ tên</label><br />
+                        <input type="text" name="guest_ten" id="guest_ten" />
+                    </div>
+                    <div style="width:100%;">
+                        <label>Số điện thoại</label><br />
+                        <input type="text" name="guest_SDT" id="guest_SDT" />
+                    </div>
+                    <div style="width:100%;">
+                        <label>Email</label><br />
+                        <input type="text" name="guest_email" id="guest_email" />
+                    </div>
+                    <div style="width:100%;">
+                        <label>Địa chỉ</label><br />
+                        <textarea id="guest_diachi" name="guest_diachi" cols="60" rows="4"></textarea>
+                    </div>
+                    <div style="width:100%;">
+                        <label>Ghi chú</label><br />
+                        <input type="text" name="guest_GhiChu" id="guest_GhiChu" />
+                    </div>
+                    <input type="submit" value="Đặt hàng" class="large orange button dlLight" onclick="return kiemtrabuoc2_2();" />
+                    <div class="error" style="width: 290px; float: right"><span id="guest_error" /></div>
+                }
             </div>
         </div>
     </div>

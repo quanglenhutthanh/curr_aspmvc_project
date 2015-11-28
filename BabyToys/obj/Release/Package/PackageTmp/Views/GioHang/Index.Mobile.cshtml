@@ -1,0 +1,160 @@
+﻿@{
+    ViewBag.Title = "Giỏ hàng";
+    Layout = "~/Views/Shared/Mobile/_Layout.cshtml";
+}
+<style>
+    div.scroll {
+        background-color: #00FFFF;
+        width: 100%;
+        overflow-x: scroll;
+        overflow-y:hidden;
+    }
+</style>
+@model IEnumerable<BabyToys.Models.ViewModel.CartItem>
+<div class="main">
+    <div class="content">
+        <div class="section group">
+            <div class="heading" style="padding-top: 5px; padding-bottom: 10px;">
+                <h3>Thông tin giỏ hàng</h3>
+                @if (@Model.Count() == 0)
+                {
+                    <span style="color:red;">Chưa có hàng trong giỏ!</span>
+                }
+            </div>
+            <div class="scroll">
+                <div class="cart-info">
+                    
+                    <table border="1" style="margin-top: 30px; font-size: 13px;width:768px;">
+                        <thead>
+                            <tr>
+                                <td>Hình ảnh</td>
+                                <td>Tên sản phẩm</td>
+                                <td>Số lượng</td>
+                                <td>Đơn giá</td>
+                                <td>Tổng cộng</td>
+                                <td></td>
+                            </tr>
+                        </thead>
+                        <tbody>
+
+                            @foreach (var item in Model)
+                            {
+
+                                <tr>
+                                    <td class="image">
+                                        <img src="~/Content/Images/SanPham/@item.SanPham.HinhDaiDien" width="80px" height="80px">
+                                    </td>
+                                    <td class="name">
+                                        <a href="#">@item.SanPham.TenSP</a>
+                                        @*@if (item.VuotSoLuong == true)
+                            {
+                                <span style="color:red">***</span>
+                            }*@
+                                    </td>
+                                    <td class="quantity">
+                                        @using (Html.BeginForm("CapNhatGioHang", "GioHang"))
+                                        {
+                                            <input type="hidden" value="@item.SanPham.IdSanPham" name="idsanpham" />
+                                            <select id="quantity" name="soluong" style="width:50px; margin:0 10px; height:25px">
+                                                <option value="1" @Html.Raw(item.SoLuong == 1 ? "selected=\"selected\"" : "")>1</option>
+                                                <option value="2" @Html.Raw(item.SoLuong == 2 ? "selected=\"selected\"" : "")>2</option>
+                                                <option value="3" @Html.Raw(item.SoLuong == 3 ? "selected=\"selected\"" : "")>3</option>
+                                                <option value="3" @Html.Raw(item.SoLuong == 4 ? "selected=\"selected\"" : "")>4</option>
+                                                <option value="3" @Html.Raw(item.SoLuong == 5 ? "selected=\"selected\"" : "")>5</option>
+                                            </select>
+                                            <input type="submit" value="Cập nhật" class="small button input orange" style="width:80px" />
+                                        }
+                                    </td>
+                                    <td class="price">@string.Format("{0:0,000}", item.Gia)</td>
+                                    <td class="total">@string.Format("{0:0,000}", item.ThanhTien)</td>
+
+                                    <td><a href="~/GioHang/XoaKhoiGioHang/?idsanpham=@item.SanPham.IdSanPham">Xóa</a></td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                    </div>
+               
+                </div>
+            <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px; text-align: right;">
+                <a href="~/GioHang/XoaGioHang" class="large orange button dlLight">Xóa giỏ hàng</a>
+                <a href="~/home" class="large orange button dlLight">Tiếp tục</a>
+                @*<a href="~/checkout" class="large orange button dlLight">Thanh toán</a>*@
+            </div>
+            <br />
+            @if (@Model.Count() > 0)
+            {
+                <div class="heading" style="padding-top: 5px; padding-bottom: 10px;">
+                <h3>Thông tin giao hàng</h3>
+
+            </div>
+            <script>
+            function kiemtrabuoc2_2() {
+                if (document.getElementById('guest_ten').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin qúy khách vui lòng nhập họ tên!";
+                    return false;
+                }
+
+                if (document.getElementById('guest_SDT').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin quý khách vui lòng nhập số điện thoại!";
+                    return false;
+                }
+                var tennumber = /^\d{10}$/;
+                var elevennumber = /^\d{11}$/;
+                if (!document.getElementById('guest_SDT').value.match(tennumber) && !document.getElementById('guest_SDT').value.match(elevennumber)) {
+                    document.getElementById('guest_error').innerHTML = "Số điện thoại vừa nhập không hợp lệ.";
+                    return false;
+                }
+                if (document.getElementById('guest_email').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin qúy khách vui lòng nhập email!";
+                    return false;
+                }
+                var input = document.getElementById('guest_email').value;
+                var atpos = input.indexOf("@Html.Raw("@")");
+                var dotpos = input.lastIndexOf(".");
+                if (atpos < 1 || dotpos < atpos + 2 || dotpos + 2 >= input.length) {
+                    document.getElementById('guest_error').innerHTML = "Email vừa nhập không hợp lệ";
+                    return false;
+                }
+                if (document.getElementById('guest_diachi').value.length == 0) {
+                    document.getElementById('guest_error').innerHTML = "Xin quý khách vui lòng nhập địa chỉ!";
+                    return false;
+                }
+                //alert("ok");
+                document.getElementById('error').innerHTML = "";
+                return true;
+            }
+            </script>
+            
+            <div>
+                @using (Html.BeginForm("XuLi", "Checkout", FormMethod.Post))
+                {
+                    <div style="width:100%;">
+                        <label>Họ tên</label><br />
+                        <input type="text" name="guest_ten" id="guest_ten" />
+                    </div>
+                    <div style="width:100%;">
+                        <label>Số điện thoại</label><br />
+                        <input type="text" name="guest_SDT" id="guest_SDT" />
+                    </div>
+                    <div style="width:100%;">
+                        <label>Email</label><br />
+                        <input type="text" name="guest_email" id="guest_email" />
+                    </div>
+                    <div style="width:100%;">
+                        <label>Địa chỉ</label><br />
+                        <textarea id="guest_diachi" name="guest_diachi" cols="60" rows="4" style="width:100%"></textarea>
+                    </div>
+                    <div style="width:100%;">
+                        <label>Ghi chú</label><br />
+                        <input type="text" name="guest_GhiChu" id="guest_GhiChu" />
+                    </div>
+                    <input type="submit" value="Đặt hàng" class="large orange button dlLight" onclick="return kiemtrabuoc2_2();" />
+                    <div class="error" style="width: 290px; float: right"><span id="guest_error" /></div>
+                }
+            </div>
+            }
+            
+        </div>
+    </div>
+</div>

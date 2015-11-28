@@ -179,22 +179,24 @@
                     <small></small>
                 </div>
                 @*@if (@Model.SoLuong() != 0)
-                      {
+                      {*@
                      <div class="detail-content-left">
 
                          Số lượng <select id="soluong" style="width:70px;height:30px;">
                              <option value="1">1</option>
                              <option value="2">2</option>
                              <option value="3">3</option>
+                             <option value="4">4</option>
+                             <option value="5">5</option>
                                   </select>
 
                      </div>
                         <div class="detail-content-right">
-                         <a id="addcart" class="large purple button dlLight" href="#">
+                         <a id="addcart" class="large orange button dlLight" href="#">
                              <span>Thêm giỏ hàng</span>
                          </a>
                      </div>
-                      }
+                    @*  }
                     else
                     {
                       <div style="width:435px; height:40px;  color:red; text-align:center; margin-top:30px; font-size:14px">
@@ -212,14 +214,14 @@
 
         </div>
 
-        <div class="tabchitiet" style="padding-left: 20px; width: 98%; height: 20px; padding-top: 20px; border-bottom: 1px solid #ccc;">
+        <div class="tabchitiet" style="padding-left: 20px; width: 98%; height: 20px; padding-top: 20px; border-bottom: 1px solid #ccc; font-family: 'Roboto', sans-serif;">
             <ul id="countrytabs" class="shadetabs">
-                <li><a href="#" rel="country1" class="selected">Mô tả chi tiết</a> </li>
+                <li><a href="#" rel="country1" class="selected" style="font-size:13px;">Mô tả chi tiết</a> </li>
                 @*<li><a href="#" rel="country2">Thông số sản phẩm</a></li>*@
-                <li><a href="#" rel="country4">Đánh giá sản phẩm  (@Model.ListDanhGia.Count)</a></li>
+                <li><a href="#" rel="country4" style="font-size:13px;">Đánh giá sản phẩm  (@Model.ListDanhGia.Count)</a></li>
             </ul>
         </div>
-        <div style="background: #fff; padding: 0px; min-height: 200px;">
+        <div style="background: #fff; padding: 0px; min-height: 200px; font-family: 'Roboto', sans-serif;">
             <div id="country1" class="tabcontent">
                 <p>@Html.Raw(@Model.MoTaSP)</p>
             </div>
@@ -234,19 +236,19 @@
                 </ul>
             </div>
 
-            <div id="country4" class="tabcontent">
+            <div id="country4" class="tabcontent" style="font-family: 'Roboto', sans-serif;">
                 <div id="accordion">
-                    <h3>Đánh giá sản phẩm</h3>
+                    <h3 style="font-family: 'Roboto', sans-serif;">Đánh giá sản phẩm</h3>
                     <div>
-                        <div style="padding:30px;padding-top:10px;">
+                        <div style="padding: 30px; padding-top: 10px; font-family: 'Roboto', sans-serif;">
                             @Html.Action("DanhGia", "SanPham", new { id = Model.IdSanPham })
                         </div>
                     </div>
-                    <h3>Đánh giá mới nhất</h3>
+                    <h3 style="font-family: 'Roboto', sans-serif;">Đánh giá mới nhất</h3>
                     <div>
                         @if (Model.ListDanhGia.Count <= 0)
                         {
-                            <span>Chưa có đánh giá cho sản phẩm này!</span>
+                            <span style="font-family: 'Roboto', sans-serif;">Chưa có đánh giá cho sản phẩm này!</span>
                         }
                         else
                         {

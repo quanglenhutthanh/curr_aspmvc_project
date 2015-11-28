@@ -167,15 +167,16 @@
         @{Html.RenderAction("ModuleSanPhamNoiBat", "Home");}
     </div>
 
-    <div class="content-right">
+    <div class="content-right" style="font-family: 'Roboto', sans-serif;">
         <div style="height: 40px;">
             <div style="float: left; width: 50%; height: 40px;">
-                <h1>Xác nhận đơn hàng</h1>
+                <h1 style="color: #330066">Đặt hàng</h1>
+                <div class="endtitle"></div>
             </div>
         </div>
-
+        <br />
         <div id="accordion">
-            <h3>Bước 1: Tùy chọn thanh toán</h3>
+            @*<h3>Bước 1: Tùy chọn thanh toán</h3>
             <div>
                 <div class="payment-tuychon-left">
 
@@ -205,8 +206,8 @@
                     @{Html.RenderAction("pDangNhap", "TaiKhoan", new { returnUrl = "/Checkout" });}
                 </div>
 
-            </div>
-            <h3>Bước 2: Thông tin giao hàng</h3>
+            </div>*@
+            <h3 style="font-family: 'Roboto', sans-serif;">Bước 1: Thông tin giao hàng</h3>
             <div style="height: 350px">
                 <div>
                     <div class="module1">
@@ -223,8 +224,8 @@
                     <input type="submit" value="Tiếp tục" class="next large button input purple" id="buoc2" style="margin-top: 10px; float: right; margin-right: 20px" />
                 </div>
             </div>
-            <h3>Bước 3: Xác nhận</h3>
-            <div class="step cart-info">
+            <h3 style="font-family: 'Roboto', sans-serif;">Bước 2: Xác nhận</h3>
+            <div class="step cart-info" style="font-family: 'Roboto', sans-serif;font-size:13px;">
                 @{BabyToys.Models.ViewModel.Cart cart = ViewBag.Cart as BabyToys.Models.ViewModel.Cart;}
                 <table border="1">
                     <thead>
@@ -240,21 +241,22 @@
                     <tbody>
                         @foreach (var item in cart.ListItem)
                         {
-                            
+
                             <tr>
                                 <td class="image">
-                                    <img src="~/Content/Images/SanPham/@item.SanPham.HinhDaiDien" width="80px" height="80px"></td>
+                                    <img src="~/Content/Images/SanPham/@item.SanPham.HinhDaiDien" width="80px" height="80px">
+                                </td>
                                 <td class="name"><a href="#">@item.SanPham.TenSP</a></td>
                                 <td class="quantity">
                                     @using (Html.BeginForm("CapNhatGioHang", "GioHang"))
                                     {
                                         <input type="hidden" value="@item.SanPham.IdSanPham" name="idsanpham" />
                                         <input type="text" value="@item.SoLuong" name="soluong" class="quantity" style="width:50px; margin:10px">
-                                        <input type="submit" value="Cập nhật" class="small button input purple" style="width:80px"/>
+                                        <input type="submit" value="Cập nhật" class="small button input purple" style="width:80px" />
                                     }
                                 </td>
                                 <td class="price">@item.SanPham.GiaHienTai</td>
-                                
+
                                 <td class="total">@item.ThanhTien</td>
 
                                 <td><a href="~/GioHang/XoaKhoiGioHang/?idsanpham=@item.SanPham.IdSanPham">Xóa</a></td>
@@ -262,50 +264,50 @@
                         }
                         <tr>
                             <td colspan="6" style="text-align:left;">
-                            
+
                                 @{BabyToys.Models.KhachHang khachhang = Session["khachhang"] as BabyToys.Models.KhachHang;}
                                 Tổng tiền hàng: @ViewBag.TongCong đồng<br />
-                                
-                             </td>
-                         </tr>
 
-                         <tr>
+                            </td>
+                        </tr>
+
+                        @*<tr>
                             <td colspan="6" style="text-align:left;">
-                                
+
                                 Phí vận chuyển: <label id="phi"></label><br />
                                 @{int giamgia = (khachhang != null) ? khachhang.LoaiKhachHang.GiamGia : 0;}
                                 Giảm giá: @giamgia %
                             </td>
-                        </tr> 
+                        </tr>*@
                     </tbody>
                 </table>
-               
-                <input type="submit" value="Quay lại" class="prev large button input purple"/>
+
+                <input type="submit" value="Quay lại" class="prev large button input purple" />
                 <input type="submit" value="Hoàn tất" class="large button input purple" id="btnCheckout" />
-                <img src="~/Content/CSS/admin/img/ajax-loaders/ajax-loader-1.gif" id="process"/>
+                <img src="~/Content/CSS/admin/img/ajax-loaders/ajax-loader-1.gif" id="process" />
 
                 <script>
                     $("#process").hide();
-                    $("#buoc2").click(function () {
-                        if (x == 1) {
-                            //alert($("#diachicu_khachhang_phivc").val());
-                            type = $("input[name=rdndiachi]:checked").val();
-                            //alert("đã đăng nhập");
-                            if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
-                                //alert("sử dụng địa chỉ đã có");
-                                document.getElementById("phi").innerHTML = $("#diachicu_khachhang_phivc").val();
-                            }
-                            if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
-                                if ($("#khachhang_phivanchuyen").val() != 0) {
-                                    document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
-                                }
-                            }
-                        }
-                        else {
-                            document.getElementById("phi").innerHTML = $("#guest_phivc option:selected").html();
-                        }
+                    //$("#buoc2").click(function () {
+                    //    if (x == 1) {
+                    //        //alert($("#diachicu_khachhang_phivc").val());
+                    //        type = $("input[name=rdndiachi]:checked").val();
+                    //        //alert("đã đăng nhập");
+                    //        if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
+                    //            //alert("sử dụng địa chỉ đã có");
+                    //            document.getElementById("phi").innerHTML = $("#diachicu_khachhang_phivc").val();
+                    //        }
+                    //        if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
+                    //            if ($("#khachhang_phivanchuyen").val() != 0) {
+                    //                document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
+                    //            }
+                    //        }
+                    //    }
+                    //    else {
+                    //        document.getElementById("phi").innerHTML = $("#guest_phivc option:selected").html();
+                    //    }
 
-                    });
+                    //});
                     $("#btnCheckout").click(function () {
                         $("#process").show();
                         var ten;
@@ -314,25 +316,25 @@
                         var email;
                         var type;
                         var idtinhthanh;
-                        if (x == 1) {
-                            type = $("input[name=rdndiachi]:checked").val();
-                            //alert("đã đăng nhập");
-                            if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
-                                idtinhthanh = $("#khachhang_phivanchuyen").val();
-                                //alert(idtinhthanh);
-                            }
-                            if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
-                                //alert("sử dụng địa chỉ mới");
-                                ten = $("#khachhang_tennguoinhan").val();
-                                diachi = $("#khachhang_diachi").val();
-                                sdt = $("#khachhang_SDT").val();
-                                email = $("#khachhang_email").val();
-                                idtinhthanh = $("#khachhang_phivanchuyen").val();
-                                //alert(idtinhthanh);
-                                document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
-                            }
-                        }
-                        else {
+                        //if (x == 1) {
+                        //    type = $("input[name=rdndiachi]:checked").val();
+                        //    //alert("đã đăng nhập");
+                        //    if ($("input[name=rdndiachi]:checked").val() == "DCDaCo") {
+                        //        idtinhthanh = $("#khachhang_phivanchuyen").val();
+                        //        //alert(idtinhthanh);
+                        //    }
+                        //    if ($("input[name=rdndiachi]:checked").val() == "DCMoi") {
+                        //        //alert("sử dụng địa chỉ mới");
+                        //        ten = $("#khachhang_tennguoinhan").val();
+                        //        diachi = $("#khachhang_diachi").val();
+                        //        sdt = $("#khachhang_SDT").val();
+                        //        email = $("#khachhang_email").val();
+                        //        idtinhthanh = $("#khachhang_phivanchuyen").val();
+                        //        //alert(idtinhthanh);
+                        //        document.getElementById("phi").innerHTML = $("#khachhang_phivanchuyen option:selected").html();
+                        //    }
+                        //}
+                        //else {
                             ten = $("#guest_ten").val();
                             diachi = $("#guest_diachi").val();
                             sdt = $("#guest_SDT").val();
@@ -341,9 +343,9 @@
                             //alert(idtinhthanh);
                             type = "null";
                             x = 0;
-                        }
+                        //}
 
-                        $.post("/Checkout/XuLi/", { "IsLogin": x, "type": type, "diachi": diachi, "ten": ten, "sdt": sdt, "email": email,"idtinhthanh":idtinhthanh },
+                        $.post("/Checkout/XuLi/", { "IsLogin": 0, "type": type, "diachi": diachi, "ten": ten, "sdt": sdt, "email": email, "idtinhthanh": idtinhthanh },
                            function (data) {
                                //alert("C?p Nh?t Thành Công");
                                $("#process").hide();

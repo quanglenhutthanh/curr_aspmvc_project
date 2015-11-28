@@ -74,12 +74,14 @@
                                             <option value="1" @Html.Raw(item.SoLuong == 1 ? "selected=\"selected\"" : "")>1</option>
                                             <option value="2" @Html.Raw(item.SoLuong == 2 ? "selected=\"selected\"" : "")>2</option>
                                             <option value="3" @Html.Raw(item.SoLuong == 3 ? "selected=\"selected\"" : "")>3</option>
+                                            <option value="3" @Html.Raw(item.SoLuong == 4 ? "selected=\"selected\"" : "")>4</option>
+                                            <option value="3" @Html.Raw(item.SoLuong == 5 ? "selected=\"selected\"" : "")>5</option>
                                         </select>
                                         <input type="submit" value="Cập nhật" class="small button input orange" style="width:80px" />
                                     }
                                 </td>
-                                <td class="price">@item.Gia</td>
-                                <td class="total">@item.ThanhTien</td>
+                                <td class="price">@string.Format("{0:0,000}", item.Gia)</td>
+                                <td class="total">@string.Format("{0:0,000}", item.ThanhTien)</td>
 
                                 <td><a href="~/GioHang/XoaKhoiGioHang/?idsanpham=@item.SanPham.IdSanPham">Xóa</a></td>
                             </tr>
@@ -87,7 +89,7 @@
                     </tbody>
                 </table>
                 <div class="cart-cost">
-                    Tổng cộng: @ViewBag.TongCong  đồng
+                    Tổng cộng: @string.Format("{0:0,000}", ViewBag.TongCong) đồng
                 </div>
                 @*<div class="cart-cost">
                        Hóa đơn chưa bao gồm phí vận chuyển, tham khảo phí vận chuyển ở <a href="~/home/phivanchuyen" style="display:inline">đây</a>
@@ -97,11 +99,13 @@
             <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px; text-align: right;">
                 <a href="~/GioHang/XoaGioHang" class="large orange button dlLight">Xóa giỏ hàng</a>
                 <a href="~/home" class="large orange button dlLight">Tiếp tục</a>
-                <a href="~/checkout" class="large orange button dlLight">Thanh toán</a>
+                @*<a href="~/checkout" class="large orange button dlLight">Thanh toán</a>*@
+            </div>
+            <div style="margin-top: 10px; border: 1px solid #DBDEE1; padding: 20px 10px; text-align: right;">
+                <span>QUÝ KHÁCH CÓ THỂ GỌI ĐIỆN TRỰC TIẾP ĐỂ ĐẶT HÀNG </span><span style="color:red">0932641106</span>
             </div>
 
-
-        </div>
+            </div>
         <script>
             function kiemtrabuoc2_2() {
                 if (document.getElementById('guest_ten').value.length == 0) {

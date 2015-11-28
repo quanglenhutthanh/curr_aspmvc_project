@@ -297,7 +297,6 @@ G:\Programming\current\curr_aspmvc_project\BabyToys\bin\System.Web.Http.WebHost.
 G:\Programming\current\curr_aspmvc_project\BabyToys\bin\System.Web.Mvc.xml
 G:\Programming\current\curr_aspmvc_project\BabyToys\bin\WebMatrix.Data.xml
 G:\Programming\current\curr_aspmvc_project\BabyToys\bin\WebMatrix.WebData.xml
-G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.csprojResolveAssemblyReference.cache
 G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.Migrations.InitialCreate.resources
 G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.Migrations.a.resources
 G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.Migrations.cap_nhat_ton_kho.resources
