@@ -3853,7 +3853,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>11/28/2015 21:46:15</publishTime>
     </File>
     <File Include="Views/GioHang/Index.Mobile.cshtml">
-      <publishTime>11/28/2015 22:34:12</publishTime>
+      <publishTime>11/28/2015 23:23:50</publishTime>
     </File>
     <File Include="Views/Home/baiviet.cshtml">
       <publishTime>10/15/2015 21:38:00</publishTime>
@@ -3931,7 +3931,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>12/20/2014 17:24:59</publishTime>
     </File>
     <File Include="Views/Shared/Admin/_AdminMenu.cshtml">
-      <publishTime>10/26/2015 20:54:07</publishTime>
+      <publishTime>11/30/2015 21:13:34</publishTime>
     </File>
     <File Include="Views/Shared/Error.cshtml">
       <publishTime>12/11/2013 23:17:30</publishTime>
