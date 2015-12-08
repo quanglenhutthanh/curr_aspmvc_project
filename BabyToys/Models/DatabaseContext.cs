@@ -35,6 +35,7 @@ namespace BabyToys.Models
         public DbSet<ChiTietPhieuNhap> ChiTietPhieuNhaps { get; set; }
         public DbSet<TonKho> TonKhos { get; set; }
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<Setting> Settings { get; set; }
 
         public DbSet<Mail> Mails { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)

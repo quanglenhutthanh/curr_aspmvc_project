@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BabyToys.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
@@ -48,6 +49,18 @@ namespace BabyToys.Utilities
 
             return str_md5;
 
+        }
+
+        static string GetTextByKey(string keyValue)
+        {
+            string text = "";
+            DatabaseContext db = new DatabaseContext();
+            var obj = db.Settings.SingleOrDefault(s => s.KeyValue.Equals(keyValue));
+            if( obj != null)
+            {
+                text = obj.Caption.ToString();
+            }
+            return text;
         }
     }
 }

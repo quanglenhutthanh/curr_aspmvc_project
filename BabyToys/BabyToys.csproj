@@ -183,6 +183,7 @@
     <Compile Include="Controllers\Home1Controller.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SanPhamController.cs" />
+    <Compile Include="Controllers\SettingController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Controllers\TaiKhoanController.cs" />
     <Compile Include="Controllers\AdminUserController.cs" />
@@ -253,6 +254,7 @@
     <Compile Include="Models\Mail.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\PhieuNhap.cs" />
+    <Compile Include="Models\Setting.cs" />
     <Compile Include="Models\TonKho.cs" />
     <Compile Include="Models\ViewModel\AssignedPermission.cs" />
     <Compile Include="Models\ChiTietHoaDon.cs" />
@@ -1616,6 +1618,8 @@
     <Content Include="Views\Checkout\CheckOutInfo.cshtml" />
     <Content Include="Views\GioHang\Index.Mobile.cshtml" />
     <Content Include="Views\Checkout\Success.Mobile.cshtml" />
+    <Content Include="Views\Setting\Create.cshtml" />
+    <Content Include="Views\Setting\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

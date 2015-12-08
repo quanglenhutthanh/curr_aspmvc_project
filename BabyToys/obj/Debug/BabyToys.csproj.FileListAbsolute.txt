@@ -313,3 +313,4 @@ G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.Migration
 G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.csproj.GenerateResource.Cache
 G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.dll
 G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.pdb
+G:\Programming\current\curr_aspmvc_project\BabyToys\obj\Debug\BabyToys.csprojResolveAssemblyReference.cache
