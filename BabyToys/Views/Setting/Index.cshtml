@@ -56,7 +56,7 @@
                                                 @Html.DisplayFor(modelItem => item.Caption)
                                             </td>
                                             <td>
-                                                @Html.DisplayFor(modelItem => item.Text)
+                                                @Html.Raw(item.Text)
                                             </td>
                                             <td>
                                                 <a href="~/setting/edit/@item.Id" class="btn btn-info">

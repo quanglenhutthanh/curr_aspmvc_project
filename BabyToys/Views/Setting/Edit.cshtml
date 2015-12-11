@@ -1,11 +1,10 @@
 ﻿@model BabyToys.Models.Setting
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Edit";
     Layout = "~/Views/Shared/Admin/_AdminLayout.cshtml";
 }
-
-<h2>Create</h2>
+<script src="~/ckeditor/ckeditor.js"></script>
 <div id="content" class="span10">
     <div class="row-fluid sortable">
         <div class="box span12">
@@ -20,48 +19,57 @@
                         </li>
                     </ul>
                 </div>
+
                 @using (Html.BeginForm())
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary(true)
 
                     <fieldset>
-                        <legend>Setting</legend>
-
-                        <div class="editor-label">
-                            @Html.LabelFor(model => model.KeyValue)
+                        <legend>@Html.LabelFor(model => model.Caption)</legend>
+                        <div class="form-actions">
+                            <input type="submit" name="luu" class="btn btn-primary" value="Lưu và đóng">
+                            @*<input type="submit" name="luu" class="btn btn-success" value="Lưu và tạo mới">*@
+                            <a href="~/Setting" class="btn btn-inverse">Thoát</a>
                         </div>
+                        @Html.HiddenFor(model => model.Id)
+
+                       
                         <div class="editor-field">
                             @Html.EditorFor(model => model.KeyValue)
-                            @Html.ValidationMessageFor(model => model.KeyValue)
+                            
                         </div>
 
                         <div class="editor-label">
                             @Html.LabelFor(model => model.Text)
                         </div>
                         <div class="editor-field">
-                            @Html.EditorFor(model => model.Text)
+                            @Html.TextAreaFor(model => model.Text, new { rows = "5", cols = "10", id = "ckemota" })
+                            <script type="text/javascript">
+                                var ckeditor1 = CKEDITOR.replace("ckemota")
+                                ckeditor1.config.width = 700;
+                                ckeditor1.config.height = 200;
+                            </script>
+
                             @Html.ValidationMessageFor(model => model.Text)
                         </div>
 
-                        <div class="editor-label">
-                            @Html.LabelFor(model => model.Caption)
-                        </div>
+                       
                         <div class="editor-field">
-                            @Html.EditorFor(model => model.Caption)
+                            @Html.HiddenFor(model => model.Caption)
                             @Html.ValidationMessageFor(model => model.Caption)
                         </div>
 
                         <p>
-                            <input type="submit" value="Create" />
+                            <input type="submit" value="Save" />
                         </p>
                     </fieldset>
                 }
+
             </div>
         </div>
     </div>
 </div>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

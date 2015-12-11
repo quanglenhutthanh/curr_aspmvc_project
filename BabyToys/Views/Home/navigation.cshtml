@@ -38,7 +38,7 @@
         @{int count = BabyToys.Models.ViewModel.CartSession.GetCart(this.Context) != null ? @BabyToys.Models.ViewModel.CartSession.GetCart(this.Context).ListItem.Count() : 0;}
         <div style="width:150px;padding-top:5px;">
             <ul class="nav" style="margin:0; padding:0; list-style:none; position: relative; z-index: 1000;">
-                <li style="float: left; height: 30px; line-height: 30px; background-color: #1A911A;">
+                <li style="float: left; min-height: 0px; line-height: 30px; background-color: #1A911A;">
                     <a style="text-decoration:none;color:#FFFFE5;width:200px;font-weight:500;font-size:18px;" href="/GioHang">Giỏ hàng (@count)</a>
                 </li>
             </ul>

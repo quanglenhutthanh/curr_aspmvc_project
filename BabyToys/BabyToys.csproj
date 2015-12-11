@@ -1620,6 +1620,7 @@
     <Content Include="Views\Checkout\Success.Mobile.cshtml" />
     <Content Include="Views\Setting\Create.cshtml" />
     <Content Include="Views\Setting\Index.cshtml" />
+    <Content Include="Views\Setting\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

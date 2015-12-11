@@ -21,76 +21,83 @@
 
     </head>
     <body>
-       
-        <!--Start of Tawk.to Script-->
-       
-        <!--End of Tawk.to Script-->
-        <div class="page">
-            <div id="fb-root"></div>
-            <script>
-                (function (d, s, id) {
-                    var js, fjs = d.getElementsByTagName(s)[0];
-                    if (d.getElementById(id)) return;
-                    js = d.createElement(s); js.id = id;
-                    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-                    fjs.parentNode.insertBefore(js, fjs);
-                }(document, 'script', 'facebook-jssdk'));
+        @*<div style="height: 30px" class="divOnTop">*@
+            @*<div class="dangnhap">Mua hàng: 1234567890</div>
+            <div class="cartmini"></div>
+            </div>*@
+            <!--Start of Tawk.to Script-->
+            <!--End of Tawk.to Script-->
+            <div class="page">
+                <div id="fb-root"></div>
+                <script>
+                    (function (d, s, id) {
+                        var js, fjs = d.getElementsByTagName(s)[0];
+                        if (d.getElementById(id)) return;
+                        js = d.createElement(s); js.id = id;
+                        js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+                        fjs.parentNode.insertBefore(js, fjs);
+                    }(document, 'script', 'facebook-jssdk'));
 
-            </script>
-            <script type="text/javascript">
-                var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-                (function () {
-                    var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-                    s1.async = true;
-                    s1.src = 'https://embed.tawk.to/564874b1e014ea2c3cb32243/default';
-                    s1.charset = 'UTF-8';
-                    s1.setAttribute('crossorigin', '*');
-                    s0.parentNode.insertBefore(s1, s0);
-                })();
-            </script>
-            <div class="header" style="margin-bottom:10px;padding-bottom:20px;">
-                @RenderPage("~/Views/Shared/Home/_Header.cshtml")
-            </div>
-            <div class="navigation">
-                @{Html.RenderAction("navigation", "Home");}
-            </div>
-            @RenderBody()
-            <div class="clear"></div>
-            @Html.Partial("~/Views/Shared/Home/_leftRightSlider.cshtml")
-
-            <div class="footer">
-                <div style="float:left;width:1000px;">
-                    @{
-                        string textFooter = "";
-                        string txtInFooterFilePath = Server.MapPath("~/Content/File/footer.txt");
-                        if (System.IO.File.Exists(txtInFooterFilePath))
-                        {
-                            textFooter = System.IO.File.ReadAllText(txtInFooterFilePath);
-                        }
-                    }
-                    <p>@Html.Raw(textFooter)</p>
-                    <br />
+                </script>
+                <script type="text/javascript">
+                    var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+                    (function () {
+                        var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                        s1.async = true;
+                        s1.src = 'https://embed.tawk.to/564874b1e014ea2c3cb32243/default';
+                        s1.charset = 'UTF-8';
+                        s1.setAttribute('crossorigin', '*');
+                        s0.parentNode.insertBefore(s1, s0);
+                    })();
+                </script>
+                <div class="header" style="margin-bottom:10px;padding-bottom:20px;">
+                    @RenderPage("~/Views/Shared/Home/_Header.cshtml")
                 </div>
-                @*<div style="float:left;width:200px;">
-                    <div style="float:right;margin-top:50px;">
-                        <a href="http://www.hitwebcounter.com/" target="_blank">
-                            <img src="http://hitwebcounter.com/counter/counter.php?page=5925601&style=0002&nbdigits=5&type=page&initCount=0" title="installing easiest cool counters" alt="installing easiest cool counters" border="0">
-                        </a><br />
+                <div class="navigation">
+                    @{Html.RenderAction("navigation", "Home");}
+                </div>
+                @RenderBody()
+                <div class="clear"></div>
+                @Html.Partial("~/Views/Shared/Home/_leftRightSlider.cshtml")
+
+                <div class="footer">
+                    <div style="float:left;width:1000px;">
+                        @*@{
+                            string textFooter = "";
+                            string txtInFooterFilePath = Server.MapPath("~/Content/File/footer.txt");
+                            if (System.IO.File.Exists(txtInFooterFilePath))
+                            {
+                                textFooter = System.IO.File.ReadAllText(txtInFooterFilePath);
+                            }
+                        }
+                        <p>@Html.Raw(textFooter)</p>*@
+                        <p>
+                            @Html.Raw(BabyToys.Utilities.EditString.GetTextByKey("desktopFooter"))
+                            
+                        
+                        </p>
+                        <br />
                     </div>
+                    @*<div style="float:left;width:200px;">
+                        <div style="float:right;margin-top:50px;">
+                            <a href="http://www.hitwebcounter.com/" target="_blank">
+                                <img src="http://hitwebcounter.com/counter/counter.php?page=5925601&style=0002&nbdigits=5&type=page&initCount=0" title="installing easiest cool counters" alt="installing easiest cool counters" border="0">
+                            </a><br />
+                        </div>
 
 
 
-                </div>*@
+                    </div>*@
+                </div>
             </div>
-        </div>
-        <script type="text/javascript">
-            $(document).ready(function () {
-                $("div[style='position: fixed; z-index: 2147483647; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: transparent; margin: 0px; padding: 0px;']").remove();
-                $("div[style='opacity: 0.9; z-index: 2147483647; position: fixed; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: #202020; margin: 0px; padding: 0px;']").remove();
-                $("div[style='height: 65px;']").remove();
-                $("center").remove();
-                $("script[src='http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert4.js']").remove();
-            });
-        </script>
-    </body>
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("div[style='position: fixed; z-index: 2147483647; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: transparent; margin: 0px; padding: 0px;']").remove();
+                    $("div[style='opacity: 0.9; z-index: 2147483647; position: fixed; left: 0px; bottom: 0px; height: 65px; right: 0px; display: block; width: 100%; background-color: #202020; margin: 0px; padding: 0px;']").remove();
+                    $("div[style='height: 65px;']").remove();
+                    $("center").remove();
+                    $("script[src='http://ads.mgmt.somee.com/serveimages/ad2/WholeInsert4.js']").remove();
+                });
+            </script>
+</body>
     </html>

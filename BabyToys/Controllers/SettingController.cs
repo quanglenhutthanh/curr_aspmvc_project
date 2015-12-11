@@ -1,6 +1,7 @@
 ﻿using BabyToys.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -57,25 +58,28 @@ namespace BabyToys.Controllers
 
         public ActionResult Edit(int id)
         {
-            return View();
+            var setting = db.Settings.SingleOrDefault(s => s.Id == id);
+            return View(setting);
         }
 
         //
         // POST: /Setting/Edit/5
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        [ValidateInput(false)]
+        public ActionResult Edit(Setting setting)
         {
-            try
-            {
+            //try
+            //{
                 // TODO: Add update logic here
-
+                db.Entry(setting).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
+            //}
+            //catch
+            //{
+                //return View();
+           // }
         }
 
         //

@@ -51,14 +51,14 @@ namespace BabyToys.Utilities
 
         }
 
-        static string GetTextByKey(string keyValue)
+        public static string GetTextByKey(string keyValue)
         {
             string text = "";
             DatabaseContext db = new DatabaseContext();
             var obj = db.Settings.SingleOrDefault(s => s.KeyValue.Equals(keyValue));
             if( obj != null)
             {
-                text = obj.Caption.ToString();
+                text = obj.Text.ToString();
             }
             return text;
         }
