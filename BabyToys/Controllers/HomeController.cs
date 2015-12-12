@@ -17,7 +17,8 @@ namespace BabyToys.Controllers
         DatabaseContext db = new DatabaseContext();
         public ActionResult Index()
         {
-           var sanphams = db.SanPhams.Where(s=>s.HienThi==true).ToList().OrderByDescending(s => s.IdSanPham).Take(9);
+            int sl = int.Parse(BabyToys.Utilities.EditString.GetTextByKey("dsktSLSanpham"));
+            var sanphams = db.SanPhams.Where(s=>s.HienThi==true).ToList().OrderByDescending(s => s.IdSanPham).Take(sl);
             return View(sanphams);
         }
         public ActionResult baiviet(int id)

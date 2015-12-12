@@ -561,7 +561,7 @@ h1 {
     padding-top: 7px;
     margin: 0 auto;
     /*text-align: center;*/
-    min-height: 200px; /* Height of the footer */
+    min-height: 100px; /* Height of the footer */
     width: 1000px;
     opacity: 1;
     /*background-image: url('../Images/footer.png');

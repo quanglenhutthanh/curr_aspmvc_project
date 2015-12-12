@@ -73,14 +73,20 @@ namespace BabyToys.Controllers
         {
             try 
             {
-                var image = WebImage.GetImageFromRequest("newimage");
-                if (image != null)
-                {
-                    string imageName = Path.GetFileName(image.FileName);
-                    //string imageName = "slider" + System.DateTime.Now + ".jpg";
-                    var pathToSave = Path.Combine(Server.MapPath("~/Content/Images/slider/"), imageName);
-                    image.Save(pathToSave);
-                }
+                //var image = WebImage.GetImageFromRequest("newimage");
+                //if (image != null)
+                //{
+                //    string imageName = Path.GetFileName(image.FileName);
+                //    imageName = Utilities.EditString.BoDauTrenChuoi(imageName);
+                //    //imageName = imageName.Replace("%20", "-");
+                //    //string imageName = "slider" + System.DateTime.Now + ".jpg";
+                //    var pathToSave = Path.Combine(Server.MapPath("~/Content/Images/slider/"), imageName);
+                //    image.Save(pathToSave);
+                //    lstFile = new List<string>();
+                //    loadFileSlider();
+                //    lstFile.Add(pathToSave);
+                //    System.IO.File.WriteAllLines(txtSliderPath, lstFile.ToArray());
+                //}
                 //string logo = collection["txtBaner"];
                 string slider = collection["txtSlider"];
                 string txtHeader = collection["txtInHeader"];
@@ -118,6 +124,7 @@ namespace BabyToys.Controllers
         {
            try
            {
+               //name = name.Replace("%20", "-");
                lstFile = new List<string>();
                loadFileSlider();
                lstFile.Remove(name);
